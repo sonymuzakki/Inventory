@@ -97,7 +97,7 @@
         </div><!-- end col -->
     </div><!-- end row -->
 
-    <div class="row">
+    {{--  <div class="row">
         <div class="col-xl-6">
 
             <div class="card">
@@ -202,7 +202,7 @@
         </div>
         <!-- end col -->
     </div>
-    <!-- end row -->
+    <!-- end row -->  --}}
 
     <div class="row">
         <div class="col-xl-8">
