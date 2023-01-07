@@ -5,8 +5,6 @@
 <div class="page-content">
 <div class="containter-fluid">
 
-</div>
-
 <div class="row">
     <div class="col-lg-4">
         <div class="card"><br><br/>
@@ -21,11 +19,13 @@
                 <hr>
                 <h4 class="card-title">User Email : {{ $adminData->email }}</h4>
                 </hr>
-
+                <hr>
+                <a href="" class="type="button" class="btn btn-info btn-rounded waves-effect waves-light">Info</button>">Edit Profile</a>
+            </hr>
             </div>
         </div>
     </div>
-
 </div>
-
+</div>
+</div>
 @endsection
