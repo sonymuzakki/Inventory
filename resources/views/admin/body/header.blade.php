@@ -3,21 +3,21 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="" class="logo logo-dark">
+                {{--  <a href="" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="..assets/logo/icon.png" alt="logo-sm" height="22">
+                        <img src="assets/logo/icon.png" alt="logo-sm" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="..assets/logo/icon.png" alt="logo-dark" height="20">
                     </span>
-                </a>
+                </a>  --}}
 
-                <a href="" class="logo logo-light">
+                <a href="/dashboard" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="logo/favicon.png" alt="logo-sm-light" height="75">
+                        <img src="logo/favicon.png"  alt="logo-sm-light" height="75">
                     </span>
                     <span class="logo-lg">
-                        <img src="logo/favicon.png" alt="logo-light" height="75">
+                        <img src="logo/favicon.png"  alt="logo-light" height="75">
                     </span>
                 </a>
             </div>
@@ -370,7 +370,7 @@
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
                         alt="Header Avatar">
-                        <h href="">{{ $adminData->name }}</h>
+                        <h href=""></h>
                     <span class="d-none d-xl-inline-block ms-1"></span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
 

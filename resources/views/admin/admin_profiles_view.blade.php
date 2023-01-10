@@ -2,9 +2,23 @@
 
 @section('admin')
 
-<div class="page-content">
 <div class="containter-fluid">
 
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0">Profile</h4>
+
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                        <li class="breadcrumb-item active">Forms Profile</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
 <div class="row">
     <div class="col-lg-4">
         <div class="card"><br><br/>
@@ -20,8 +34,9 @@
                 <h4 class="card-title">User Email : {{ $adminData->email }}</h4>
                 </hr>
                 <hr>
-                <a href="" class="type="button" class="btn btn-info btn-rounded waves-effect waves-light">Info</button>">Edit Profile</a>
-            </hr>
+                {{--  <button class="type="button" class="btn btn-info btn-rounded waves-effect waves-light">Info </button>  --}}
+                <a href="/editProfile" class="btn btn-info btn-rounded waves-effect waves-light">Edit Profile </a>
+             </hr>
             </div>
         </div>
     </div>
