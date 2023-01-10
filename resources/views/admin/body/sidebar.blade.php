@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="/" class="">
+                    <a href="/form-invetaris" class="">
                         <i class="ri-calendar-2-line"></i>
                         <span>Form Inventaris</span>
                     </a>

@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Inventory;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,10 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/profile', 'profile')->name('admin.profile');
     Route::get('/editProfile', 'editProfile')->name('edit.profile');
     Route::post('/storeProfile', 'storeProfile')->name('store.profile');
+});
+
+Route::controller(InventoryController::class)->group(function () {
+    Route::get('/form-invetaris', 'formInventaris')->name('form');
 });
 
 
