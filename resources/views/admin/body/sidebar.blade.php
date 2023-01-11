@@ -29,11 +29,16 @@
                 </li>
 
                 <li>
-                    <a href="/form-invetaris" class="">
-                        <i class="ri-calendar-2-line"></i>
-                        <span>Form Inventaris</span>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-layout-3-line"></i>
+                        <span>Manage Inventory</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('invetaris.all') }}">Form Inventory</a></li>
+                        {{--  <li><a href="{{ route('data.inventaris') }}">Data Inventory</a></li>  --}}
+                    </ul>
                 </li>
+
 
                 <li>
                     <a href="/" class="">
@@ -89,13 +94,11 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-account-circle-line"></i>
-                        <span>Authentication</span>
+                        <span>Profile</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login.html">Login</a></li>
-                        <li><a href="auth-register.html">Register</a></li>
-                        <li><a href="auth-recoverpw.html">Recover Password</a></li>
-                        <li><a href="auth-lock-screen.html">Lock Screen</a></li>
+                        <li><a href="{{ route('admin.profile') }}">Profile</a></li>
+                        <li><a href="{{ route('edit.profile') }}">Edit Profile</a></li>
                     </ul>
                 </li>
 

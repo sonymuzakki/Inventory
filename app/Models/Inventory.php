@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inventory extends Model
 {
-    protected $fillable = [
-        'Hardisk'
-    ];
+    use HasFactory;
+    // protected $guarded = [];
+    protected $table = 'inventory';
+    protected $guarded;
+    protected $primaryKey = 'idinven' ;
 }

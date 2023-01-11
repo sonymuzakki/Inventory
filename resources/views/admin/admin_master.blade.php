@@ -171,6 +171,15 @@
             }
             @endif
            </script>
+           {{--  Required datatable js  --}}
+           <script src="assets/libs/dattables.net/js/jquery.dataTables.min.js"></script>
+           <script src="assets/libs/dattables.net-bs4/js/datatables.bootstrap.min.js"></script>
+
+           {{-- Dattable init js   --}}
+           <script src="assets/js/pages/datatables.init.js"></script>
+
+           {{-- Validate js   --}}
+           <script src="assets/js/pages/validate.min.js"></script>
     </body>
 
 </html>

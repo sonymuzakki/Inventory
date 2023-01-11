@@ -31,9 +31,9 @@ Route::get('/dashboard', function () {
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-// Route::controller(AdminController::class)->group(function () {
-//     Route::get('/admin/profiles','profiles')->name('admin.profiles');
-// });
+Route::controller(InventoryController::class)->group(function () {
+    Route::get('/Inventaris','InventarisAll')->name('invetaris.all');
+});
 
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
@@ -42,9 +42,12 @@ Route::controller(AdminController::class)->group(function () {
     Route::post('/storeProfile', 'storeProfile')->name('store.profile');
 });
 
-Route::controller(InventoryController::class)->group(function () {
-    Route::get('/form-invetaris', 'formInventaris')->name('form');
-});
+// Route::controller(InventoryController::class)->group(function () {
+//     Route::get('/form-inventaris', 'formInventaris')->name('form.inventaris');
+//     Route::get('/data-inventaris', 'InventoryAll')->name('data.inventaris');
+//     Route::get('/add-inventaris', 'InventoryAdd')->name('add.inventaris');
+//     Route::post('/store-inventaris', 'StoreInventory ')->name('store.inventaris');
+// });
 
 
 require __DIR__.'/auth.php';
