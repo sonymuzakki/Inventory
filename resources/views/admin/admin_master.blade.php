@@ -179,7 +179,7 @@
            <script src="assets/js/pages/datatables.init.js"></script>
 
            {{-- Validate js   --}}
-           <script src="assets/js/pages/validate.min.js"></script>
+           <script src="assets/js/validate.min.js"></script>
     </body>
 
 </html>

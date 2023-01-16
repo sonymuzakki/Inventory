@@ -12,10 +12,9 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                    <li class="breadcrumb-item active">Forms Profile</li>
+                    <li class="breadcrumb-item active">Forms Inventaris</li>
                 </ol>
             </div>
-
         </div>
     </div>
 </div>
@@ -23,7 +22,7 @@
     <div class="col-10">
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('store.inventaris') }}" enctype="multipart/from-data" id="myform">
+                <form method="post" action="{{ route('invetaris.store') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
                 <div class="row mb-3">
                     <label for="text" class="col-sm-2 col-form-label">Hostname</label>
@@ -53,7 +52,7 @@
         </div>
     </div> <!-- end col -->
 </div>
-<script type="text/javascript">
+{{--  <script type="text/javascript">
     $(document).ready(function(){
         $('#myform').validate({
             rules:{
@@ -91,6 +90,47 @@
             },
         });
     });
+</script>  --}}
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                hostname: {
+                    required : true,
+                },
+                ram: {
+                    required : true,
+                },
+                hardisk: {
+                    required : true,
+                },
+            },
+            messages :{
+                hostname: {
+                    required : 'Please Enter Your Hostname',
+                },
+                ram: {
+                    required : 'Please Enter Your Ram',
+                },
+                hardisk: {
+                    required : 'Please Enter Your hardisk',
+                },
+            },
+            errorElement : 'span',
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+
 </script>
 
 @endsection

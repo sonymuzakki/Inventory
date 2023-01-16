@@ -33,6 +33,9 @@ Route::get('/dashboard', function () {
 
 Route::controller(InventoryController::class)->group(function () {
     Route::get('/Inventaris','InventarisAll')->name('invetaris.all');
+    Route::get('/Inventaris-add','InventarisAdd')->name('invetaris.add');
+    Route::post('/Inventaris-store','InventarisStore')->name('invetaris.store');
+    Route::get('/Inventaris-Edit','InventarisEdit')->name('invetaris.edit');
 });
 
 Route::controller(AdminController::class)->group(function () {

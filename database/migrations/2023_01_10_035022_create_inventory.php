@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('hostname')->nullable();
             $table->string('ram')->nullable();
             $table->string('hardisk')->nullable();
+            $table->integer('created_by')->nullable();
             $table->timestamps();
         });
     }
