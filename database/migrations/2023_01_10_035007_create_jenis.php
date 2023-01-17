@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jenis', function (Blueprint $table) {
-            $table->id('idj');
-            $table->enum('jenis',['PC','Laptop']);
+            $table->id();
+            $table->enum('jenis',['PC','Laptop','Printer']);
             $table->timestamps();
         });
     }

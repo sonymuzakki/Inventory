@@ -41,40 +41,70 @@ class InventoryController extends Controller
             return view('Backend.inventoryEdit',compact('inventaris'));
         }
 
+        // public function InventarisUpdate(Request $request){
+
+        //     $sullier_id = $request->id;
+
+        //         Inventory::findOrFail($sullier_id)->update([
+        //         'hostname' => $request->hostname,
+        //         'ram' => $request->ram,
+        //         'hardisk' => $request->hardisk,
+        //         'updated_by' => Auth::user()->id,
+        //         'updated_at' => Carbon::now(),
+
+        //     ]);
+
+        //      $notification = array(
+        //         'message' => 'Inventaris Updated Successfully',
+        //         'alert-type' => 'success'
+        //     );
+
+        //     return redirect()->route('invetaris.all')->with($notification);
+
+        // }
+
+        // public function InventarisUpdate(Request $request, $id){
+        //     $data = Inventory::find($id);
+        //     $data->update($request->all);
+        //     return redirect()->route('invetaris.all');
+        // }
+
         public function InventarisUpdate(Request $request){
 
-            $sullier_id = $request->id;
+            $id = $request->id;
 
-            Inventory::findOrFail($sullier_id)->update([
+            Inventory::findOrFail($id)->update([
                 'hostname' => $request->hostname,
                 'ram' => $request->ram,
                 'hardisk' => $request->hardisk,
-                'updated_by' => Auth::user()->id,
+                // 'updated_by' => Auth::user()->id,
                 'updated_at' => Carbon::now(),
 
             ]);
 
              $notification = array(
-                'message' => 'Inventaris Updated Successfully',
+                'message' => 'Category Updated Successfully',
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('invetaris.all')->with($notification);
+            return redirect()->route('invetaris.add')->with($notification);
 
-        }
+        }// End Method
 
         public function InventarisDelete($id){
 
             Inventory::findOrFail($id)->delete();
 
              $notification = array(
-                  'message' => 'Supplier Deleted Successfully',
+                  'message' => 'Inventory Deleted Successfully',
                   'alert-type' => 'success'
               );
 
               return redirect()->back()->with($notification);
 
           }
+
+
 
 
 

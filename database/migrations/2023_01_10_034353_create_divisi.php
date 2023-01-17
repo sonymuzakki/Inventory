@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('divisi', function (Blueprint $table) {
-            $table->id('idd');
-            $table->enum('divisi',['Umum','Admin']);
+            $table->id();
+            $table->enum('divisi',['ADMIN','SALES','UMUM','BENGKEL']);
             $table->timestamps();
         });
     }

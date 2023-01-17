@@ -144,6 +144,10 @@
 
         <script src="assets/js/pages/dashboard.init.js"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+        <script src="assets/js/code.js"></script>
+
         <!-- App js -->
         <script src="assets/js/app.js"></script>
         <!-- Toast-->

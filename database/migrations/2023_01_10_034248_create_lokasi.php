@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lokasi', function (Blueprint $table) {
-            $table->id('idl');
-            $table->enum('lokasi',['BP','Head']);
+            $table->id();
+            $table->enum('lokasi',['HEAD OFFICE' ,'DHARMASRAYA', 'PASAMAN' , 'PAYAKUMBUH', 'BODY & PAINT']);
             $table->timestamps();
         });
     }

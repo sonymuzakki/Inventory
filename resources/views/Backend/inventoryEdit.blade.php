@@ -22,8 +22,11 @@
     <div class="col-10">
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('invetaris.update') }}" enctype="multipart/from-data" id="myForm">
+                <form method="POST" action="{{ route('invetaris.update') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
+
+                <input type="hidden" name="id" value="{{ $inventaris->id }}">
+
                 <div class="row mb-3">
                     <label for="text" class="col-sm-2 col-form-label">Hostname</label>
                     <div class="form-group col-8">

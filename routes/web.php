@@ -41,6 +41,7 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete');
 });
 
+
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/profile', 'profile')->name('admin.profile');
