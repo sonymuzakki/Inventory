@@ -77,17 +77,16 @@ class InventoryController extends Controller
                 'hostname' => $request->hostname,
                 'ram' => $request->ram,
                 'hardisk' => $request->hardisk,
-                // 'updated_by' => Auth::user()->id,
                 'updated_at' => Carbon::now(),
 
             ]);
 
              $notification = array(
-                'message' => 'Category Updated Successfully',
+                'message' => 'Inventaris Updated Successfully',
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('invetaris.add')->with($notification);
+            return redirect()->route('invetaris.all')->with($notification);
 
         }// End Method
 
