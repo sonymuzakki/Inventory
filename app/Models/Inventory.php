@@ -11,5 +11,4 @@ class Inventory extends Model
     // protected $guarded = [];
     protected $table = 'inventory';
     protected $guarded;
-    protected $primaryKey = 'idinven' ;
 }

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('inventory', function (Blueprint $table) {
-            $table->id('idinven');
+            $table->id();
             $table->string('hostname')->nullable();
             $table->string('ram')->nullable();
             $table->string('hardisk')->nullable();

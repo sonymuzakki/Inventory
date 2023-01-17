@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -35,7 +36,9 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/Inventaris','InventarisAll')->name('invetaris.all');
     Route::get('/Inventaris-add','InventarisAdd')->name('invetaris.add');
     Route::post('/Inventaris-store','InventarisStore')->name('invetaris.store');
-    Route::get('/Inventaris-Edit','InventarisEdit')->name('invetaris.edit');
+    Route::get('/InventarisEdit-{id}','InventarisEdit')->name('inventaris.edit');
+    Route::post('/InventarisUpdate','InventarisUpdate')->name('invetaris.update');
+    Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete');
 });
 
 Route::controller(AdminController::class)->group(function () {
@@ -51,6 +54,5 @@ Route::controller(AdminController::class)->group(function () {
 //     Route::get('/add-inventaris', 'InventoryAdd')->name('add.inventaris');
 //     Route::post('/store-inventaris', 'StoreInventory ')->name('store.inventaris');
 // });
-
 
 require __DIR__.'/auth.php';

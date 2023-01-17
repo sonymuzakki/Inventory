@@ -42,13 +42,13 @@
                             @endphp  --}}
                             @foreach ($inventory as $key => $item)
                             <tr>
-                                <td>{{ $key+1 }}</td>
+                                <td>{{ $key+1}}</td>
                                 <td>{{ $item->hostname }}</td>
                                 <td>{{ $item->hardisk }}</td>
                                 <td>{{ $item->ram }}</td>
                                 <td>
-                                     <a href="{{ route('invetaris.edit',$item->id) }}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
-                                     <a href="" class="btn btn-danger sm" title="Delete Data"> <i class="fas fa-trash-alt"></i></a>
+                                     <a href="{{ route('inventaris.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
+                                     <a href="{{ route('invetaris.delete', $item->id) }}" class="btn btn-danger sm" title="Delete Data"> <i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         @endforeach
