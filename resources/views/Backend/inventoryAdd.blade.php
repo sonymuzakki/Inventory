@@ -24,12 +24,57 @@
             <div class="card-body">
                 <form method="post" action="{{ route('invetaris.store') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
-                <div class="row mb-3">
-                    <label for="text" class="col-sm-2 col-form-label">Hostname</label>
-                    <div class="form-group col-8">
-                        <input name="hostname" class="form-control" type="text" placeholder="" id="text">
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">User</label>
+                        <div class="col-sm-10">
+                            <select name="unit_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($user as $u)
+                                <option value="{{ $u->id }}">{{ $u->name }}</option>
+                               @endforeach
+                                </select>
+                        </div>
                     </div>
-                </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Lokasi</label>
+                        <div class="col-sm-10">
+                            <select name="unit_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($lokasi as $l)
+                                <option value="{{ $l->id }}">{{ $l->lokasi }}</option>
+                               @endforeach
+                                </select>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Divisi</label>
+                        <div class="col-sm-10">
+                            <select name="unit_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($divisi as $d)
+                                <option value="{{ $d->id }}">{{ $d->divisi }}</option>
+                               @endforeach
+                                </select>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Jenis</label>
+                        <div class="col-sm-10">
+                            <select name="unit_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($jenis as $j)
+                                <option value="{{ $j->id }}">{{ $j->jenis }}</option>
+                               @endforeach
+                                </select>
+                        </div>
+                    </div>
+                    <!-- end row -->
 
                 <div class="row mb-3">
                     <label for="text" class="col-sm-2 col-form-label">Ram</label>

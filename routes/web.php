@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Inventory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\JenisController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Inventory;
+use App\Http\Controllers\InventoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +27,12 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/admin/logout', 'destroy')->name('admin.logout');
+    Route::get('/profile', 'profile')->name('admin.profile');
+    Route::get('/editProfile', 'editProfile')->name('edit.profile');
+    Route::post('/storeProfile', 'storeProfile')->name('store.profile');
+});
 
 Route::controller(InventoryController::class)->group(function () {
     Route::get('/Inventaris','InventarisAll')->name('invetaris.all');
@@ -39,21 +41,17 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/InventarisEdit-{id}','InventarisEdit')->name('inventaris.edit');
     Route::post('/InventarisUpdate','InventarisUpdate')->name('invetaris.update');
     Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete');
+    Route::get('/InventarisDetails{id}','InventoryDetails')->name('invetaris.details');
+
 });
 
-
-Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/profile', 'profile')->name('admin.profile');
-    Route::get('/editProfile', 'editProfile')->name('edit.profile');
-    Route::post('/storeProfile', 'storeProfile')->name('store.profile');
+Route::controller(JenisController::class)->group(function () {
+    Route::get('/jenis-all', 'jenisAll')->name('jenis.all');
+    Route::get('/jenis-add', 'jenisAdd')->name('jenis.add');
+    Route::post('/jenis-store', 'jenisStore')->name('jenis.store');
+    Route::get('/jenis-delete{id}', 'jenisDelete')->name('jenis.delete');
+    Route::get('/jenis-details{id}', 'jenisDetails')->name('jenis.details');
 });
 
-// Route::controller(InventoryController::class)->group(function () {
-//     Route::get('/form-inventaris', 'formInventaris')->name('form.inventaris');
-//     Route::get('/data-inventaris', 'InventoryAll')->name('data.inventaris');
-//     Route::get('/add-inventaris', 'InventoryAdd')->name('add.inventaris');
-//     Route::post('/store-inventaris', 'StoreInventory ')->name('store.inventaris');
-// });
 
 require __DIR__.'/auth.php';

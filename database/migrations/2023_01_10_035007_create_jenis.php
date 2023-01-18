@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('jenis', function (Blueprint $table) {
             $table->id();
-            $table->enum('jenis',['PC','Laptop','Printer']);
+            $table->string('jenis');
             $table->timestamps();
         });
     }
