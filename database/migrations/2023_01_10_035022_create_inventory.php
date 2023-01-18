@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('inventory', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->integer('jenis_id');
             $table->integer('divisi_id');
             $table->integer('lokasi_id');
