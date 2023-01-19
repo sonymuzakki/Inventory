@@ -153,11 +153,11 @@ class MasterController extends Controller
         }
 
         public function lokasiUpdate(Request $request){
+            @dd($request);
             $lokasi_id = $request->id;
-
+            // @dd('lokasi_id');
             lokasi::findOrFail($lokasi_id)->update([
                 'lokasi' => $request->lokasi,
-                // 'updated_by' => Auth::user()->id,
                 'updated_at' => Carbon::now(),
 
             ]);

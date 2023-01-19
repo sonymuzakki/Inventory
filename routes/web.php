@@ -77,8 +77,7 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-all', 'HistoryAll')->name('request.all');
     Route::get('/request-add', 'RequestAdd')->name('request.add');
     Route::post('/request-store', 'RequestStore')->name('request.store');
-
-//     Route::get('/jenis-details{id}', 'jenisDetails')->name('jenis.details');
+    
 });
 
 

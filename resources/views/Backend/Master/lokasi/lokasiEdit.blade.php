@@ -25,9 +25,8 @@
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0">lokasi add Page</h4>
                 </div>
-                <form method="post" action="{{ route('lokasi.update') }}" enctype="multipart/from-data" id="myForm">
+                <form method="POST" action="{{ route('lokasi.update') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
-
                     <div class="row mb-3">
                         <label for="text" class="col-2 col-form-label">lokasi</label>
                         <div class="form-group col-10">
