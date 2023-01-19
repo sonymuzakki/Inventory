@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('Office')->nullable();
             $table->string('akunOffice')->nullable();
             $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

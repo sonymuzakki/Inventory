@@ -201,7 +201,40 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
+                user_id: {
+                    required : true,
+                },
+                lokasi_id: {
+                    required : true,
+                },
+                divisi_id: {
+                    required : true,
+                },
+                jenis_id: {
+                    required : true,
+                },
                 hostname: {
+                    required : true,
+                },
+                merk: {
+                    required : true,
+                },
+                Processor: {
+                    required : true,
+                },
+                grafik: {
+                    required : true,
+                },
+                ssd: {
+                    required : true,
+                },
+                os: {
+                    required : true,
+                },
+                Office: {
+                    required : true,
+                },
+                akunOffice: {
                     required : true,
                 },
                 ram: {
@@ -212,8 +245,38 @@
                 },
             },
             messages :{
+                user_id: {
+                    required : 'Please Enter Your User',
+                },
+                lokasi_id: {
+                    required : 'Please Enter Your Lokasi',
+                },
+                divisi_id: {
+                    required : 'Please Enter Your Divisi',
+                },
+                jenis_id: {
+                    required : 'Please Enter Your Jenis',
+                },
                 hostname: {
                     required : 'Please Enter Your Hostname',
+                },
+                merk: {
+                    required : 'Please Enter Your merk',
+                },
+                Processor: {
+                    required : 'Please Enter Your Processor',
+                },
+                grafik: {
+                    required : 'Please Enter Your grafik',
+                },
+                ssd: {
+                    required : 'Please Enter Your ssd',
+                },
+                os: {
+                    required : 'Please Enter Your os',
+                },
+                akunOffice: {
+                    required : 'Please Enter Your AkunOffice',
                 },
                 ram: {
                     required : 'Please Enter Your Ram',

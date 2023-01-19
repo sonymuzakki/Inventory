@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('lokasi', function (Blueprint $table) {
             $table->id();
-            $table->enum('lokasi',['HEAD OFFICE' ,'DHARMASRAYA', 'PASAMAN' , 'PAYAKUMBUH', 'BODY & PAINT']);
+            $table->string('lokasi');
             $table->timestamps();
         });
     }

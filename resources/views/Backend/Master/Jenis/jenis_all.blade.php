@@ -29,9 +29,9 @@
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th width="5%">No</th>
                             <th>Jenis</th>
-                            <th>Action</th>
+                            <th width="20%">Action</th>
                         </tr>
                     </thead>
                     <tbody>

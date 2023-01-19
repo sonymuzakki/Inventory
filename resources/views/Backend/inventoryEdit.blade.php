@@ -19,34 +19,139 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-10">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <form method="POST" action="{{ route('invetaris.update') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
 
-                <input type="hidden" name="id" value="{{ $inventaris->id }}">
+                    {{--  <input type="hidden" name="id" value="{{ $inventory->id }}"  --}}
 
-                <div class="row mb-3">
-                    <label for="text" class="col-sm-2 col-form-label">Hostname</label>
-                    <div class="form-group col-8">
-                        <input name="hostname" class="form-control" type="text" value="{{ $inventaris->hostname }}" placeholder="" id="text">
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">User</label>
+                        <div class="form-group col-sm-10">
+                            <select name="user_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($user as $u)
+                                <option value="{{ $u->id }}" {{ $u->id == $inventaris->user_id ? 'selected' : '' }} ">{{ $u->name }}</option>
+                               @endforeach
+                                </select>
+                        </div>
                     </div>
-                </div>
+                    <!-- end row -->
 
-                <div class="row mb-3">
-                    <label for="text" class="col-sm-2 col-form-label">Ram</label>
-                    <div class="form-group col-8">
-                        <input name="ram" class="form-control" type="text" value="{{ $inventaris->ram }}" id="text">
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Lokasi</label>
+                        <div class="form-group col-sm-10">
+                            <select name="lokasi_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($lokasi as $l)
+                                <option value="{{ $l->id }}" {{ $l->id == $inventaris->lokasi_id ? 'selected' : '' }} >{{ $l->lokasi }}</option>
+                               @endforeach
+                                </select>
+                        </div>
                     </div>
-                </div>
+                    <!-- end row -->
 
-                <div class="row mb-3">
-                    <label for="text" class="col-sm-2 col-form-label">Hardisk</label>
-                    <div class="form-group col-8">
-                        <input name="hardisk" class="form-control" type="text" value="{{ $inventaris->hardisk }}" id="text">
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Divisi</label>
+                        <div class="form-group col-sm-10">
+                            <select name="divisi_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($divisi as $d)
+                                <option value="{{ $d->id }}" {{ $d->id == $inventaris->divisi_id ? 'selected' : '' }} > {{ $d->divisi }}</option>
+                               @endforeach
+                                </select>
+                        </div>
                     </div>
-                </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Jenis</label>
+                        <div class="form-group col-sm-10">
+                            <select name="jenis_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($jenis as $j)
+                                <option value="{{ $j->id }}" {{ $j->id == $inventaris->jenis_id ? 'selected' : '' }} > {{ $j->jenis }}</option>
+                               @endforeach
+                                </select>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">Hostname</label>
+                        <div class="form-group col-10">
+                            <input name="hostname" class="form-control" type="text" value="{{ $inventaris->hostname }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">Merk</label>
+                        <div class="form-group col-10">
+                            <input name="merk" class="form-control" type="text" value="{{ $inventaris->merk }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">Processor</label>
+                        <div class="form-group col-10">
+                            <input name="Processor" class="form-control" type="text" value="{{ $inventaris->Processor }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">RAM</label>
+                        <div class="form-group col-10">
+                            <input name="ram" class="form-control" type="text" value="{{ $inventaris->ram }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">Grafik</label>
+                        <div class="form-group col-10">
+                            <input name="grafik" class="form-control" type="text" value="{{ $inventaris->grafik }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">SSD</label>
+                        <div class="form-group col-10">
+                            <input name="ssd" class="form-control" type="text" value="{{ $inventaris->ssd }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">OS</label>
+                        <div class="form-group col-10">
+                            <input name="os" class="form-control" type="text" value="{{ $inventaris->os }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">Office</label>
+                        <div class="form-group col-10">
+                            <input name="Office" class="form-control" type="text" value="{{ $inventaris->Office }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label">AkunOffice</label>
+                        <div class="form-group col-10">
+                            <input name="akunOffice" class="form-control" type="text" value="{{ $inventaris->akunOffice }}" placeholder="" id="text">
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+
 
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update Inventory">
                 </form>

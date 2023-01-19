@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Jenis add Page</h4>
+            <h4 class="mb-sm-0">History add Page</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -22,12 +22,43 @@
     <div class="col-10">
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('jenis.store') }}" enctype="multipart/from-data" id="myForm">
+                {{--  <h4 class="mb-4">History add Page</h4>  --}}
+                <form method="post" action="{{ route('request.store') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
+
+                    <div class="row mb-3">
+
+                        <label class="col-sm-2 col-form-label">User</label>
+                        <div class="form-group col-sm-10">
+                            <select name="user_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($inventory as $i)
+                                <option value="{{ $i->id }}">{{ $i->user_id }}</option>
+                               @endforeach
+                                </select>
+                        </div>
+                    </div>
+
                 <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Jenis</label>
-                    <div class="form-group col-8">
-                        <input name="jenis" class="form-control" type="text" placeholder="" id="text">
+                    <label for="text" class="col-2 col-form-label">Pengerjaan</label>
+                    <div class="form-group col-10">
+                        <input name="pengerjaan" class="form-control" type="text" placeholder="" id="text">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label">Tanggal</label>
+                    <div class="input-group" id="datepicker3">
+                        <input type="text" class="form-control" placeholder="dd M, yyyy" data-provide="datepicker" data-date-container="#datepicker3" data-date-format="dd M, yyyy" data-date-multidate="true">
+
+                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                    </div><!-- input-group -->
+                </div>
+
+                <div class="row mb-3">
+                    <label for="text" class="col-2 col-form-label">Status</label>
+                    <div class="form-group col-10">
+                        <input name="status" class="form-control" type="text" placeholder="" id="text">
                     </div>
                 </div>
 

@@ -54,10 +54,12 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-layout-3-line"></i>
-                        <span>Manage Jenis</span>
+                        <span>Manage Master</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('jenis.all') }}">Data Jenis</a></li>
+                        <li><a href="{{ route('divisi.all') }}">Divisi</a></li>
+                        <li><a href="{{ route('lokasi.all') }}">Lokasi</a></li>
+                        <li><a href="{{ route('jenis.all') }}">Jenis</a></li>
                         {{--  <li><a href="{{ route('invetaris.add') }}">Form Inventory</a></li>  --}}
                     </ul>
                 </li>
@@ -105,7 +107,7 @@
                         <span>Support</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="r.html">Request Support</a></li>
+                        <li><a href="{{ route('request.all') }}">Request Support</a></li>
 
                     </ul>
                 </li>

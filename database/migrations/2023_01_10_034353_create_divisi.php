@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('divisi', function (Blueprint $table) {
             $table->id();
-            $table->enum('divisi',['ADMIN','SALES','UMUM','BENGKEL']);
+            $table->string('divisi');
             $table->timestamps();
         });
     }

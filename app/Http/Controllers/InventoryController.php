@@ -30,8 +30,19 @@ class InventoryController extends Controller
 
         public function InventarisStore(Request $request ){
             $inventory = inventory::insert([
+                'user_id' => $request->user_id,
+                'lokasi_id' => $request->lokasi_id,
+                'divisi_id' => $request->divisi_id,
+                'jenis_id' => $request->jenis_id,
                 'hostname' => $request->hostname,
+                'merk' => $request->merk,
+                'Processor' => $request->Processor,
                 'ram' => $request->ram,
+                'grafik' => $request->grafik,
+                'ssd' => $request->ssd,
+                'os' => $request->os,
+                'Office' => $request->Office,
+                'akunOffice' => $request->akunOffice,
                 'hardisk' => $request->hardisk,
                 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now()
@@ -46,7 +57,11 @@ class InventoryController extends Controller
 
         public function InventarisEdit($id){
             $inventaris = Inventory::findOrFail($id);
-            return view('Backend.inventoryEdit',compact('inventaris'));
+            $divisi = Divisi::all();
+            $user = user::all();
+            $lokasi = Lokasi::all();
+            $jenis = Jenis::all();
+            return view('Backend.inventoryEdit',compact('inventaris','divisi','lokasi','jenis','user'));
         }
 
         public function InventarisUpdate(Request $request){
@@ -54,10 +69,22 @@ class InventoryController extends Controller
             $id = $request->id;
 
             Inventory::findOrFail($id)->update([
+                'user_id' => $request->user_id,
+                'lokasi_id' => $request->lokasi_id,
+                'divisi_id' => $request->divisi_id,
+                'jenis_id' => $request->jenis_id,
                 'hostname' => $request->hostname,
+                'merk' => $request->merk,
+                'Processor' => $request->Processor,
                 'ram' => $request->ram,
+                'grafik' => $request->grafik,
+                'ssd' => $request->ssd,
+                'os' => $request->os,
+                'Office' => $request->Office,
+                'akunOffice' => $request->akunOffice,
                 'hardisk' => $request->hardisk,
-                'updated_at' => Carbon::now(),
+                'updated_at' => Auth::user()->id,
+                'updated_at' => Carbon::now()
 
             ]);
 
@@ -66,7 +93,7 @@ class InventoryController extends Controller
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('invetaris.all')->with($notification);
+            return redirect()->route('invetaris.all',compact('inventory'))->with($notification);
 
         }// End Method
 
@@ -83,8 +110,12 @@ class InventoryController extends Controller
           }
 
           public function InventarisDetails($id){
-            $inventaris = Inventory::find($id);
-            return view('Backend.inventoryDetails',compact('inventaris'));
+            $inventaris = Inventory::findOrFail($id);
+            $divisi = Divisi::all();
+            $user = user::all();
+            $lokasi = Lokasi::all();
+            $jenis = Jenis::all();
+            return view('Backend.inventoryDetails',compact('inventaris','divisi','lokasi','user','jenis'));
         }
 
 
