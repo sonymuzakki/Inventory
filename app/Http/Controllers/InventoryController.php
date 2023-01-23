@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inventory;
 use App\Models\Divisi;
+use App\Models\history;
 use App\Models\Lokasi;
 use App\Models\Jenis;
 use App\Models\User;
@@ -115,7 +116,8 @@ class InventoryController extends Controller
             $user = user::all();
             $lokasi = Lokasi::all();
             $jenis = Jenis::all();
-            return view('Backend.inventoryDetails',compact('inventaris','divisi','lokasi','user','jenis'));
+            $history = history::all();
+            return view('Backend.inventoryDetails',compact('inventaris','divisi','lokasi','user','jenis','history'));
         }
 
 

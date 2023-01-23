@@ -9,4 +9,6 @@ class Divisi extends Model
 {
     protected $table = 'divisi';
     protected $guarded = [];
+
+    
 }

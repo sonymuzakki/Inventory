@@ -150,6 +150,8 @@
 
 
 
+
+
                 {{--  <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update Inventory">  --}}
                 </form>
                 <!-- end row -->
@@ -157,6 +159,41 @@
         </div>
     </div> <!-- end col -->
 </div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="page-title-box d-sm-flex align-items-center">
+                <h4 class="container-fluid">History Support</h4><br></br><br></br>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Laporan</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($history as $key => $item)
+                    <tr>
+                        <td>{{ $key+1}}</td>
+                        <td>{{ $item->laporan }}</td>
+                        <td>{{ $item->status }}</td>
+                        {{--  <td>
+                             <a href="{{ route('inventaris.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
+                             <a href="{{ route('invetaris.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
+                             <a href="{{ route('invetaris.details', $item->id) }}" class="btn btn-danger sm" title="Details" > <i class="fa thin fa-info"></i></a>
+                        </td>  --}}
+                    </tr>
+                @endforeach
+                </tbody>
+              </table>
+        </div>
+    </div> <!-- end col -->
+</div>
+
+
 <script type="text/javascript">
     $(document).ready(function (){
         $('#myForm').validate({

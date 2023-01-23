@@ -27,4 +27,5 @@ class Inventory extends Model
     public function jenis(){
         return $this->belongsTo(Jenis::class,'jenis_id','id');
     }
+
 }

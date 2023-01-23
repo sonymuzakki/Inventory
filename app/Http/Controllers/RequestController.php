@@ -10,4 +10,6 @@ class RequestController extends Controller
         $alldata = request::all();
         return view('Backend.Request.requestAll',compact('alldata'));
     }
+
+    
 }

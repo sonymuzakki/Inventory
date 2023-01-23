@@ -23,7 +23,7 @@
         <div class="card">
             <div class="card-body">
 
-                <a href="{{ route('request.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Inventory</a> <br></br>
+                <a href="{{ route('request.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Request</a> <br></br>
 
                 <h4>Inventory All Data</h4>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
@@ -31,7 +31,7 @@
                         <tr>
                             <th>No</th>
                             <th>User</th>
-                            <th>Pengerjaan</th>
+                            <th>Laporan</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -42,8 +42,8 @@
                             @foreach ($allData as $key => $item)
                             <tr>
                                 <td>{{ $key+1}}</td>
-                                <td>{{ $item['inventory']['name']}}</td>
-                                <td>{{ $item->pengerjaan }}</td>
+                                <td>{{ $item['inventory']['hostname']}}</td>
+                                <td>{{ $item->laporan }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>
                                      <a href="{{ route('inventaris.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>

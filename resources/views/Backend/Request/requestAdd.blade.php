@@ -30,29 +30,20 @@
 
                         <label class="col-sm-2 col-form-label">User</label>
                         <div class="form-group col-sm-10">
-                            <select name="user_id" class="form-select" aria-label="Default select example">
+                            <select name="inventory_id" id="inventory_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($inventory as $i)
-                                <option value="{{ $i->id }}">{{ $i->user_id }}</option>
+                                <option value="{{ $i->id }}">{{ $i->hostname}}</option>
                                @endforeach
                                 </select>
                         </div>
                     </div>
 
                 <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Pengerjaan</label>
+                    <label for="text" class="col-2 col-form-label">Laporan</label>
                     <div class="form-group col-10">
-                        <input name="pengerjaan" class="form-control" type="text" placeholder="" id="text">
+                        <input name="laporan" class="form-control" type="text" placeholder="" id="text">
                     </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label class="form-label">Tanggal</label>
-                    <div class="input-group" id="datepicker3">
-                        <input type="text" class="form-control" placeholder="dd M, yyyy" data-provide="datepicker" data-date-container="#datepicker3" data-date-format="dd M, yyyy" data-date-multidate="true">
-
-                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                    </div><!-- input-group -->
                 </div>
 
                 <div class="row mb-3">

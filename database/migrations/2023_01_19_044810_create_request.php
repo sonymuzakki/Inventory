@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('request', function (Blueprint $table) {
             $table->id();
-            $table->integer('inventory_id');
+            $table->foreignId('inventory_id')->cascade('delete');
             $table->string('laporan')->nullable();
             $table->tinyInteger('status')->default('0')->comment('0=pending','1=Done');
             $table->integer('created_by')->nullable();

@@ -4,7 +4,6 @@ use App\Models\Inventory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\JenisController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\MasterController;
@@ -55,7 +54,7 @@ Route::controller(MasterController::class)->group(function () {
     Route::get('/jenis-delete{id}', 'jenisDelete')->name('jenis.delete');
     Route::get('/jenis-details{id}', 'jenisDetails')->name('jenis.details');
 
-    // Divisi
+
     Route::get('/Divisi-All', 'divisiAll')->name('divisi.all');
     Route::get('/divisi-add', 'divisiAdd')->name('divisi.add');
     Route::post('/divisi-store', 'divisiStore')->name('divisi.store');
@@ -63,7 +62,7 @@ Route::controller(MasterController::class)->group(function () {
     Route::get('/divisiEdit-{id}','divisiEdit')->name('divisi.edit');
     Route::post('/divisiUpdate','DivisiUpdate')->name('divisi.update');
 
-    // Lokasi
+
     Route::get('/lokasi-All', 'lokasiAll')->name('lokasi.all');
     Route::get('/lokasi-add', 'lokasiAdd')->name('lokasi.add');
     Route::post('/lokasi-store', 'lokasiStore')->name('lokasi.store');
@@ -77,7 +76,7 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-all', 'HistoryAll')->name('request.all');
     Route::get('/request-add', 'RequestAdd')->name('request.add');
     Route::post('/request-store', 'RequestStore')->name('request.store');
-    
+
 });
 
 

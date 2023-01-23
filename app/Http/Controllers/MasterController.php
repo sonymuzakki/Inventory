@@ -92,24 +92,41 @@ class MasterController extends Controller
             return view('Backend.Master.divisi.divisiEdit',compact('divisi'));
         }
 
+        // public function DivisiUpdate(Request $request){
+        //     $divisi_id = $request->id;
+
+        //     Divisi::findOrFail($divisi_id)->update([
+        //         'divisi' => $request->divisi,
+        //         // 'updated_by' => Auth::user()->id,
+        //         'updated_at' => Carbon::now(),
+
+        //     ]);
+
+        //      $notification = array(
+        //         'message' => 'Category Updated Successfully',
+        //         'alert-type' => 'success'
+        //     );
+
+        //     return redirect()->route('divisi.all')->with($notification);
+
+        // }// End Method
+
         public function DivisiUpdate(Request $request){
-            $divisi_id = $request->id;
-
-            Divisi::findOrFail($divisi_id)->update([
-                'divisi' => $request->divisi,
-                // 'updated_by' => Auth::user()->id,
-                'updated_at' => Carbon::now(),
-
+            $id = $request->id;
+            $id = divisi::find($id)->update([
+                $id = $request->divisi
             ]);
 
-             $notification = array(
-                'message' => 'Category Updated Successfully',
+
+            // $divisi->save();
+
+            $notification = array(
+                'message' => 'Admin Profile Updated Successfully',
                 'alert-type' => 'success'
-            );
+              );
 
-            return redirect()->route('divisi.all')->with($notification);
-
-        }// End Method
+              return redirect()->route('divisi.all')->with($notification);
+          }
 
         // <!-- Master Lokasi -->
 
