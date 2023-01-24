@@ -116,9 +116,11 @@ class InventoryController extends Controller
             $user = user::all();
             $lokasi = Lokasi::all();
             $jenis = Jenis::all();
-            $history = history::all();
+            $history = history::where('inventory_id',$id)->get();
+
             return view('Backend.inventoryDetails',compact('inventaris','divisi','lokasi','user','jenis','history'));
         }
+
 
 
 

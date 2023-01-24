@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('jenis_id');
             $table->integer('divisi_id');
             $table->integer('lokasi_id');
+            $table->integer('request_id')->nullable();
             $table->string('hostname')->nullable();
             $table->string('merk')->nullable();
             $table->string('Processor')->nullable();

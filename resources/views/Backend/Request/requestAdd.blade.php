@@ -33,7 +33,20 @@
                             <select name="inventory_id" id="inventory_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($inventory as $i)
-                                <option value="{{ $i->id }}">{{ $i->hostname}}</option>
+                                <option value="{{ $i->inventory_id }}">{{ $i->user->name}}</option>
+                               @endforeach
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+
+                        <label class="col-sm-2 col-form-label">Jenis</label>
+                        <div class="form-group col-sm-10">
+                            <select name="inventory_id" id="jenis_id" class="form-select" aria-label="Default select example">
+                                <option selected="">Open this select menu</option>
+                                @foreach($jenis as $i)
+                                <option value="{{ $i->jenis_id }}">{{ $i->jenis}}</option>
                                @endforeach
                                 </select>
                         </div>

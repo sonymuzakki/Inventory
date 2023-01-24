@@ -11,7 +11,7 @@ class history extends Model
     protected $guarded = [];
 
     public function inventory(){
-        return $this->belongsTo(inventory::class,'inventory_id','id');
+        return $this->belongsTo(inventory::class);
     }
     public function user(){
         return $this->belongsTo(user::class,'user_id','id');
