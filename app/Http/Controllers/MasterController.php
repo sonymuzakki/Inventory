@@ -89,44 +89,50 @@ class MasterController extends Controller
 
         public function divisiEdit($id){
             $divisi = Divisi::findOrFail($id);
+            // @dd($divisi);
             return view('Backend.Master.divisi.divisiEdit',compact('divisi'));
         }
 
-        // public function DivisiUpdate(Request $request){
-        //     $divisi_id = $request->id;
+        // // public function DivisiUpdate(Request $request){
+        //     $id = $request->id;
+        //     $data = Divisi::findorfail($id);
+        //     $data->update($request->all());
 
-        //     Divisi::findOrFail($divisi_id)->update([
-        //         'divisi' => $request->divisi,
-        //         // 'updated_by' => Auth::user()->id,
-        //         'updated_at' => Carbon::now(),
-
-        //     ]);
-
-        //      $notification = array(
-        //         'message' => 'Category Updated Successfully',
+        //     $notification = array(
+        //         'message' => 'Admin Profile Updated Successfully',
         //         'alert-type' => 'success'
+        //       );
+
+        //       return redirect()->route('divisi.update')->with($notification);
+        //   }
+        // public function DivisiUpdate(Request $request){
+        //     $data = divisi::all();
+        //     $data->update($request->all());
+
+        //     return redirect()->route('divisi.update');
+        // }
+        // public function DivisiUpdate(Request $request){
+        //     $data= Divisi::find($id);
+        //     // $data = divisi:;
+        //     $data->divisi = $request->divisi;
+        //     // $data->username = $request->username;
+        //     // $data->email = $request->email;
+
+        //     $data->save();
+
+        //     $notification = array(
+            //   'message' => 'Admin Profile Updated Successfully',
+        //       'alert-type' => 'success'
         //     );
 
-        //     return redirect()->route('divisi.all')->with($notification);
+        //     return redirect()->route('divisi.update')->with($notification);
+        // }
 
-        // }// End Method
-
-        public function DivisiUpdate(Request $request){
-            $id = $request->id;
-            $id = divisi::find($id)->update([
-                $id = $request->divisi
-            ]);
-
-
-            // $divisi->save();
-
-            $notification = array(
-                'message' => 'Admin Profile Updated Successfully',
-                'alert-type' => 'success'
-              );
-
-              return redirect()->route('divisi.all')->with($notification);
-          }
+        // public function DivisiUpdate(Request $request,$id){
+        //     $data = divisi::find($id);
+        //     $data->update($request->all());
+        //     return redirect()->route('divisi.all');
+        // }
 
         // <!-- Master Lokasi -->
 

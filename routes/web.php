@@ -47,7 +47,7 @@ Route::controller(InventoryController::class)->group(function () {
 
 });
 
-Route::controller(MasterController::class)->group(function () {
+    Route::controller(MasterController::class)->group(function () {
     Route::get('/jenis-all', 'jenisAll')->name('jenis.all');
     Route::get('/jenis-add', 'jenisAdd')->name('jenis.add');
     Route::post('/jenis-store', 'jenisStore')->name('jenis.store');
@@ -60,7 +60,7 @@ Route::controller(MasterController::class)->group(function () {
     Route::post('/divisi-store', 'divisiStore')->name('divisi.store');
     Route::get('/divisi-delete{id}', 'divisiDelete')->name('divisi.delete');
     Route::get('/divisiEdit-{id}','divisiEdit')->name('divisi.edit');
-    Route::post('/divisiUpdate','DivisiUpdate')->name('divisi.update');
+    Route::post('/divisiUpdate{id}','DivisiUpdate')->name('divisi.update');
 
 
     Route::get('/lokasi-All', 'lokasiAll')->name('lokasi.all');

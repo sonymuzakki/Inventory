@@ -24,20 +24,45 @@
             <div class="card-body">
 
                     {{--  <input type="hidden" name="id" value="{{ $inventory_id->id }}"  --}}
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">User</label>
-                        <div class="form-group col-sm-10">
-                            <select name="user_id" class="form-select" aria-label="Default select example"disabled>
-                                <option selected="">Open this select menu</option>
-                                @foreach($user as $u)
-                                <option value="{{ $u->id }}" {{ $u->id == $inventaris->user_id ? 'selected' : '' }} ">{{ $u->name }}</option>
-                               @endforeach
+                    {{--  <div class="row">
+                        <div class="col-6  mb-2">
+                            <label  for="ExampleInputEmail" class="form-label">Pengguna</label>
+                                <select class="form-control" name="idu" aria-label="Default Select example "disabled>
+                                    <option></option>
+                                    @foreach ($users as $user )
+                                        <option value="{{ $user->idu }}" {{ $user->idu == $user->idu? 'selected="selected"' : ' ' }}>{{ $user->nama}}</option>
+                                    @endforeach
                                 </select>
                         </div>
-                    </div>
-                    <!-- end row -->
+                        <div class="col-6 mb-2">
+                            <label  for="ExampleInputEmail" class="form-label">Is Legal OS</label>
+                            <select class="form-control" name="isLegalOs" aria-label="Default Select example"disabled>
+                              <option>{{ $data->isLegalos }}</option>
+                              <option value="1">YES</option>
+                              <option value="2">NO</option>
+                            </select>
+                        </div>
+                    </div>  --}}
 
-                    <div class="row mb-3">
+                    <div class="row">
+                        <div class="col-2 mb-2">
+                            <label class="col-sm-2 col-form-label">User</label>
+                                <div class="form-group col-sm-10">
+                                    <select name="user_id" class="form-select" aria-label="Default select example"disabled>
+                                        <option selected="">Open this select menu</option>
+                                        @foreach($user as $u)
+                                        <option value="{{ $u->id }}" {{ $u->id == $inventaris->user_id ? 'selected' : '' }} ">{{ $u->name }}</option>
+                                    @endforeach
+                                        </select>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                    </div>
+
+                    {{--  <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Lokasi</label>
                         <div class="form-group col-sm-10">
                             <select name="lokasi_id" class="form-select" aria-label="Default select example"disabled>
@@ -146,7 +171,7 @@
                             <input name="akunOffice" class="form-control" type="text" value="{{ $inventaris->akunOffice }}" placeholder="" id="text"disabled>
                         </div>
                     </div>
-                    <!-- end row -->
+                    <!-- end row -->  --}}
 
 
 

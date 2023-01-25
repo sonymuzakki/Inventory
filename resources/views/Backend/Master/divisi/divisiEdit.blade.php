@@ -26,6 +26,7 @@
                     <h4 class="mb-sm-0">Divisi add Page</h4>
                 </div>
                 <form method="post" action="{{ route('divisi.update') }}" enctype="multipart/from-data" id="myForm">
+                    {{--  @method('put')  --}}
                     @csrf
 
                     <div class="row mb-3">
