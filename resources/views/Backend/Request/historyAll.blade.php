@@ -14,7 +14,6 @@
                     </li>
                 </ol>
             </div>
-
         </div>
     </div>
 </div>
@@ -33,25 +32,21 @@
                             <th>User</th>
                             <th>Laporan</th>
                             <th>Tanggal</th>
-                            <th>Status</th>
+                            <th>Proses</th>
                             <th width="20%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                            {{--  @php
-                                $no = 1;
-                            @endphp  --}}
                             @foreach ($allData as $key => $item)
                             <tr>
                                 <td>{{ $key+1}}</td>
                                 <td>{{ $item['inventory']['user']['name'] }}</td>
                                 <td>{{ $item->laporan}}</td>
                                 <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>
-                                {{--  <td>{{ $item->status}}</td>s  --}}
+                                <td>{{ $item->status}}</td>
                                 <td>
                                      <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
                                      <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
-                                     {{--  <a href="{{ route('jenis.details', $item->id) }}" class="btn btn-danger sm" title="Details" > <i class="fa thin fa-info"></i></a>  --}}
                                 </td>
                             </tr>
                         @endforeach

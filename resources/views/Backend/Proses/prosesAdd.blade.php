@@ -19,63 +19,78 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-10">
+    <div class="col-8">
         <div class="card">
             <div class="card-body">
-                {{--  <h4 class="mb-4">History add Page</h4>  --}}
-                <form method="POST" action="{{ route('request.store') }}" enctype="multipart/from-data" id="myForm">
+                <form method="POST" action="{{ route('proses.store') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
 
                     <div class="row mb-3">
 
                         <label class="col-sm-2 col-form-label">User</label>
                         <div class="form-group col-sm-10">
-                            <select name="inventory_id"class="form-select" aria-label="Default select example">
+                            <select name="request_id"class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
-                                @foreach($inventory as $i)
-                                <option value="{{ $i->id }}">{{ $i->user->name}}</option>
+                                @foreach($history as $h)
+                                <option value="{{ $h->id }}">{{ $h->laporan}}</option>
                                @endforeach
                                 </select>
                         </div>
                     </div>
-
                     {{--  <div class="row mb-3">
 
                         <label class="col-sm-2 col-form-label">User</label>
                         <div class="form-group col-sm-10">
-                            <select name="inventory_id"class="form-select" aria-label="Default select example">
+                            <select name="history_id"class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($inventory as $i)
-                                <option value="{{ $i->id }}">{{ $i->jenis->name}}</option>
-                               @endforeach
+                                <option value="{{ $i->id }}">{{ $i->user->name}}</option>
+                            @endforeach
                                 </select>
                         </div>
                     </div>  --}}
 
-                    {{--  <div class="row mb-3">
+                    <div class="row mb-4">
+                        <label for="text" class="col-2 col-form-label">Kendala</label>
+                        <div class="form-group col-10">
+                            <input name="kendala" class="form-control" type="text" placeholder="" id="text">
+                        </div>
+                    </div>
 
-                        <label class="col-sm-2 col-form-label">Jenis</label>
-                        <div class="form-group col-sm-10">
-                            <select name="inventory_id" id="jenis_id" class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($jenis as $i)
-                                <option value="{{ $i->id }}">{{ $i->jenis}}</option>
+                    <div class="row mb-4">
+                        <label for="text" class="col-2 col-form-label">Pengerjaan</label>
+                        <div class="form-group col-10">
+                            <input name="pengerjaan " class="form-control" type="text" placeholder="" id="text">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label for="text" class="col-2 col-form-label">Status</label>
+                        <div class="form-group col-10">
+                            <input name="status " class="form-control" type="text" placeholder="" id="text">
+                        </div>
+                    </div>
+
+
+
+                    {{--  <div class="row mb-4">
+                    <label class="col col-form-label">Single Select</label>
+                        <div class="form-group col-10">
+                        <select name="inventory_id" class="form-control select2">
+                            <option>Select</option>
+                            <optgroup label="">
+                                @foreach($inventory as $i)
+                                <option value="{{ $i->id }}">{{ $i->user->name}}</option>
                                @endforeach
-                                </select>
+                            </optgroup>
+                        </select>
                         </div>
                     </div>  --}}
 
-                <div class="row mb-3">
+                {{--  <div class="row mb-4">
                     <label for="text" class="col-2 col-form-label">Laporan</label>
                     <div class="form-group col-10">
                         <input name="laporan" class="form-control" type="text" placeholder="" id="text">
-                    </div>
-                </div>
-
-                {{--  <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Status</label>
-                    <div class="form-group col-10">
-                        <input name="status" class="form-control" type="text" placeholder="" id="text">
                     </div>
                 </div>  --}}
 

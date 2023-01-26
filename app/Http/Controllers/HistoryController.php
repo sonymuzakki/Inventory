@@ -53,7 +53,7 @@ class HistoryController extends Controller
             history::insert([
 
                 'inventory_id' => $request->inventory_id,
-                'inventory_id' => $request->jenis_id,
+                // 'inventory_id' => $request->jenis_id,
                 'laporan' => $request->laporan,
                 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now(),
@@ -77,9 +77,27 @@ class HistoryController extends Controller
         $proses = proses::all();
         $history = history::all();
         $inventory = inventory::all();
-        $user = user::all();
-        $divisi = Divisi::all();
-        $jenis = Jenis::all();
-        return view('Backend.Proses.prosesAdd',compact('inventory','history','user','divisi','jenis'));
+        return view('Backend.Proses.prosesAdd',compact('inventory','history','proses'));
     }
+
+    public function prosesStore(Request $request){
+
+            proses::insert([
+                'request_id' => $request->request_id,
+                'kendala' => $request->kendala,
+                'pengerjaan' => $request->pengerjaan,
+                'status' => $request->status,
+                // 'created_by' => Auth::user()->id,
+                'created_at' => Carbon::now(),
+
+            ]);
+
+            $notification = array(
+                'message' => 'Product Inserted Successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('proses.all')->with($notification);
+    }
+
 }

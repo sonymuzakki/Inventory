@@ -44,8 +44,8 @@
                             @foreach ($allData as $key => $item)
                             <tr>
                                 <td>{{ $key+1}}</td>
-                                <td>{{ $item['inventory']['user']['name'] }}</td>
-                                <td>{{ $item->laporan}}</td>
+                                {{--  <td>{{ $item['inventaris']['user'] }}</td>  --}}
+                                <td>{{ $item->kendala}}</td>
                                 <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>
                                 {{--  <td>{{ $item->status}}</td>s  --}}
                                 <td>

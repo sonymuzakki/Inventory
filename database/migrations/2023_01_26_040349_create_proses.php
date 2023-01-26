@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('proses', function (Blueprint $table) {
             $table->id();
-            $table->integer('request_id');
-            $table->integer('inventory_id');
-            $table->string('kendala');
-            $table->string('pengerjaan');
-            $table->string('status');
+            $table->foreignId('request_id');
+            $table->string('kendala')->nullable();
+            $table->string('pengerjaan')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
