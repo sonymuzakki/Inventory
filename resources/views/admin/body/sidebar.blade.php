@@ -64,6 +64,17 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-layout-3-line"></i>
+                        <span>Manage Request</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('request.all') }}">Request Support</a></li>
+                        {{--  <li><a href="{{ route('proses.all') }}">Handle Request</a></li>  --}}
+                    </ul>
+                </li>
+
                 {{--  <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-layout-3-line"></i>
@@ -107,7 +118,8 @@
                         <span>Support</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('request.all') }}">Request Support</a></li>
+                        {{--  <li><a href="{{ route('request.all') }}">Request Support</a></li>  --}}
+                        <li><a href="{{ route('request.add') }}">Form Request Support</a></li>
 
                     </ul>
                 </li>
