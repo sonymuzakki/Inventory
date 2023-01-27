@@ -69,7 +69,8 @@ class HistoryController extends Controller
     }
 
     public function prosesAll(){
-        $allData = proses::latest()->get();;
+        // $allData = proses::latest()->get();
+        $allData = proses::with('history');
         return view('Backend.Proses.prosesAll',compact('allData'));
     }
 
@@ -99,5 +100,15 @@ class HistoryController extends Controller
 
             return redirect()->route('proses.all')->with($notification);
     }
+
+    public function prosesDelete($id){
+        proses::findOrFail($id)->delete();
+
+         $notification = array(
+              'message' => 'Jenis Deleted Successfully',
+              'alert-type' => 'success'
+          );
+          return redirect()->back()->with($notification);
+        }
 
 }

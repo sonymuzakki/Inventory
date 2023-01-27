@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -50,6 +51,11 @@ class AdminController extends Controller
           );
 
         return redirect('')->with($notification);
+    }
+
+    public function dashboard(){
+        $inventory = Inventory::all();
+        
     }
 
 }

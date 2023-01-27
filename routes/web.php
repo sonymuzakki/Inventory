@@ -26,11 +26,14 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
+
+
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
+    Route::get('/admin/logout', 'destroy')->name('admin.logout')->middleware(['auth','verified']);
     Route::get('/profile', 'profile')->name('admin.profile');
     Route::get('/editProfile', 'editProfile')->name('edit.profile');
     Route::post('/storeProfile', 'storeProfile')->name('store.profile');
@@ -54,14 +57,12 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/jenis-delete{id}', 'jenisDelete')->name('jenis.delete');
     Route::get('/jenis-details{id}', 'jenisDetails')->name('jenis.details');
 
-
     Route::get('/Divisi-All', 'divisiAll')->name('divisi.all');
     Route::get('/divisi-add', 'divisiAdd')->name('divisi.add');
     Route::post('/divisi-store', 'divisiStore')->name('divisi.store');
     Route::get('/divisi-delete{id}', 'divisiDelete')->name('divisi.delete');
     Route::get('/divisiEdit-{id}','divisiEdit')->name('divisi.edit');
     Route::post('/divisiUpdate{id}','DivisiUpdate')->name('divisi.update');
-
 
     Route::get('/lokasi-All', 'lokasiAll')->name('lokasi.all');
     Route::get('/lokasi-add', 'lokasiAdd')->name('lokasi.add');
@@ -80,7 +81,15 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/proses-all', 'prosesAll')->name('proses.all');
     Route::get('/proses-add', 'prosesAdd')->name('proses.add');
     Route::post('/proses-store', 'prosesStore')->name('proses.store');
+    Route::get('/proses-delete{id}', 'prosesDelete')->name('proses.delete');
 
 });
+
+// Route::middleware(['auth', 'user-access:user'])->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'profile'])->name('admin.profile');
+//     Route::get('/editProfile', [ProfileController::class, 'editProfile'])->name('edit.profile');
+//     Route::get('/storeProfile', [ProfileController::class, 'storeProfiel'])->name('store.profile');
+//     Route::get('/admin/logout', [ProfileController::class, 'destroy'])->name('admin.logout');
+// });
 
 require __DIR__.'/auth.php';

@@ -25,15 +25,18 @@
 
                 <a href="{{ route('proses.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Lokasi</a> <br></br>
 
-                <h4>Request All Data</h4>
+                <h4>Proses All Data</h4>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
                     <thead>
                         <tr>
                             <th width="5%">No</th>
                             <th>User</th>
                             <th>Laporan</th>
-                            <th>Tanggal</th>
+                            <th>Kendala</th>
+                            <th>Pengerjaan</th>
                             <th>Status</th>
+                            <th>Tanggal</th>
+
                             <th width="20%">Action</th>
                         </tr>
                     </thead>
@@ -44,13 +47,16 @@
                             @foreach ($allData as $key => $item)
                             <tr>
                                 <td>{{ $key+1}}</td>
-                                {{--  <td>{{ $item['inventaris']['user'] }}</td>  --}}
+                                <td>{{ $item['history']['inventory']['user']['name']}}</td>
+                                <td>{{ $item['history']['laporan']}}</td>
                                 <td>{{ $item->kendala}}</td>
-                                <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>
+                                <td>{{ $item->pengerjaan}}</td>
+                                <td>{{ $item->status}}</td>
+                                <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>
                                 {{--  <td>{{ $item->status}}</td>s  --}}
                                 <td>
                                      <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
-                                     <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
+                                     <a href="{{ route('proses.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
                                      {{--  <a href="{{ route('jenis.details', $item->id) }}" class="btn btn-danger sm" title="Details" > <i class="fa thin fa-info"></i></a>  --}}
                                  </td>
                             </tr>

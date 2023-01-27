@@ -32,7 +32,7 @@
                             <select name="request_id"class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($history as $h)
-                                <option value="{{ $h->id }}">{{ $h->laporan}}</option>
+                                <option value="{{ $h->id }}">{{ $h->inventory->user->name}}</option>
                                @endforeach
                                 </select>
                         </div>
@@ -60,14 +60,14 @@
                     <div class="row mb-4">
                         <label for="text" class="col-2 col-form-label">Pengerjaan</label>
                         <div class="form-group col-10">
-                            <input name="pengerjaan " class="form-control" type="text" placeholder="" id="text">
+                            <input name="pengerjaan" class="form-control" type="text" placeholder="" id="text">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label for="text" class="col-2 col-form-label">Status</label>
                         <div class="form-group col-10">
-                            <input name="status " class="form-control" type="text" placeholder="" id="text">
+                            <input name="status" class="form-control" type="text" placeholder="" id="text">
                         </div>
                     </div>
 
