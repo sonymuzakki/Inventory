@@ -71,7 +71,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('request.all') }}">Request Support</a></li>
-                        <li><a href="{{ route('proses.all') }}">Handle Request</a></li>
+                        <li><a href="{{ route('request.pending') }}">Request Pending</a></li>
+                        {{--  <li><a href="{{ route('proses.all') }}">Handle Request</a></li>  --}}
                     </ul>
                 </li>
 

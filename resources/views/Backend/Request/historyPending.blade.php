@@ -57,7 +57,7 @@
                                 </td>
                                 <td>
                                     @if ($item->status == '0')
-                                        <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{ route('request.delete', $item->id) }}" class="btn btn-danger sm" title="Pending" id="Approved"> <i class="fas fa-check-circle"></i></a>
                                     @elseif ($item->status == '1')
                                         <h5 class="container"> - </h5>
                                     @endif

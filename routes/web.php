@@ -77,6 +77,7 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-all', 'HistoryAll')->name('request.all');
     Route::get('/request-add', 'RequestAdd')->name('request.add');
     Route::post('/request-store', 'RequestStore')->name('request.store');
+    Route::get('/request-pending', 'RequestPending')->name('request.pending');
 
     Route::get('/proses-all', 'prosesAll')->name('proses.all');
     Route::get('/proses-add', 'prosesAdd')->name('proses.add');

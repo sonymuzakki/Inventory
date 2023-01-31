@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 class HistoryController extends Controller
 {
     public function HistoryAll(){
-        $allData = history::latest()->get();
+        $allData = history::latest()->where('status','1')->get();
         $inventory = Inventory::all();
         $user   = user::all();
         return view('Backend.Request.historyAll',compact('user','allData','inventory'));
@@ -48,6 +48,14 @@ class HistoryController extends Controller
             );
 
             return redirect()->route('request.all')->with($notification);
+    }
+
+    public function RequestPending(){
+        // $allData = history::orderBy('date','desc')->where('status','0')->get();
+        $allData = history::latest()->where('status','0')->get();
+        $inventory = Inventory::all();
+        $user   = user::all();
+        return view('Backend.Request.historyAll',compact('allData'));
     }
 
 //     public function prosesAll(){
