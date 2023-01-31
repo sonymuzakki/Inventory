@@ -43,7 +43,7 @@
                             <select name="lokasi_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($lokasi as $l)
-                                <option value="{{ $l->id }}">{{ $l->lokasi }}</option>
+                                <option value="{{ $l->id }}">{{ $l->nama }}</option>
                                @endforeach
                                 </select>
                         </div>
@@ -56,7 +56,7 @@
                             <select name="divisi_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($divisi as $d)
-                                <option value="{{ $d->id }}">{{ $d->divisi }}</option>
+                                <option value="{{ $d->id }}">{{ $d->nama }}</option>
                                @endforeach
                                 </select>
                         </div>
@@ -69,7 +69,7 @@
                             <select name="jenis_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($jenis as $j)
-                                <option value="{{ $j->id }}">{{ $j->jenis }}</option>
+                                <option value="{{ $j->id }}">{{ $j->nama }}</option>
                                @endforeach
                                 </select>
                         </div>

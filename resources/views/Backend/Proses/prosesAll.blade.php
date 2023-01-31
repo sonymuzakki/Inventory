@@ -47,12 +47,13 @@
                             @foreach ($allData as $key => $item)
                             <tr>
                                 <td>{{ $key+1}}</td>
-                                <td>{{ $item['history']['inventory']['user']['name']}}</td>
+                                {{--  <td>{{ $item['history']['inventory']['user']['name'] }}</td>  --}}
                                 <td>{{ $item['history']['laporan']}}</td>
+                                <td>{{ $item->laporan}}</td>
                                 <td>{{ $item->kendala}}</td>
                                 <td>{{ $item->pengerjaan}}</td>
                                 <td>{{ $item->status}}</td>
-                                <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>
+                                {{--  <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>  --}}
                                 {{--  <td>{{ $item->status}}</td>s  --}}
                                 <td>
                                      <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>

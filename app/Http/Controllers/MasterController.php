@@ -24,7 +24,7 @@ class MasterController extends Controller
     public function JenisStore(Request $request ){
 
         $jenis = jenis::insert([
-            'jenis' => $request->jenis,
+            'nama' => $request->nama,
             // 'created_by' => Auth::user()->id,
             'created_at' => Carbon::now()
         ]);
@@ -66,7 +66,7 @@ class MasterController extends Controller
         public function divisiStore(Request $request ){
 
             $divisi = divisi::insert([
-                'divisi' => $request->divisi,
+                'nama' => $request->nama,
                 // 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now()
             ]);
@@ -149,7 +149,7 @@ class MasterController extends Controller
         public function lokasiStore(Request $request ){
 
             $lokasi = lokasi::insert([
-                'lokasi' => $request->lokasi,
+                'nama' => $request->nama,
                 // 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now()
             ]);

@@ -46,10 +46,10 @@
                             <tr>
                                 <td>{{ $key+1}}</td>
                                 <td>{{ $item['user']['name']}}</td>
-                                <td>{{ $item['divisi']['divisi'] }}</td>
-                                <td>{{ $item['lokasi']['lokasi'] }}</td>
+                                <td>{{ $item['divisi']['nama'] }}</td>
+                                <td>{{ $item['lokasi']['nama'] }}</td>
                                 <td>{{ $item->hostname }}</td>
-                                <td>{{ $item['jenis']['jenis'] }}</td>
+                                <td>{{ $item['jenis']['nama'] }}</td>
                                 <td>
                                      <a href="{{ route('inventaris.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
                                      <a href="{{ route('invetaris.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>

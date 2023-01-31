@@ -32,7 +32,7 @@
                 <div class="row mb-3">
                     <label for="text" class="col-2 col-form-label">Divisi</label>
                     <div class="form-group col-10">
-                        <input name="divisi" class="form-control" type="text" placeholder="" id="text">
+                        <input name="nama" class="form-control" type="text" placeholder="" id="text">
                     </div>
                 </div>
 

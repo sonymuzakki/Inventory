@@ -43,7 +43,7 @@
                                 <td>{{ $item['inventory']['user']['name'] }}</td>
                                 <td>{{ $item->laporan}}</td>
                                 {{--  <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>  --}}
-                                <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>
+                                {{--  <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>  --}}
                                 <td>{{ $item->status}}</td>
                                 <td>
                                      <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>

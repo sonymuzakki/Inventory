@@ -46,7 +46,7 @@
                             <select name="lokasi_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($lokasi as $l)
-                                <option value="{{ $l->id }}" {{ $l->id == $inventaris->lokasi_id ? 'selected' : '' }} >{{ $l->lokasi }}</option>
+                                <option value="{{ $l->id }}" {{ $l->id == $inventaris->lokasi_id ? 'selected' : '' }} >{{ $l->nama }}</option>
                                @endforeach
                                 </select>
                         </div>
@@ -59,7 +59,7 @@
                             <select name="divisi_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($divisi as $d)
-                                <option value="{{ $d->id }}" {{ $d->id == $inventaris->divisi_id ? 'selected' : '' }} > {{ $d->divisi }}</option>
+                                <option value="{{ $d->id }}" {{ $d->id == $inventaris->divisi_id ? 'selected' : '' }} > {{ $d->nama }}</option>
                                @endforeach
                                 </select>
                         </div>
@@ -72,7 +72,7 @@
                             <select name="jenis_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($jenis as $j)
-                                <option value="{{ $j->id }}" {{ $j->id == $inventaris->jenis_id ? 'selected' : '' }} > {{ $j->jenis }}</option>
+                                <option value="{{ $j->id }}" {{ $j->id == $inventaris->jenis_id ? 'selected' : '' }} > {{ $j->nama }}</option>
                                @endforeach
                                 </select>
                         </div>

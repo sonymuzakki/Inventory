@@ -30,24 +30,6 @@ class HistoryController extends Controller
         return view('Backend.Request.requestAdd',compact('inventory','history','user','divisi','jenis'));
     }
 
-    // public function RequestStore(Request $request ){
-    //     $history = history::insert([
-    //         'inventory_id' => $request->inventory_id,
-    //         // 'inventory_id' => $request->jenis_id,
-    //         'laporan' => $request->laporan,
-    //         // 'status' => $request->status,
-    //         // 'created_by' => Auth::user()->id,
-    //         'created_at' => Carbon::now()
-
-    //     ]);
-    //     $notification = array (
-    //         'message' => 'Inventory Insert Successfully',
-    //         'alert-type' => 'success',
-    //     );
-    //     // return view('Backend.InventoryAll',compact('inventory', 'notification'));
-    //     return redirect()->route('request.all')->with($notification);
-    // }
-
     public function RequestStore(Request $request){
 
             history::insert([
@@ -68,47 +50,49 @@ class HistoryController extends Controller
             return redirect()->route('request.all')->with($notification);
     }
 
-    public function prosesAll(){
-        // $allData = proses::latest()->get();
-        $allData = proses::with('history');
-        return view('Backend.Proses.prosesAll',compact('allData'));
-    }
+//     public function prosesAll(){
+//         // $allData = proses::latest()->get();
+//         // $proses = proses::all();
+//         $history = history::all();
+//         $inventory = Inventory::all();
+//         $allData = proses::orderBy('request_id','asc')->orderBy('inventory_id','asc');
+//         return view('Backend.Proses.prosesAll',compact('allData'));
+//     }
 
-    public function prosesAdd(){
-        $proses = proses::all();
-        $history = history::all();
-        $inventory = inventory::all();
-        return view('Backend.Proses.prosesAdd',compact('inventory','history','proses'));
-    }
+//     public function prosesAdd(){
+//         $proses = proses::all();
+//         $history = history::all();
+//         $inventory = inventory::all();
+//         return view('Backend.Proses.prosesAdd',compact('inventory','history','proses'));
+//     }
 
-    public function prosesStore(Request $request){
+//     public function prosesStore(Request $request){
 
-            proses::insert([
-                'request_id' => $request->request_id,
-                'kendala' => $request->kendala,
-                'pengerjaan' => $request->pengerjaan,
-                'status' => $request->status,
-                // 'created_by' => Auth::user()->id,
-                'created_at' => Carbon::now(),
+//             proses::insert([
+//                 'request_id' => $request->request_id,
+//                 'kendala' => $request->kendala,
+//                 'pengerjaan' => $request->pengerjaan,
+//                 'status' => $request->status,
+//                 // 'created_by' => Auth::user()->id,
+//                 'created_at' => Carbon::now(),
+//             ]);
 
-            ]);
+//             $notification = array(
+//                 'message' => 'Product Inserted Successfully',
+//                 'alert-type' => 'success'
+//             );
 
-            $notification = array(
-                'message' => 'Product Inserted Successfully',
-                'alert-type' => 'success'
-            );
+//             return redirect()->route('proses.all')->with($notification);
+//     }
 
-            return redirect()->route('proses.all')->with($notification);
-    }
+//     public function prosesDelete($id){
+//         proses::findOrFail($id)->delete();
 
-    public function prosesDelete($id){
-        proses::findOrFail($id)->delete();
-
-         $notification = array(
-              'message' => 'Jenis Deleted Successfully',
-              'alert-type' => 'success'
-          );
-          return redirect()->back()->with($notification);
-        }
+//          $notification = array(
+//               'message' => 'Jenis Deleted Successfully',
+//               'alert-type' => 'success'
+//           );
+//           return redirect()->back()->with($notification);
+//         }
 
 }

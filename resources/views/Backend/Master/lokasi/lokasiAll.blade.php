@@ -41,7 +41,7 @@
                             @foreach ($lokasi as $key => $item)
                             <tr>
                                 <td>{{ $key+1}}</td>
-                                <td>{{ $item->lokasi }}</td>
+                                <td>{{ $item->nama }}</td>
                                 <td>
                                      <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
                                      <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
