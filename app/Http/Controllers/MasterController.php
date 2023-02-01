@@ -8,6 +8,7 @@ use App\Models\Divisi;
 use App\Models\Lokasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class MasterController extends Controller
 {
@@ -35,6 +36,12 @@ class MasterController extends Controller
         return redirect()->route('jenis.all')->with($notification);
     }
 
+    public function jenisEdit($id){
+        $jenis = jenis::findOrFail($id);
+
+        return view('Backend.Master.Jenis.jenisEdit',compact('jenis'));
+    }
+
     public function jenisDelete($id){
         Jenis::findOrFail($id)->delete();
 
@@ -48,6 +55,22 @@ class MasterController extends Controller
         public function jenisDetails($id){
             $jenis = Jenis::findOrFail($id);
             return view('Backend.Master.Jenis.jenisDetails',compact('jenis'));
+        }
+
+        public function jenisUpdate(Request $request){
+            $id = $request->id;
+
+            jenis::findOrFail($id)->update([
+                'nama' => $request->nama,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Inventaris Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('jenis.all')->with($notification);
         }
 
 
@@ -93,24 +116,21 @@ class MasterController extends Controller
             return view('Backend.Master.divisi.divisiEdit',compact('divisi'));
         }
 
-        // public function divisiUpdate(Request $request,$id){
-        //         $this->validate($request,[
-        //         'nama' => 'required',
-        //         ]);
+        public function DivisiUpdate(Request $request){
+            $id = $request->id;
 
-        //         $divisi = Divisi::find($id);
-        //         $divisi->nama = $request->nama;
-        //         $divisi->save();
-        //         return redirect()->route('divisi.all');
-        //     }
+            divisi::findOrFail($id)->update([
+                'nama' => $request->nama,
+                'updated_at' => Carbon::now(),
+            ]);
 
-        public function DivisiUpdate(Request $request,$id){
-            $post           = Divisi::findoOrfail($id);
-            $post->nama    = $request->nama;
-            $post->save();
+            $notification = array(
+                'message' => 'Inventaris Updated Successfully',
+                'alert-type' => 'success'
+            );
 
-            return redirect()->route('divisi.all');
-    }
+            return redirect()->route('divisi.all')->with($notification);
+        }
 
 
 
@@ -154,22 +174,18 @@ class MasterController extends Controller
         }
 
         public function lokasiUpdate(Request $request){
-            @dd($request);
-            $lokasi_id = $request->id;
-            // @dd('lokasi_id');
-            lokasi::findOrFail($lokasi_id)->update([
-                'lokasi' => $request->lokasi,
-                'updated_at' => Carbon::now(),
+            $id = $request->id;
 
+            Lokasi::findOrFail($id)->update([
+                'nama' => $request->nama,
+                'updated_at' => Carbon::now(),
             ]);
 
-             $notification = array(
-                'message' => 'Category Updated Successfully',
+            $notification = array(
+                'message' => 'Inventaris Updated Successfully',
                 'alert-type' => 'success'
             );
 
             return redirect()->route('lokasi.all')->with($notification);
-
         }
-
 }

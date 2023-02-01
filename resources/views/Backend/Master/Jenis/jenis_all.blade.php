@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h3 class="mb-sm-2">Manage Jenis</h3><br></br><hr>
+            <h3 class="mb-sm-2">Master Jenis</h3><br></br><hr>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -43,9 +43,9 @@
                                 <td>{{ $key+1}}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>
-                                     {{--  {{--  <a href="{{ route('inventaris.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>  --}}
+                                     <a href="{{ route('jenis.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
                                      <a href="{{ route('jenis.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
-                                     <a href="{{ route('jenis.details', $item->id) }}" class="btn btn-danger sm" title="Details" > <i class="fa thin fa-info"></i></a>
+                                     {{--  <a href="{{ route('jenis.details', $item->id) }}" class="btn btn-danger sm" title="Details" > <i class="fa thin fa-info"></i></a>  --}}
                                 </td>
                             </tr>
                         @endforeach

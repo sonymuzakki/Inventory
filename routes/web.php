@@ -58,7 +58,8 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/jenis-add', 'jenisAdd')->name('jenis.add');
     Route::post('/jenis-store', 'jenisStore')->name('jenis.store');
     Route::get('/jenis-delete{id}', 'jenisDelete')->name('jenis.delete');
-    Route::get('/jenis-details{id}', 'jenisDetails')->name('jenis.details');
+    Route::get('/jenis-edit{id}', 'jenisEdit')->name('jenis.edit');
+    Route::post('/jenisUpdate','jenisUpdate')->name('jenis.update');
 
     Route::get('/Divisi-All', 'divisiAll')->name('divisi.all');
     Route::get('/divisi-add', 'divisiAdd')->name('divisi.add');
@@ -72,7 +73,7 @@ Route::controller(InventoryController::class)->group(function () {
     Route::post('/lokasi-store', 'lokasiStore')->name('lokasi.store');
     Route::get('/lokasi-delete{id}', 'lokasiDelete')->name('lokasi.delete');
     Route::get('/lokasiEdit-{id}','lokasiEdit')->name('lokasi.edit');
-    Route::post('/lokasiUpdate{id}','lokasiUpdate')->name('lokasi.update');
+    Route::post('/lokasiUpdate','lokasiUpdate')->name('lokasi.update');
 
 });
 
