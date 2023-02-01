@@ -26,17 +26,17 @@
                     <h4 class="mb-sm-0">Divisi add Page</h4>
                 </div>
                 <form method="post" action="{{ route('divisi.update') }}" enctype="multipart/from-data" id="myForm">
-                    {{--  @method('put')  --}}
                     @csrf
 
+                    <input type="hidden" name="id"  value="{{ $divisi->id }}" >
                     <div class="row mb-3">
                         <label for="text" class="col-2 col-form-label">Divisi</label>
                         <div class="form-group col-10">
-                            <input name="divisi" class="form-control" type="text" value="{{ $divisi->divisi }}" placeholder=""                                id=" text">
+                            <input name="nama" class="form-control" type="text" value="{{ $divisi->nama }}" placeholder=""                                id=" text">
                         </div>
                     </div>
 
-                    <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Submit">
+                    <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update">
                 </form>
                 <!-- end row -->
             </div>
@@ -48,13 +48,13 @@
 $(document).ready(function() {
     $('#myForm').validate({
         rules: {
-            divisi: {
+            nama: {
                 required: true,
             },
         },
         messages: {
-            divis: {
-                required: 'Please Enter Your Divisi',
+            nama: {
+                required: 'Please Enter Your Nama Divisi',
             },
         },
         errorElement: 'span',

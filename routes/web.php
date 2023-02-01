@@ -3,6 +3,7 @@
 use App\Models\Inventory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
@@ -24,12 +25,14 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+// Route::get('/landing', function () {
+//     return view('Frontend.landingPage');
+// });
 
-Route::get('/dashboard', function () {
 
-
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//      return view('admin.index');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::controller(AdminController::class)->group(function () {
@@ -62,14 +65,14 @@ Route::controller(InventoryController::class)->group(function () {
     Route::post('/divisi-store', 'divisiStore')->name('divisi.store');
     Route::get('/divisi-delete{id}', 'divisiDelete')->name('divisi.delete');
     Route::get('/divisiEdit-{id}','divisiEdit')->name('divisi.edit');
-    Route::post('/divisiUpdate{id}','DivisiUpdate')->name('divisi.update');
+    Route::post('/divisiUpdate','DivisiUpdate')->name('divisi.update');
 
     Route::get('/lokasi-All', 'lokasiAll')->name('lokasi.all');
     Route::get('/lokasi-add', 'lokasiAdd')->name('lokasi.add');
     Route::post('/lokasi-store', 'lokasiStore')->name('lokasi.store');
     Route::get('/lokasi-delete{id}', 'lokasiDelete')->name('lokasi.delete');
     Route::get('/lokasiEdit-{id}','lokasiEdit')->name('lokasi.edit');
-    Route::post('/lokasiUpdate','lokasiUpdate')->name('lokasi.update');
+    Route::post('/lokasiUpdate{id}','lokasiUpdate')->name('lokasi.update');
 
 });
 
@@ -77,7 +80,7 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-all', 'HistoryAll')->name('request.all');
     Route::get('/request-add', 'RequestAdd')->name('request.add');
     Route::post('/request-store', 'RequestStore')->name('request.store');
-    Route::get('/request-pending', 'RequestPending')->name('request.pending');
+    Route::get('/request-proses', 'RequestPending')->name('request.pending');
 
     Route::get('/proses-all', 'prosesAll')->name('proses.all');
     Route::get('/proses-add', 'prosesAdd')->name('proses.add');
@@ -85,6 +88,12 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/proses-delete{id}', 'prosesDelete')->name('proses.delete');
 
 });
+
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index')->name('dashboard')->middleware(['auth', 'verified']);
+});
+
+// Route::post('DivisiUpdate',[MasterController::class,'DivisiUpdate'])->name('divisi.updaten');
 
 // Route::middleware(['auth', 'user-access:user'])->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'profile'])->name('admin.profile');

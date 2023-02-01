@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 class HistoryController extends Controller
 {
     public function HistoryAll(){
-        $allData = history::latest()->where('status','1')->get();
+        $allData = history::latest()->get();
         $inventory = Inventory::all();
         $user   = user::all();
         return view('Backend.Request.historyAll',compact('user','allData','inventory'));
