@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get('/landing', function () {
-    return view('Frontend.landingPage');
+    return view('Frontend.index');
 });
 
 // Route::get('/dashboard', function () {
@@ -83,6 +83,7 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-proses', 'RequestPending')->name('request.pending');
     Route::get('/history-proses-{id}', 'historyProses')->name('history.proses');
     Route::put('/history-update/{id}', 'historyUpdate')->name('history.update');
+    Route::get('/history-approved{id}', 'historyApprove')->name('history.approve');
 
     // Route::get('/proses-all', 'prosesAll')->name('proses.all');
     // Route::get('/proses-add', 'prosesAdd')->name('proses.add');

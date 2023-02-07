@@ -87,4 +87,24 @@ class HistoryController extends Controller
 
     }
 
+    public function historyApprove($id){
+
+        $history = history::findOrFail($id);
+
+        if($history->save()){
+
+            history::findOrFail($id)->update([
+                'status' => '1',
+            ]);
+
+             $notification = array(
+        'message' => 'Status Approved Successfully',
+        'alert-type' => 'success'
+          );
+    return redirect()->route('request.all')->with($notification);
+
+        }
+
+    }// End Method
+
 }

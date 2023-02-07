@@ -58,13 +58,17 @@
                                             <i class="ri-check-line align-middle me-2"></i> Success
                                         </button>
                                     @endif
+
                                 </td>
                                 <td>
                                     @if ($item->status == '0')
-                                        <a href="{{ route('history.proses', $item->id) }}" class="btn btn-danger sm" title="Approved" id="ApprovedBtn"> <i class="fas fa-check-circle"></i></a>
+                                        <a href="{{ route('history.proses', $item->id) }}" class="btn btn-danger sm" title="Proses"> <i class="ri-donut-chart-fill"></i></a>
+                                        <a href="{{ route('history.approve' , $item->id )}}" class="btn btn-info sm" title="Approved" id="ApprovedBtn"> <i class="fas fa-check-circle"></i></a>
                                     @elseif ($item->status == '1')
                                         <h5 class="container"> - </h5>
                                     @endif
+
+
                                      {{--  <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
                                      <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>  --}}
                                 </td>
