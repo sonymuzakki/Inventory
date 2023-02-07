@@ -25,10 +25,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-// Route::get('/landing', function () {
-//     return view('Frontend.landingPage');
-// });
-
+Route::get('/landing', function () {
+    return view('Frontend.landingPage');
+});
 
 // Route::get('/dashboard', function () {
 //      return view('admin.index');
@@ -82,11 +81,13 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-add', 'RequestAdd')->name('request.add');
     Route::post('/request-store', 'RequestStore')->name('request.store');
     Route::get('/request-proses', 'RequestPending')->name('request.pending');
+    Route::get('/history-proses-{id}', 'historyProses')->name('history.proses');
+    Route::put('/history-update/{id}', 'historyUpdate')->name('history.update');
 
-    Route::get('/proses-all', 'prosesAll')->name('proses.all');
-    Route::get('/proses-add', 'prosesAdd')->name('proses.add');
-    Route::post('/proses-store', 'prosesStore')->name('proses.store');
-    Route::get('/proses-delete{id}', 'prosesDelete')->name('proses.delete');
+    // Route::get('/proses-all', 'prosesAll')->name('proses.all');
+    // Route::get('/proses-add', 'prosesAdd')->name('proses.add');
+    // Route::post('/proses-store', 'prosesStore')->name('proses.store');
+    // Route::get('/proses-delete{id}', 'prosesDelete')->name('proses.delete');
 
 });
 

@@ -9,8 +9,13 @@ use App\Models\history;
 use App\Models\Inventory;
 use App\Models\Jenis;
 use App\Models\proses;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+
+use function GuzzleHttp\Promise\all;
 
 class HistoryController extends Controller
 {
@@ -50,7 +55,7 @@ class HistoryController extends Controller
             return redirect()->route('request.all')->with($notification);
     }
 
-    public function RequestPending(){
+        public function RequestPending(){
         // $allData = history::orderBy('date','desc')->where('status','0')->get();
         $allData = history::latest()->where('status','0')->get();
         $inventory = Inventory::all();
@@ -58,49 +63,28 @@ class HistoryController extends Controller
         return view('Backend.Request.historyAll',compact('allData'));
     }
 
-//     public function prosesAll(){
-//         // $allData = proses::latest()->get();
-//         // $proses = proses::all();
-//         $history = history::all();
-//         $inventory = Inventory::all();
-//         $allData = proses::orderBy('request_id','asc')->orderBy('inventory_id','asc');
-//         return view('Backend.Proses.prosesAll',compact('allData'));
-//     }
+    public function historyProses($id){
+        $history = history::find($id);
+        $user   = user::all();
+        $inventory = Inventory::all();
 
-//     public function prosesAdd(){
-//         $proses = proses::all();
-//         $history = history::all();
-//         $inventory = inventory::all();
-//         return view('Backend.Proses.prosesAdd',compact('inventory','history','proses'));
-//     }
+        return view('Backend.Request.historyProses',compact('history','inventory','user'));
+    }
 
-//     public function prosesStore(Request $request){
+    public function historyUpdate(Request $request,$id){
+        // dd($request->all());
+        $validated = $request->validate([
+           'inventory_id' => 'required|exists:App\Models\Inventory,id',
+        ]);
+        $data = history::find($id);
+        $data->inventory_id = $request->inventory_id;
+        $data->laporan = $request->laporan;
+        $data->kendala = $request->kendala;
+        $data->pengerjaan = $request->pengerjaan;
+        $data->save();
 
-//             proses::insert([
-//                 'request_id' => $request->request_id,
-//                 'kendala' => $request->kendala,
-//                 'pengerjaan' => $request->pengerjaan,
-//                 'status' => $request->status,
-//                 // 'created_by' => Auth::user()->id,
-//                 'created_at' => Carbon::now(),
-//             ]);
+        return redirect()->route('request.all');
 
-//             $notification = array(
-//                 'message' => 'Product Inserted Successfully',
-//                 'alert-type' => 'success'
-//             );
-
-//             return redirect()->route('proses.all')->with($notification);
-//     }
-
-//     public function prosesDelete($id){
-//         proses::findOrFail($id)->delete();
-
-//          $notification = array(
-//               'message' => 'Jenis Deleted Successfully',
-//               'alert-type' => 'success'
-//           );
-//           return redirect()->back()->with($notification);
-//         }
+    }
 
 }

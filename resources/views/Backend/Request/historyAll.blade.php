@@ -31,6 +31,8 @@
                             <th width="5%">No</th>
                             <th>User</th>
                             <th>Laporan</th>
+                            <th>Kendala</th>
+                            <th>Pengerjaan</th>
                             <th>Tanggal</th>
                             <th>Proses</th>
                             <th width="20%">Action</th>
@@ -42,6 +44,8 @@
                                 <td>{{ $key+1}}</td>
                                 <td>{{ $item['inventory']['user']['name'] }}</td>
                                 <td>{{ $item->laporan}}</td>
+                                <td>{{ $item->kendala}}</td>
+                                <td>{{ $item->pengerjaan}}</td>
                                 {{--  <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>  --}}
                                 <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>
                                 <td>
@@ -57,7 +61,7 @@
                                 </td>
                                 <td>
                                     @if ($item->status == '0')
-                                        <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{ route('history.proses', $item->id) }}" class="btn btn-danger sm" title="Approved" id="ApprovedBtn"> <i class="fas fa-check-circle"></i></a>
                                     @elseif ($item->status == '1')
                                         <h5 class="container"> - </h5>
                                     @endif

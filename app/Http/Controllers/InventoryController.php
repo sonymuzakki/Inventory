@@ -84,8 +84,8 @@ class InventoryController extends Controller
                 'Office' => $request->Office,
                 'akunOffice' => $request->akunOffice,
                 'hardisk' => $request->hardisk,
-                'updated_at' => Auth::user()->id,
-                'updated_at' => Carbon::now()
+                'updated_by' => Auth::user()->id,
+                'updated_by' => Carbon::now()
 
             ]);
 

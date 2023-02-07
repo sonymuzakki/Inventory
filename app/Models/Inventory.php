@@ -28,4 +28,8 @@ class Inventory extends Model
         return $this->belongsTo(Jenis::class,'jenis_id','id');
     }
 
+    public function history(){
+        return $this->hasOne(history::class);
+    }
+
 }
