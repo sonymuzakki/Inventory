@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/landing', function () {
+Route::get('/users', function () {
     return view('Frontend.index');
 });
 
@@ -49,7 +49,6 @@ Route::controller(InventoryController::class)->group(function () {
     Route::post('/InventarisUpdate','InventarisUpdate')->name('invetaris.update');
     Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete');
     Route::get('/InventarisDetails{id}','InventarisDetails')->name('invetaris.details');
-
 });
 
     Route::controller(MasterController::class)->group(function () {
@@ -73,7 +72,6 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/lokasi-delete{id}', 'lokasiDelete')->name('lokasi.delete');
     Route::get('/lokasiEdit-{id}','lokasiEdit')->name('lokasi.edit');
     Route::post('/lokasiUpdate','lokasiUpdate')->name('lokasi.update');
-
 });
 
 Route::controller(HistoryController::class)->group(function () {
@@ -81,9 +79,11 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-add', 'RequestAdd')->name('request.add');
     Route::post('/request-store', 'RequestStore')->name('request.store');
     Route::get('/request-proses', 'RequestPending')->name('request.pending');
-    Route::get('/history-proses-{id}', 'historyProses')->name('history.proses');
+    Route::get('/history-proses/{id}', 'historyProses')->name('history.proses');
     Route::put('/history-update/{id}', 'historyUpdate')->name('history.update');
-    Route::get('/history-approved{id}', 'historyApprove')->name('history.approve');
+    Route::get('/history-approved/{id}', 'historyApprove')->name('history.approve');
+
+    Route::get('/history-approved-Dsh/{id}', 'historyApproveDashboard')->name('history.approvedsh');
 
     // Route::get('/proses-all', 'prosesAll')->name('proses.all');
     // Route::get('/proses-add', 'prosesAdd')->name('proses.add');

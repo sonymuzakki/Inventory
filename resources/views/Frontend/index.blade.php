@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="shortcut icon" type="image/x-icon" href="frontend/assets/img/favicon.png">
+		<link rel="shortcut icon" type="image/x-icon" href="logo/favicon.png">
         <!-- Place favicon.ico in the root directory -->
 		<!-- CSS here -->
         <link rel="stylesheet" href="frontend/assets/css/bootstrap.min.css">
@@ -49,13 +49,13 @@
                                     <div class="navbar__wrap main__menu d-none d-xl-flex">
                                         <ul class="navigation">
                                             <li class=""><a href="index.html"></a></li>
-                                            <li class="active"><a href="about.html">Home</a></li>
-                                            <li ><a href="services-details.html">About</a></li>
+                                            <li class="active"><a href="/dashboard">Home</a></li>
+                                            <li ><a href="">About</a></li>
                                             <li class="menu-item-has-children"><a href="#"> </a>
                                         </ul>
                                     </div>
                                     <div class="header__btn d-none d-md-block">
-                                        <a href="" class="btn">Log out</a>
+                                        <a href="/" class="btn">Log out</a>
                                     </div>
                                 </nav>
                             </div>
@@ -64,8 +64,7 @@
                                 <nav class="menu__box">
                                     <div class="close__btn"><i class="fal fa-times"></i></div>
                                     <div class="nav-logo">
-                                        <a href="index.html" class="logo__black"><img src="frontend/assets/img/logo/logo_black.png" alt=""></a>
-                                        <a href="index.html" class="logo__white"><img src="frontend/assets/img/logo/logo_white.png" alt=""></a>
+                                        <a href="" class="logo__black"><img src="frontend/assets/img/logo/toyotaintercom.png" alt=""></a>
                                     </div>
                                     <div class="menu__outer">
                                         <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -87,11 +86,8 @@
             <!-- banner-area -->
             <section class="banner">
                 <div class="container custom-container">
-                    <div class="row align-items-center justify-content-center justify-content-lg-between">
-
-                    </div>
+                    <div class="row align-items-center justify-content-center justify-content-lg-between"></div>
                 </div>
-
             </section>
             <!-- banner-area-end -->
 
@@ -101,22 +97,18 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="section__title text-center">
-                                <span class="sub-title">03 - Working Process</span>
-                                <h2 class="title">A clear product design process is the basis of success</h2>
+                                <span class="sub-title">Hi - Users</span>
+                                <h2 class="title">Welcome Request Support Toyota Intercom</h2>
                             </div>
                         </div>
                     </div>
                     <div class="row work__process__wrap">
                         <div class="col">
                             <div class="work__process__item">
-                                <span class="work__process_step">Step - 01</span>
+                                <span class="work__process_step"></span>
                                 <div class="work__process__icon">
-                                    <img class="light" src="assets/img/icons/wp_light_icon01.png" alt="">
-                                    <img class="dark" src="assets/img/icons/wp_icon01.png" alt="">
                                 </div>
                                 <div class="work__process__content">
-                                    <h4 class="title">Discover</h4>
-                                    <p>Initial ideas or inspiration & Establishment of user needs.</p>
                                 </div>
                             </div>
                         </div>
@@ -173,22 +165,14 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="section__title">
-                                <span class="sub-title">07 - Say hello</span>
-                                <h2 class="title">Any questions? Feel free <br> to contact</h2>
-                            </div>
-                            <div class="homeContact__content">
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                                <h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
+                                <span class="sub-title">Request Support</span>
+                                <h2 class="title">Any Request? <br> please describe your problem</h2>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="homeContact__form">
                                 <form action="#">
-                                    <input type="text" placeholder="Enter name*">
-                                    <input type="email" placeholder="Enter mail*">
-                                    <input type="number" placeholder="Enter number*">
-                                    <textarea name="message" placeholder="Enter Massage*"></textarea>
-                                    <button type="submit">Send Message</button>
+                                    <input type="text" placeholder="Laporan*">
                                 </form>
                             </div>
                         </div>
