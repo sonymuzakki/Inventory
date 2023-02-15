@@ -55,7 +55,7 @@ class AdminController extends Controller
 
     public function dashboard(){
         $inventory = Inventory::all();
-        
+
     }
 
 }

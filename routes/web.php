@@ -1,14 +1,15 @@
 <?php
 
 use App\Models\Inventory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MasterController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\MasterController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InventoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/', function () {
 
 Route::get('/users', function () {
     return view('Frontend.index');
-});
+})->name('users');
 
 // Route::get('/dashboard', function () {
 //      return view('admin.index');
@@ -106,3 +107,7 @@ Route::controller(DashboardController::class)->group(function () {
 // });
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

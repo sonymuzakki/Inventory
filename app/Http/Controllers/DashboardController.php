@@ -26,5 +26,5 @@ class DashboardController extends Controller
         return view('admin.index',compact('inventory','history','totalinven','totaluser','totalreq','totalreqpen','reqproses','allData'));
 
     }
-    
+
 }
