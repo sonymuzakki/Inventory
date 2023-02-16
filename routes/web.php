@@ -9,6 +9,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\InventoryController;
 
 /*
@@ -30,6 +31,12 @@ Route::get('/users', function () {
     return view('Frontend.index');
 })->name('users');
 
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/users', 'index')->name('users')->middleware(['auth','verified']);
+    // Route::post('/users-store', 'store')->name('store')->middleware(['auth','verified']);
+    Route::post('/request', 'RequestStore')->name('request');
+});
+
 // Route::get('/dashboard', function () {
 //      return view('admin.index');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -37,54 +44,54 @@ Route::get('/users', function () {
 
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout')->middleware(['auth','verified']);
-    Route::get('/profile', 'profile')->name('admin.profile');
-    Route::get('/editProfile', 'editProfile')->name('edit.profile');
-    Route::post('/storeProfile', 'storeProfile')->name('store.profile');
+    Route::get('/profile', 'profile')->name('admin.profile')->middleware('role:admin');
+    Route::get('/editProfile', 'editProfile')->name('edit.profile')->middleware('role:admin');
+    Route::post('/storeProfile', 'storeProfile')->name('store.profile')->middleware('role:admin');
 });
 
 Route::controller(InventoryController::class)->group(function () {
-    Route::get('/Inventaris','InventarisAll')->name('invetaris.all');
-    Route::get('/Inventaris-add','InventarisAdd')->name('invetaris.add');
-    Route::post('/Inventaris-store','InventarisStore')->name('invetaris.store');
-    Route::get('/InventarisEdit-{id}','InventarisEdit')->name('inventaris.edit');
-    Route::post('/InventarisUpdate','InventarisUpdate')->name('invetaris.update');
-    Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete');
-    Route::get('/InventarisDetails{id}','InventarisDetails')->name('invetaris.details');
+    Route::get('/Inventaris','InventarisAll')->name('invetaris.all')->middleware('role:admin');
+    Route::get('/Inventaris-add','InventarisAdd')->name('invetaris.add')->middleware('role:admin');
+    Route::post('/Inventaris-store','InventarisStore')->name('invetaris.store')->middleware('role:admin');
+    Route::get('/InventarisEdit-{id}','InventarisEdit')->name('inventaris.edit')->middleware('role:admin');
+    Route::post('/InventarisUpdate','InventarisUpdate')->name('invetaris.update')->middleware('role:admin');
+    Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete')->middleware('role:admin');
+    Route::get('/InventarisDetails{id}','InventarisDetails')->name('invetaris.details')->middleware('role:admin');
 });
 
     Route::controller(MasterController::class)->group(function () {
-    Route::get('/jenis-all', 'jenisAll')->name('jenis.all');
-    Route::get('/jenis-add', 'jenisAdd')->name('jenis.add');
-    Route::post('/jenis-store', 'jenisStore')->name('jenis.store');
-    Route::get('/jenis-delete{id}', 'jenisDelete')->name('jenis.delete');
-    Route::get('/jenis-edit{id}', 'jenisEdit')->name('jenis.edit');
-    Route::post('/jenisUpdate','jenisUpdate')->name('jenis.update');
+    Route::get('/jenis-all', 'jenisAll')->name('jenis.all')->middleware('role:admin');
+    Route::get('/jenis-add', 'jenisAdd')->name('jenis.add')->middleware('role:admin');
+    Route::post('/jenis-store', 'jenisStore')->name('jenis.store')->middleware('role:admin');
+    Route::get('/jenis-delete{id}', 'jenisDelete')->name('jenis.delete')->middleware('role:admin');
+    Route::get('/jenis-edit{id}', 'jenisEdit')->name('jenis.edit')->middleware('role:admin');
+    Route::post('/jenisUpdate','jenisUpdate')->name('jenis.update')->middleware('role:admin');
 
-    Route::get('/Divisi-All', 'divisiAll')->name('divisi.all');
-    Route::get('/divisi-add', 'divisiAdd')->name('divisi.add');
-    Route::post('/divisi-store', 'divisiStore')->name('divisi.store');
-    Route::get('/divisi-delete{id}', 'divisiDelete')->name('divisi.delete');
-    Route::get('/divisiEdit-{id}','divisiEdit')->name('divisi.edit');
-    Route::post('/divisiUpdate','DivisiUpdate')->name('divisi.update');
+    Route::get('/Divisi-All', 'divisiAll')->name('divisi.all')->middleware('role:admin');
+    Route::get('/divisi-add', 'divisiAdd')->name('divisi.add')->middleware('role:admin');
+    Route::post('/divisi-store', 'divisiStore')->name('divisi.store')->middleware('role:admin');
+    Route::get('/divisi-delete{id}', 'divisiDelete')->name('divisi.delete')->middleware('role:admin');
+    Route::get('/divisiEdit-{id}','divisiEdit')->name('divisi.edit')->middleware('role:admin');
+    Route::post('/divisiUpdate','DivisiUpdate')->name('divisi.update')->middleware('role:admin');
 
-    Route::get('/lokasi-All', 'lokasiAll')->name('lokasi.all');
-    Route::get('/lokasi-add', 'lokasiAdd')->name('lokasi.add');
-    Route::post('/lokasi-store', 'lokasiStore')->name('lokasi.store');
-    Route::get('/lokasi-delete{id}', 'lokasiDelete')->name('lokasi.delete');
-    Route::get('/lokasiEdit-{id}','lokasiEdit')->name('lokasi.edit');
-    Route::post('/lokasiUpdate','lokasiUpdate')->name('lokasi.update');
+    Route::get('/lokasi-All', 'lokasiAll')->name('lokasi.all')->middleware('role:admin');
+    Route::get('/lokasi-add', 'lokasiAdd')->name('lokasi.add')->middleware('role:admin');
+    Route::post('/lokasi-store', 'lokasiStore')->name('lokasi.store')->middleware('role:admin');
+    Route::get('/lokasi-delete{id}', 'lokasiDelete')->name('lokasi.delete')->middleware('role:admin');
+    Route::get('/lokasiEdit-{id}','lokasiEdit')->name('lokasi.edit')->middleware('role:admin');
+    Route::post('/lokasiUpdate','lokasiUpdate')->name('lokasi.update')->middleware('role:admin');
 });
 
 Route::controller(HistoryController::class)->group(function () {
-    Route::get('/request-all', 'HistoryAll')->name('request.all');
-    Route::get('/request-add', 'RequestAdd')->name('request.add');
-    Route::post('/request-store', 'RequestStore')->name('request.store');
-    Route::get('/request-proses', 'RequestPending')->name('request.pending');
-    Route::get('/history-proses/{id}', 'historyProses')->name('history.proses');
-    Route::put('/history-update/{id}', 'historyUpdate')->name('history.update');
-    Route::get('/history-approved/{id}', 'historyApprove')->name('history.approve');
+    Route::get('/request-all', 'HistoryAll')->name('request.all')->middleware('role:admin');
+    Route::get('/request-add', 'RequestAdd')->name('request.add')->middleware('role:admin');
+    Route::post('/request-store', 'RequestStore')->name('request.store')->middleware('role:admin');
+    Route::get('/request-proses', 'RequestPending')->name('request.pending')->middleware('role:admin');
+    Route::get('/history-proses/{id}', 'historyProses')->name('history.proses')->middleware('role:admin');
+    Route::put('/history-update/{id}', 'historyUpdate')->name('history.update')->middleware('role:admin');
+    Route::get('/history-approved/{id}', 'historyApprove')->name('history.approve')->middleware('role:admin');
 
-    Route::get('/history-approved-Dsh/{id}', 'historyApproveDashboard')->name('history.approvedsh');
+    Route::get('/history-approved-Dsh/{id}', 'historyApproveDashboard')->name('history.approvedsh')->middleware('role:admin');
 
     // Route::get('/proses-all', 'prosesAll')->name('proses.all');
     // Route::get('/proses-add', 'prosesAdd')->name('proses.add');
@@ -94,7 +101,7 @@ Route::controller(HistoryController::class)->group(function () {
 });
 
 Route::controller(DashboardController::class)->group(function () {
-    Route::get('/dashboard', 'index')->name('dashboard')->middleware(['auth', 'verified']);
+    Route::get('/dashboard', 'index')->name('dashboard')->middleware('role:admin');
 });
 
 // Route::post('DivisiUpdate',[MasterController::class,'DivisiUpdate'])->name('divisi.updaten');
@@ -110,4 +117,4 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

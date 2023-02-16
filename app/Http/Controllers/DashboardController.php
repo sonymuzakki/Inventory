@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+
+    // public function __construct()
+    // {
+    //     $this->middleware('role:admin');
+    // }
+
     public function index(){
         $inventory = Inventory::all();
         $history = history::all();
