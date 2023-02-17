@@ -30,6 +30,7 @@
                         <tr>
                             <th width="5%">No</th>
                             <th>User</th>
+                            <th>Jenis</th>
                             <th>Laporan</th>
                             <th>Kendala</th>
                             <th>Pengerjaan</th>
@@ -41,8 +42,10 @@
                     <tbody>
                             @foreach ($allData as $key => $item)
                             <tr>
-                                <td>{{ $key+1}}</td>
+                                {{--  <td>{{ $key+1}}</td>  --}}
+                                <td>{{ 'R-' . str_pad($loop->iteration, 4, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $item['inventory']['user']['name'] }}</td>
+                                <td>{{ $item['inventory']['jenis']['nama'] }}</td>
                                 <td>{{ $item->laporan}}</td>
                                 <td>{{ $item->kendala}}</td>
                                 <td>{{ $item->pengerjaan}}</td>

@@ -56,7 +56,7 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/InventarisEdit-{id}','InventarisEdit')->name('inventaris.edit')->middleware('role:admin');
     Route::post('/InventarisUpdate','InventarisUpdate')->name('invetaris.update')->middleware('role:admin');
     Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete')->middleware('role:admin');
-    Route::get('/InventarisDetails{id}','InventarisDetails')->name('invetaris.details')->middleware('role:admin');
+    Route::get('/InventarisDetails-{id}','InventarisDetails')->name('invetaris.details')->middleware('role:admin');
 });
 
     Route::controller(MasterController::class)->group(function () {
@@ -87,9 +87,9 @@ Route::controller(HistoryController::class)->group(function () {
     Route::get('/request-add', 'RequestAdd')->name('request.add')->middleware('role:admin');
     Route::post('/request-store', 'RequestStore')->name('request.store')->middleware('role:admin');
     Route::get('/request-proses', 'RequestPending')->name('request.pending')->middleware('role:admin');
-    Route::get('/history-proses/{id}', 'historyProses')->name('history.proses')->middleware('role:admin');
-    Route::put('/history-update/{id}', 'historyUpdate')->name('history.update')->middleware('role:admin');
-    Route::get('/history-approved/{id}', 'historyApprove')->name('history.approve')->middleware('role:admin');
+    Route::get('/history-proses-{id}', 'historyProses')->name('history.proses')->middleware('role:admin');
+    Route::put('/history-update-{id}', 'historyUpdate')->name('history.update')->middleware('role:admin');
+    Route::get('/history-approved-{id}', 'historyApprove')->name('history.approve')->middleware('role:admin');
 
     Route::get('/history-approved-Dsh/{id}', 'historyApproveDashboard')->name('history.approvedsh')->middleware('role:admin');
 

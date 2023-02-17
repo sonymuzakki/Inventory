@@ -9,6 +9,7 @@ use App\Models\Lokasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class MasterController extends Controller
 {
@@ -86,9 +87,11 @@ class MasterController extends Controller
             return view('Backend.Master.divisi.divisiAdd',compact('divisi'));
         }
 
-        public function divisiStore(Request $request ){
+        public function divisiStore(Request $request){
 
-            $divisi = divisi::insert([
+            // $id = IdGenerator::generate(['divisi' => 'divisi', 'length' => 3, 'prefix' => date('D-')]);
+
+           divisi::insert([
                 'nama' => $request->nama,
                 // 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now()

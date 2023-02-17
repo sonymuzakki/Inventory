@@ -40,7 +40,7 @@
                             @endphp  --}}
                             @foreach ($divisi as $key => $item)
                             <tr>
-                                <td>{{ $key+1}}</td>
+                                <td>{{ 'D-' . str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>
                                      <a href="{{ route('divisi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>

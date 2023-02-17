@@ -78,6 +78,7 @@ class HistoryController extends Controller
         ]);
         $data = history::find($id);
         $data->inventory_id = $request->inventory_id;
+        // $data->inventory_id = $request->jenis;
         $data->laporan = $request->laporan;
         $data->kendala = $request->kendala;
         $data->pengerjaan = $request->pengerjaan;

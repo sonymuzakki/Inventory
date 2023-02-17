@@ -32,7 +32,7 @@
 
                         <label class="col-sm-2 col-form-label">User</label>
                         <div class="form-group col-sm-10">
-                            <select name="inventory_id" class="form-select" aria-label="Default select example">
+                            <select name="inventory_id" class="form-select" aria-label="Default select example"disabled>
                                 <option selected="">Open this select menu</option>
                                 @foreach($inventory as $u)
                                         <option value="{{ $u->id }}" {{ $u->id == $history->inventory_id ? 'selected' : '' }} ">{{ $u->user->name }}</option>
@@ -41,10 +41,23 @@
                         </div>
                     </div>
 
+                    <div class="row mb-3">
+
+                        <label class="col-sm-2 col-form-label">Jenis</label>
+                        <div class="form-group col-sm-10">
+                            <select name="inventory_id" class="form-select" aria-label="Default select example"disabled>
+                                <option selected="">Open this select menu</option>
+                                @foreach($inventory as $u)
+                                        <option value="{{ $u->id }}" {{ $u->id == $history->inventory_id ? 'selected' : '' }} ">{{ $u->jenis->nama }}</option>
+                                @endforeach
+                                </select>
+                        </div>
+                    </div>
+
                 <div class="row mb-3">
                     <label for="text" class="col-2 col-form-label">Laporan</label>
                     <div class="form-group col-10">
-                        <input name="laporan" class="form-control" type="text" value={{ $history->laporan }} placeholder="" id="text">
+                        <input name="laporan" class="form-control" type="text" value={{ $history->laporan }} placeholder="" id="text"disabled>
                     </div>
                 </div>
 

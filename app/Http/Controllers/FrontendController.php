@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\history;
 use App\Models\Inventory;
+use App\Models\Jenis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,7 @@ class FrontendController extends Controller
     public function index(){
         $history = history::all();
         $inventory = Inventory::all();
+        $jenis = Jenis::all();
         return view('Frontend.index',compact('history','inventory'));
     }
 
@@ -34,5 +36,5 @@ class FrontendController extends Controller
         );
 
         return redirect()->route('users')->with($notification);
-}
+    }
 }
