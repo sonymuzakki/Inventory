@@ -54,10 +54,11 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/Inventaris-add','InventarisAdd')->name('invetaris.add')->middleware('role:admin');
     Route::post('/Inventaris-store','InventarisStore')->name('invetaris.store')->middleware('role:admin');
     Route::get('/InventarisEdit-{id}','InventarisEdit')->name('inventaris.edit')->middleware('role:admin');
-    Route::post('/InventarisUpdate','InventarisUpdate')->name('invetaris.update')->middleware('role:admin');
+    Route::put('/InventarisUpdate','InventarisUpdate')->name('invetaris.update')->middleware('role:admin');
     Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete')->middleware('role:admin');
     Route::get('/InventarisDetails-{id}','InventarisDetails')->name('invetaris.details')->middleware('role:admin');
 });
+
 
     Route::controller(MasterController::class)->group(function () {
     Route::get('/jenis-all', 'jenisAll')->name('jenis.all')->middleware('role:admin');

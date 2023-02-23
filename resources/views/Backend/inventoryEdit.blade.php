@@ -24,6 +24,7 @@
             <div class="card-body">
                 <form method="POST" action="{{ route('invetaris.update') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
+                    @method('put')
 
                     {{--  <input type="hidden" name="id" value="{{ $inventory->id }}"  --}}
 
