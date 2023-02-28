@@ -107,6 +107,7 @@
                             <tr>
                                 <th width="5%">No</th>
                                 <th>User</th>
+                                <th>Jenis</th>
                                 <th>Laporan</th>
                                 <th>Tanggal</th>
                                 <th>Proses</th>
@@ -118,6 +119,7 @@
                                 <tr>
                                     <td>{{ $key+1}}</td>
                                     <td>{{ $item['inventory']['user']['name'] }}</td>
+                                    <td>{{ $item['inventory']['jenis']['nama'] }}</td>
                                     <td>{{ $item->laporan}}</td>
                                     {{--  <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>  --}}
                                     <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>

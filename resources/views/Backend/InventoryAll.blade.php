@@ -44,7 +44,7 @@
                             @endphp  --}}
                             @foreach ($inventory as $key => $item)
                             <tr>
-                                <td>{{ $key+1}}</td>
+                                <td>{{ 'R-' . str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $item['user']['name']}}</td>
                                 <td>{{ $item['divisi']['nama'] }}</td>
                                 <td>{{ $item['lokasi']['nama'] }}</td>

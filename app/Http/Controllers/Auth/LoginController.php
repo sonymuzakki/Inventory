@@ -46,4 +46,9 @@ class LoginController extends Controller
         }
         return redirect()->route('users');
     }
+
+    public function username()
+    {
+        return 'username';
+    }
 }

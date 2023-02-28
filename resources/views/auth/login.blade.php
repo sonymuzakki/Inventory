@@ -44,10 +44,14 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
-                                        <input class="form-control" id="email" type="text"
-                                        name="email" required="" placeholder="email" required autofocus>
+                                <div class="form-group row">
+                                <div class="col-col-12 mb-3">
+                                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Username" required autofocus>
+                                        @error('username')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
 

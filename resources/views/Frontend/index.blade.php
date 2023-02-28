@@ -171,18 +171,19 @@
                                             <select name="inventory_id"class="form-select" aria-label="Default select example" value=()>
                                                 <option selected value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
                                                 @foreach($inventory as $i)
-                                                <option value="{{ $i->id }}">{{ $i->user->name}}</option>
+                                                {{--  <option value="{{ $i->id }}">{{ $i->user->name}}</option>  --}}
                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
 
+
+                                    <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label">Jenis</label>
                                         <div class="form-group col-sm-10">
                                             <select name="inventory_id" class="form-select" aria-label="Default select example">
-                                                <option selected="">Open this select menu</option>
+                                                {{--  <option selected="">Open this select menu</option>  --}}
                                                 @foreach($inventory as $u)
                                                         <option value="{{ $u->id }}">{{ $u->jenis->nama }}</option>
                                                 @endforeach

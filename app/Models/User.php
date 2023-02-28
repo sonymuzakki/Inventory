@@ -52,4 +52,8 @@ class User extends Authenticatable
     //         get: fn ($value) =>  ["user", "admin"][$value],
     //     );
     // }
+
+    // public function inventory(){
+    //     return $this->belongsTo(inventory::class,'inventory_id','id');
+    // }
 }

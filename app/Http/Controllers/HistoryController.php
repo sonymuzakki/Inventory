@@ -20,10 +20,11 @@ use function GuzzleHttp\Promise\all;
 class HistoryController extends Controller
 {
     public function HistoryAll(){
-        $allData = history::latest()->get();
-        $inventory = Inventory::all();
-        $user   = user::all();
-        return view('Backend.Request.historyAll',compact('user','allData','inventory'));
+        // $allData = history::latest()->first()->get();
+        // $inventory = Inventory::all();
+        // $user   = user::all();
+        $allData = history::with(['inventory','user'])->latest()->first()->get();
+        return view('Backend.Request.historyAll',compact('allData'));
     }
 
     public function RequestAdd(){
