@@ -50,8 +50,8 @@
                                 <td>{{ $item->kendala}}</td>
                                 <td>{{ $item->pengerjaan}}</td>
                                 {{--  <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>  --}}
-                                <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>
-                                <td>
+                                <td>{{ $item->created_at->format('d-M-Y h:i A')}}</td>
+                                {{--  <td>
                                     @if ($item->status == "0")
                                         <button type="button" class="btn btn-warning waves-effect waves-light">
                                             <i class="ri-error-warning-line align-middle me-2"></i> Pending
@@ -62,6 +62,13 @@
                                         </button>
                                     @endif
 
+                                </td>  --}}
+                                <td>
+                                    @if ($item->status == "0")
+                                        <label class="waves-effect waves-light" style="background-color: red; color: white;">Pending</label>
+                                    @elseif ($item->status == "1")
+                                        <label class="waves-effect waves-light font-size-20" style="background-color: rgb(0, 255, 13); color: white;">Success</label>
+                                    @endif
                                 </td>
                                 <td>
                                     @if ($item->status == '0')

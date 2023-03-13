@@ -30,6 +30,11 @@ return new class extends Migration
             $table->string('os')->nullable();
             $table->string('Office')->nullable();
             $table->string('akunOffice')->nullable();
+            $table->string('legalos')->nullable();
+            $table->string('internet')->nullable();
+            $table->string('ipaddress')->nullable();
+            $table->string('amp')->nullable();
+            $table->string('umbrella')->nullable();            // $table->string('umbrella')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

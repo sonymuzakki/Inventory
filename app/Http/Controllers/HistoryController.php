@@ -23,7 +23,7 @@ class HistoryController extends Controller
         // $allData = history::latest()->first()->get();
         // $inventory = Inventory::all();
         // $user   = user::all();
-        $allData = history::with(['inventory','user'])->latest()->first()->get();
+        $allData = history::with(['inventory','user'])->latest()->get();
         return view('Backend.Request.historyAll',compact('allData'));
     }
 

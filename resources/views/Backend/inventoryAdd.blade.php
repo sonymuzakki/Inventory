@@ -2,12 +2,10 @@
 
 @section('admin')
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Inventory add Page</h4>
+            <h4 class="mb-sm-0">Inventory Details</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -18,139 +16,251 @@
         </div>
     </div>
 </div>
+
+<!-- Start Page  -->
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <form method="post" action="{{ route('invetaris.store') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">User</label>
-                        <div class="form-group col-sm-10">
-                            <select name="user_id" class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($user as $u)
-                                <option value="{{ $u->id }}">{{ $u->name }}</option>
-                               @endforeach
+                    {{--  <input type="hidden" name="id" value="{{ $inventory_id->id }}"  --}}
+                    {{--  <div class="row">
+                        <div class="col-6  mb-2">
+                            <label  for="ExampleInputEmail" class="form-label">Pengguna</label>
+                                <select class="form-control" name="idu" aria-label="Default Select example ">
+                                    <option></option>
+                                    @foreach ($users as $user )
+                                        <option value="{{ $user->idu }}" {{ $user->idu == $user->idu? 'selected="selected"' : ' ' }}>{{ $user->nama}}</option>
+                                    @endforeach
                                 </select>
                         </div>
-                    </div>
-                    <!-- end row -->
+                        <div class="col-6 mb-2">
+                            <label  for="ExampleInputEmail" class="form-label">Is Legal OS</label>
+                            <select class="form-control" name="isLegalOs" aria-label="Default Select example"disabled>
+                              <option>{{ $data->isLegalos }}</option>
+                              <option value="1">YES</option>
+                              <option value="2">NO</option>
+                            </select>
+                        </div>
+                    </div>  --}}
 
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Lokasi</label>
-                        <div class="form-group col-sm-10">
-                            <select name="lokasi_id" class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($lokasi as $l)
-                                <option value="{{ $l->id }}">{{ $l->nama }}</option>
-                               @endforeach
-                                </select>
+                    <div class="row">
+                        <div class="col-3 mb-2">
+                            <label class="col-sm-2 col-form-label">User</label>
+                                <div class="form-group col-sm-10">
+                                    <select name="user_id" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+                                        @foreach($user as $u)
+                                        <option value="{{ $u->id }}"">{{ $u->name }}</option>
+                                    @endforeach
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="col-3 mb-2">
+                            <label class="col-2 col-form-label">Lokasi</label>
+                                <div class="form-group col-sm-10">
+                                    <select name="lokasi_id" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+                                        @foreach($lokasi as $l)
+                                        <option value="{{ $l->id }}">{{ $l->nama }}</option>
+                                    @endforeach
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="col-3">
+                            <label class="col-sm-2 col-form-label">Divisi</label>
+                                <div class="form-group col-10">
+                                    <select name="divisi_id" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+                                        @foreach($divisi as $d)
+                                        <option value="{{ $d->id }}"> {{ $d->nama }}</option>
+                                    @endforeach
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="col-3">
+                            <label class="col-sm-2 col-form-label">Jenis</label>
+                                <div class="form-group col-sm-10">
+                                    <select name="jenis_id" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+                                        @foreach($jenis as $j)
+                                        <option value="{{ $j->id }}"> {{ $j->nama }}</option>
+                                    @endforeach
+                                        </select>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Hostname</label>
+                            <div class="form-group col-11">
+                                <input name="hostname" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <div class="col-6">
+                            <label for="text" class="col-sm-2 col-form-label">OS</label>
+                            <div class="form-group col-11">
+                                <input name="os" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
                         </div>
                     </div>
                     <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Divisi</label>
-                        <div class="form-group col-sm-10">
-                            <select name="divisi_id" class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($divisi as $d)
-                                <option value="{{ $d->id }}">{{ $d->nama }}</option>
-                               @endforeach
-                                </select>
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Merk</label>
+                            <div class="form-group col-11">
+                                <input name="merk" class="form-control" type="text" " placeholder="" id="text">
+                            </div>
+                        </div>
+
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Office</label>
+                            <div class="form-group col-11">
+                                <input name="Office" class="form-control" type="text" " placeholder="" id="text">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Processor</label>
+                            <div class="form-group col-11">
+                                <input name="Processor" class="form-control" type="text" " placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="text" class="col-sm-2 col-form-label">AkunOffice</label>
+                            <div class="form-group col-11">
+                                <input name="akunOffice" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
                         </div>
                     </div>
                     <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Jenis</label>
-                        <div class="form-group col-sm-10">
-                            <select name="jenis_id" class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($jenis as $j)
-                                <option value="{{ $j->id }}">{{ $j->nama }}</option>
-                               @endforeach
-                                </select>
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">RAM</label>
+                            <div class="form-group col-11">
+                                <input name="ram" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">SSD</label>
+                            <div class="form-group col-11">
+                                <input name="ssd" class="form-control" type="text" placeholder="" id="text">
+                            </div>
                         </div>
                     </div>
                     <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">Hostname</label>
-                        <div class="form-group col-10">
-                            <input name="hostname" class="form-control" type="text" placeholder="" id="text">
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Grafik</label>
+                            <div class="form-group col-11">
+                                <input name="grafik" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label class="col-6 col-form-label">Legal OS ?</label>
+                                <div class="form-group col-11">
+                                    <select name="legalos" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
+                                        </select>
+                                </div>
                         </div>
                     </div>
                     <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">Merk</label>
-                        <div class="form-group col-10">
-                            <input name="merk" class="form-control" type="text" placeholder="" id="text">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="col-6 col-form-label">Internet?</label>
+                                <div class="form-group col-11">
+                                    <select name="internet" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Ip Address</label>
+                            <div class="form-group col-11">
+                                <input name="ipaddress" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
                         </div>
                     </div>
                     <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">Processor</label>
-                        <div class="form-group col-10">
-                            <input name="Processor" class="form-control" type="text" placeholder="" id="text">
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label class="col-6 col-form-label">Security AMP ?</label>
+                                <div class="form-group col-11">
+                                    <select name="amp" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+
+                                        <option value="">Yes </option>
+                                        <option value="">NO </option>
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="col-6">
+                            <label class="col-6 col-form-label">Security Umbrella ?</label>
+                                <div class="form-group col-11">
+                                    <select name="umbrella" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
+                                        </select>
+                                </div>
                         </div>
                     </div>
                     <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">RAM</label>
-                        <div class="form-group col-10">
-                            <input name="ram" class="form-control" type="text" placeholder="" id="text">
+                    <div class="row">
+
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Ip Address</label>
+                            <div class="form-group col-11">
+                                <input name="ipaddress" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
                         </div>
                     </div>
                     <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">Grafik</label>
-                        <div class="form-group col-10">
-                            <input name="grafik" class="form-control" type="text" placeholder="" id="text">
+                    <div class="row">
+                        <div class="col-6 mb-2">
+
                         </div>
                     </div>
-                    <!-- end row -->
+
 
                     <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">SSD</label>
-                        <div class="form-group col-10">
-                            <input name="ssd" class="form-control" type="text" placeholder="" id="text">
-                        </div>
-                    </div>
-                    <!-- end row -->
 
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">OS</label>
-                        <div class="form-group col-10">
-                            <input name="os" class="form-control" type="text" placeholder="" id="text">
-                        </div>
-                    </div>
-                    <!-- end row -->
-
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">Office</label>
-                        <div class="form-group col-10">
-                            <input name="Office" class="form-control" type="text" placeholder="" id="text">
-                        </div>
-                    </div>
-                    <!-- end row -->
-
-                    <div class="row mb-3">
-                        <label for="text" class="col-sm-2 col-form-label">AkunOffice</label>
-                        <div class="form-group col-10">
-                            <input name="akunOffice" class="form-control" type="text" placeholder="" id="text">
-                        </div>
                     </div>
                     <!-- end row -->
 
 
 
-                <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update Inventory">
+
+
+                    <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Submit">
+
                 </form>
                 <!-- end row -->
             </div>
