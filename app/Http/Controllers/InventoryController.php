@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use GrahamCampbell\ResultType\Success;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 use App\Models\Inventory;
 use App\Models\Divisi;
 use App\Models\history;
@@ -9,10 +14,6 @@ use App\Models\Lokasi;
 use App\Models\Jenis;
 use App\Models\User;
 use Carbon\Carbon;
-use GrahamCampbell\ResultType\Success;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
 
 class InventoryController extends Controller
 {
@@ -45,6 +46,12 @@ class InventoryController extends Controller
                 'Office' => $request->Office,
                 'akunOffice' => $request->akunOffice,
                 'hardisk' => $request->hardisk,
+                'legalos' => $request->legalos,
+                'internet' => $request->internet,
+                'ipaddress' => $request->ipaddress,
+                'amp' => $request->amp,
+                'umbrella' => $request->umbrella,
+                'anydeskid' => $request->anydeskid,
                 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now()
             ]);
@@ -66,7 +73,7 @@ class InventoryController extends Controller
         }
 
         public function InventarisUpdate(Request $request){
-            dd($request);
+            // dd($request);
             $id = $request->id;
 
             Inventory::findOrFail($id)->update([
@@ -86,7 +93,6 @@ class InventoryController extends Controller
                 'hardisk' => $request->hardisk,
                 'updated_by' => Auth::user()->id,
                 'updated_by' => Carbon::now()
-
             ]);
 
              $notification = array(

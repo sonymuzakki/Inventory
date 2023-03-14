@@ -102,10 +102,17 @@
                         <!-- end row -->
 
                         <div class="col-6">
-                            <label for="text" class="col-sm-2 col-form-label">OS</label>
-                            <div class="form-group col-11">
-                                <input name="os" class="form-control" type="text"  placeholder="" id="text">
-                            </div>
+                            <label class="col-6 col-form-label">OS </label>
+                                <div class="form-group col-11">
+                                    <select name="os" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+
+                                        <option value="WIN 11">WIN 11 </option>
+                                        <option value="WIN 10">WIN 10 </option>
+                                        <option value="WIN 7">WIN 7 </option>
+                                        <option value="WINDOWS SERVER">WINDOWS SERVER </option>
+                                        </select>
+                                </div>
                         </div>
                     </div>
                     <!-- end row -->
@@ -118,11 +125,18 @@
                             </div>
                         </div>
 
-                        <div class="col-6 mb-2">
-                            <label for="text" class="col-sm-2 col-form-label">Office</label>
-                            <div class="form-group col-11">
-                                <input name="Office" class="form-control" type="text" " placeholder="" id="text">
-                            </div>
+                        <div class="col-6">
+                            <label class="col-6 col-form-label">Office </label>
+                                <div class="form-group col-11">
+                                    <select name="Office" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+
+                                        <option value="OHS 2021">OHS 2021 </option>
+                                        <option value="OHS 2019">OHS 2019 </option>
+                                        <option value="365">365 </option>
+                                        {{--  <option value=""> </option>  --}}
+                                        </select>
+                                </div>
                         </div>
 
                     </div>
@@ -182,6 +196,12 @@
                     <!-- end row -->
 
                     <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Hardisk</label>
+                            <div class="form-group col-11">
+                                <input name="hardisk" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
+                        </div>
                         <div class="col-6">
                             <label class="col-6 col-form-label">Internet?</label>
                                 <div class="form-group col-11">
@@ -193,12 +213,7 @@
                                         </select>
                                 </div>
                         </div>
-                        <div class="col-6 mb-2">
-                            <label for="text" class="col-sm-2 col-form-label">Ip Address</label>
-                            <div class="form-group col-11">
-                                <input name="ipaddress" class="form-control" type="text"  placeholder="" id="text">
-                            </div>
-                        </div>
+
                     </div>
                     <!-- end row -->
 
@@ -209,8 +224,8 @@
                                     <select name="amp" class="form-select" aria-label="Default select example">
                                         <option selected="">Open this select menu</option>
 
-                                        <option value="">Yes </option>
-                                        <option value="">NO </option>
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
                                         </select>
                                 </div>
                         </div>
@@ -238,6 +253,12 @@
                             <label for="text" class="col-sm-2 col-form-label">Ip Address</label>
                             <div class="form-group col-11">
                                 <input name="ipaddress" class="form-control" type="text"  placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Anydesk ID</label>
+                            <div class="form-group col-11">
+                                <input name="anydeskid" class="form-control" type="text"  placeholder="" id="text">
                             </div>
                         </div>
                     </div>

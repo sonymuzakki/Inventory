@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Events\Validated;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use App\Models\Divisi;
 use Carbon\Carbon;
 use App\Models\user;
@@ -9,11 +14,6 @@ use App\Models\history;
 use App\Models\Inventory;
 use App\Models\Jenis;
 use App\Models\proses;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 use function GuzzleHttp\Promise\all;
 

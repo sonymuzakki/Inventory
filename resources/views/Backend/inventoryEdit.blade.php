@@ -22,9 +22,9 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="{{ route('invetaris.update') }}" enctype="multipart/from-data" id="myForm">
+                <form action="{{ route('invetaris.update') }}" method="POST">
                     @csrf
-                    @method('put')
+                    @method('PUT')
 
                     {{--  <input type="hidden" name="id" value="{{ $inventory->id }}"  --}}
 

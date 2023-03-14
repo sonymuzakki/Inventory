@@ -76,6 +76,18 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-layout-3-line"></i>
+                        <span>Manage Users</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('request.all') }}">Request All Support</a></li>
+                        <li><a href="{{ route('request.pending') }}">Request Proses</a></li>
+                        {{--  <li><a href="{{ route('proses.all') }}">Handle Request</a></li>  --}}
+                    </ul>
+                </li>
+
                 {{--  <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-layout-3-line"></i>

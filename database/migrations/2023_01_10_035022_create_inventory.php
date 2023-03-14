@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('ipaddress')->nullable();
             $table->string('amp')->nullable();
             $table->string('umbrella')->nullable();            // $table->string('umbrella')->nullable();
+            $table->string('anydeskid')->nullable();            // $table->string('umbrella')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

@@ -1112,10 +1112,10 @@ body[data-layout=horizontal][data-layout-size=boxed] .container-fluid, body[data
 
 /*!
  * Waves v0.7.6
- * http://fian.my.id/Waves 
- * 
- * Copyright 2014-2018 Alfiana E. Sibuea and other contributors 
- * Released under the MIT license 
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014-2018 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
  * https://github.com/fians/Waves/blob/master/LICENSE */
 .waves-effect {
   position: relative;
@@ -1192,6 +1192,15 @@ body[data-layout=horizontal][data-layout-size=boxed] .container-fluid, body[data
   text-align: center;
   text-decoration: none;
   z-index: 1;
+}
+
+.button-like {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: default;
 }
 
 .waves-button {
@@ -1669,7 +1678,8 @@ body[data-layout=horizontal][data-layout-size=boxed] .container-fluid, body[data
 .navs-carousel .owl-nav {
   margin-top: 16px;
 }
-.navs-carousel .owl-nav button {
+.navs-carousel .owl-nav
+ {
   width: 30px;
   height: 30px;
   line-height: 28px !important;
