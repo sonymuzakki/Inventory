@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\DB;
 
 class Divisi extends Model
 {
-    public $incrementing = false;
-    public $keyType = 'string';
-    protected $primaryKey = 'code';
+    // public $incrementing = false;
+    // public $keyType = 'string';
+    // protected $primaryKey = 'code';
     protected $table = 'divisi';
     protected $guarded = [];
 

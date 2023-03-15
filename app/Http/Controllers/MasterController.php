@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+
+use App\Models\User;
 use App\Models\Jenis;
 use App\Models\Divisi;
 use App\Models\Lokasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
@@ -135,7 +138,7 @@ class MasterController extends Controller
             return redirect()->route('divisi.all')->with($notification);
         }
 
-
+        //Lokasi Controller
 
         public function LokasiAll(){
             $lokasi = lokasi::all();
@@ -183,12 +186,72 @@ class MasterController extends Controller
                 'nama' => $request->nama,
                 'updated_at' => Carbon::now(),
             ]);
-
             $notification = array(
                 'message' => 'Inventaris Updated Successfully',
                 'alert-type' => 'success'
             );
-
             return redirect()->route('lokasi.all')->with($notification);
         }
+
+        //Users
+        public function UserAll(){
+            $user = user::all();
+            return view('Backend.Master.users.UsersAll',compact('user'));
+        }
+
+        public function userAdd(){
+            $user = user::all();
+            return view('Backend.Master.users.userAdd',compact('user'));
+        }
+
+        public function userStore(Request $request){
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        // create a new user object and fill it with the form data
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->username = strtolower(str_replace(' ', '', $request->name));
+        $user->email = strtolower(str_replace(' ', '.', $request->input('name'))) . '@gmail.com';
+        $user->password = Hash::make('password');
+        $user->save();
+
+        $notification = array(
+            'message' => 'Inventaris Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('user.all');
+    }
+
+        public function userDelete($id){
+            user::findOrFail($id)->delete();
+             $notification = array(
+                  'message' => 'user Deleted Successfully',
+                  'alert-type' => 'success'
+              );
+              return redirect()->back()->with($notification);
+        }
+
+        public function userEdit($id){
+            $user = user::findOrFail($id);
+            return view('Backend.Master.users.userEdit',compact('user'));
+        }
+
+        public function userUpdate(Request $request){
+            $id = $request->id;
+            user::findOrFail($id)->update([
+                'name' => $request->name,
+                'updated_at' => Carbon::now(),
+            ]);
+            $notification = array(
+                'message' => 'Inventaris Updated Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('user.all')->with($notification);
+        }
+
+
 }

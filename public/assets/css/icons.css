@@ -39657,5 +39657,5 @@ readers do not read off random characters that represent icons */
 
 .ri-zoom-out-line:before {
   content: "\f265";
-} content: "\f265";
+  content: "\f265";
 }

@@ -79,8 +79,16 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/lokasi-add', 'lokasiAdd')->name('lokasi.add')->middleware('role:admin');
     Route::post('/lokasi-store', 'lokasiStore')->name('lokasi.store')->middleware('role:admin');
     Route::get('/lokasi-delete{id}', 'lokasiDelete')->name('lokasi.delete')->middleware('role:admin');
-    Route::get('/lokasiEdit-{id}','lokasiEdit')->name('lokasi.edit')->middleware('role:admin');
+    // Route::get('/lokasiEdit-{id}','lokasiEdit')->name('lokasi.edit')->middleware('role:admin');
     Route::post('/lokasiUpdate','lokasiUpdate')->name('lokasi.update')->middleware('role:admin');
+    Route::post('/lokasi-edit-{id}','lokasiEdit')->name('lokasi.edit')->middleware('role:admin');
+
+    Route::get('/user-All', 'userAll')->name('user.all')->middleware('role:admin');
+    Route::get('/user-Add', 'userAdd')->name('user.add')->middleware('role:admin');
+    Route::post('/user-store', 'userStore')->name('user.store')->middleware('role:admin');
+    Route::get('/user-delete{id}', 'userDelete')->name('user.delete')->middleware('role:admin');
+    Route::get('/lokasiEdit-{id}','userEdit')->name('user.edit')->middleware('role:admin');
+    Route::post('/userUpdate','userUpdate')->name('user.update')->middleware('role:admin');
 });
 
 Route::controller(HistoryController::class)->group(function () {

@@ -5,12 +5,12 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h3 class="mb-sm-2">Master Lokasi</h3><br></br><hr>
+            <h3 class="mb-sm-2">Manage Users</h3><br></br><hr>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="">Form</a></li>
-                    <li class="breadcrumb-item active">Data Lokasi
+                    <li class="breadcrumb-item active">Data Users
                     </li>
                 </ol>
             </div>
@@ -23,14 +23,14 @@
         <div class="card">
             <div class="card-body">
 
-                <a href="{{ route('lokasi.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Lokasi</a> <br></br>
+                <a href="{{ route('user.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Users</a> <br></br>
 
-                <h4>Lokasi All Data</h4>
+                <h4>user All Data</h4>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
                     <thead>
                         <tr>
                             <th width="5%">No</th>
-                            <th>Lokasi</th>
+                            <th>Username</th>
                             <th width="20%">Action</th>
                         </tr>
                     </thead>
@@ -38,13 +38,13 @@
                             {{--  @php
                                 $no = 1;
                             @endphp  --}}
-                            @foreach ($lokasi as $key => $item)
+                            @foreach ($user as $key => $item)
                             <tr>
-                                <td>{{ 'L-' . str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</td>
-                                <td>{{ $item->nama }}</td>
+                                <td>{{ 'U-' . str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</td>
+                                <td>{{ $item->name }}</td>
                                 <td>
-                                     <a href="{{ route('lokasi.edit', $item->id) }}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
-                                     <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
+                                     <a href="{{ route('user.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
+                                     <a href="{{ route('user.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>
                                      {{--  <a href="{{ route('jenis.details', $item->id) }}" class="btn btn-danger sm" title="Details" > <i class="fa thin fa-info"></i></a>  --}}
                                 </td>
                             </tr>

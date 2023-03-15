@@ -196,7 +196,7 @@
                                         <div class="form-group col-10">
                                             <input name="laporan" class="form-control" type="text" placeholder="" id="text">
                                         </div>
-                                    </div><br>
+                                    </div>
                                     <button type="submit" class="btn btn-info waves waves-effect waves-light "value="Submit">
                                 </form>
 

@@ -10,4 +10,8 @@ class user extends Controller
         return view('Backend.user.user.all');
     }
 
+    // public function index(){
+    //     $user = user::all();
+    //     return view('Backend.Master.users.UsersAll',compact('user'));
+    // }
 }
