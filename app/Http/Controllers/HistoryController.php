@@ -73,21 +73,21 @@ class HistoryController extends Controller
     }
 
     public function historyUpdate(Request $request,$id){
-        // dd($request->all());
-        // $validated = $request->validate([
-        //    'inventory_id' => 'required|exists:App\Models\Inventory,id',
-        // ]);
-        // $data = history::find($id);
-        // $data->inventory_id = $request->inventory_id;
-        // // $data->inventory_id = $request->jenis;
-        // $data->laporan = $request->laporan;
-        // $data->kendala = $request->kendala;
-        // $data->pengerjaan = $request->pengerjaan;
-        // $data->save();
-        $id = $request->id;
-        $data = history::findOrFail($id);
+        dd($request->all());
+        $validated = $request->validate([
+           'inventory_id' => 'required|exists:App\Models\Inventory,id',
+        ]);
+        $data = history::find($id);
+        $data->inventory_id = $request->inventory_id;
+        // $data->inventory_id = $request->jenis;
+        $data->laporan = $request->laporan;
+        $data->kendala = $request->kendala;
+        $data->pengerjaan = $request->pengerjaan;
+        $data->save();
+        // $id = $request->id;
+        // $data = history::findOrFail($id);
 
-        $data->inventory_id
+        // $data->inventory_id
 
         return redirect()->route('request.all');
 
