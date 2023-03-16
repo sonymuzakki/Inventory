@@ -23,18 +23,18 @@ class InventoryController extends Controller
         }
 
         public function InventarisAdd(){
-            $divisi = Divisi::all();
-            $user = user::all();
-            $lokasi = Lokasi::all();
+            // $divisi = Divisi::all();
+            $user = user::with('divisi','lokasi')->get();
+            // $lokasi = Lokasi::all();
             $jenis = Jenis::all();
-            return view('Backend.inventoryAdd',compact('divisi','lokasi','jenis','user'));
+            return view('Backend.inventoryAdd',compact('jenis','user'));
         }
 
         public function InventarisStore(Request $request ){
             $inventory = inventory::insert([
                 'user_id' => $request->user_id,
-                'lokasi_id' => $request->lokasi_id,
-                'divisi_id' => $request->divisi_id,
+                // 'lokasi_id' => $request->lokasi_id,
+                // 'divisi_id' => $request->divisi_id,
                 'jenis_id' => $request->jenis_id,
                 'hostname' => $request->hostname,
                 'merk' => $request->merk,
@@ -190,13 +190,11 @@ class InventoryController extends Controller
 
           public function InventarisDetails($id){
             $inventaris = Inventory::findOrFail($id);
-            $divisi = Divisi::all();
             $user = user::all();
-            $lokasi = Lokasi::all();
             $jenis = Jenis::all();
             $history = history::where('inventory_id',$id)->get();
 
-            return view('Backend.inventoryDetails',compact('inventaris','divisi','lokasi','user','jenis','history'));
+            return view('Backend.inventoryDetails',compact('inventaris','user','jenis','history'));
         }
 
 

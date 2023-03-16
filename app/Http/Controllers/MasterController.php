@@ -196,16 +196,21 @@ class MasterController extends Controller
         //Users
         public function UserAll(){
             $user = user::all();
-            return view('Backend.Master.users.UsersAll',compact('user'));
+
+            $divisi = divisi::all();
+            $lokasi = lokasi::all();
+            return view('Backend.Master.users.UsersAll',compact('lokasi','divisi','user'));
         }
 
         public function userAdd(){
             $user = user::all();
-            return view('Backend.Master.users.userAdd',compact('user'));
+            $divisi = divisi::all();
+            $lokasi = lokasi::all();
+            return view('Backend.Master.users.userAdd',compact('user','divisi','lokasi'));
         }
 
         public function userStore(Request $request){
-
+        // @dd($request);
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
         ]);
@@ -213,17 +218,19 @@ class MasterController extends Controller
         // create a new user object and fill it with the form data
         $user = new User();
         $user->name = $request->input('name');
+        $user->divisi_id = $request->input('divisi_id');
+        $user->lokasi_id = $request->input('lokasi_id');
         $user->username = strtolower(str_replace(' ', '', $request->name));
         $user->email = strtolower(str_replace(' ', '.', $request->input('name'))) . '@gmail.com';
         $user->password = Hash::make('password');
         $user->save();
 
         $notification = array(
-            'message' => 'Inventaris Updated Successfully',
+            'message' => 'Users Insert Successfully',
             'alert-type' => 'success'
         );
 
-        return redirect()->route('user.all');
+        return redirect()->route('user.all')->with($notification);
     }
 
         public function userDelete($id){
@@ -237,21 +244,61 @@ class MasterController extends Controller
 
         public function userEdit($id){
             $user = user::findOrFail($id);
-            return view('Backend.Master.users.userEdit',compact('user'));
+            $divisi = Divisi::all();
+            $lokasi = Lokasi::all();
+            return view('Backend.Master.users.userEdit',compact('user','lokasi','divisi'));
         }
 
-        public function userUpdate(Request $request){
+        public function userUpdate(Request $request , User $user){
             $id = $request->id;
-            user::findOrFail($id)->update([
-                'name' => $request->name,
-                'updated_at' => Carbon::now(),
-            ]);
+            $user = User::findOrFail($id);
+
+            $user->name = $request->name;
+
+            if ($request->filled('password')) {
+                $user->password = bcrypt($request->password);
+            }
+
+            if ($request->filled('divisi_id')) {
+                $user->divisi_id = $request->divisi_id;
+            }
+
+            if ($request->filled('lokasi_id')) {
+                $user->lokasi_id = $request->lokasi_id;
+            }
+
+            $user->save();
+
             $notification = array(
-                'message' => 'Inventaris Updated Successfully',
+                'message' => 'Users Updated Successfully',
                 'alert-type' => 'success'
             );
+
             return redirect()->route('user.all')->with($notification);
         }
 
 
+
 }
+// $id = $request->id;
+                // $user = User::findOrFail($id);
+
+                // $user->name = $request->name;
+                // // $user->divisi_id = $request->divisi_id;
+                // // $user->lokasi_id = $request->lokasi_id;
+
+                // if ($user->isDirty('divisi_id')) {
+                //     $user->divisi_id = $request->divisi_id;
+                // }
+
+                // if ($user->isDirty('lokasi_id')) {
+                //     $user->lokasi_id = $request->lokasi_id;
+                // }
+
+                // $user->save();
+
+                // $notification = array(
+                //     'message' => 'Users Updated Successfully',
+                //     'alert-type' => 'success'
+                // );
+                // return redirect()->route('user.all')->with($notification);

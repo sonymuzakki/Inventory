@@ -46,8 +46,8 @@
                             <tr>
                                 <td>{{ 'R-' . str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $item['user']['name']}}</td>
-                                <td>{{ $item['divisi']['nama'] }}</td>
-                                <td>{{ $item['lokasi']['nama'] }}</td>
+                                <td>{{ $item['user']['divisi']['nama'] }}</td>
+                                <td>{{ $item['user']['lokasi']['nama'] }}</td>
                                 <td>{{ $item->hostname }}</td>
                                 <td>{{ $item['jenis']['nama'] }}</td>
                                 <td>

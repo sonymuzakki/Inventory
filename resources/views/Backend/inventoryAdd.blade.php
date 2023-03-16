@@ -57,28 +57,28 @@
                                         </select>
                                 </div>
                         </div>
-                        <div class="col-3 mb-2">
+                        {{--  <div class="col-3 mb-2">
                             <label class="col-2 col-form-label">Lokasi</label>
                                 <div class="form-group col-sm-10">
-                                    <select name="lokasi_id" class="form-select" aria-label="Default select example">
+                                    <select name="user_id" class="form-select" aria-label="Default select example">
                                         <option selected="">Open this select menu</option>
-                                        @foreach($lokasi as $l)
-                                        <option value="{{ $l->id }}">{{ $l->nama }}</option>
-                                    @endforeach
+                                        @foreach($user as $u)
+                                            <option value="{{ $u->id }}" {{ $u->divisi_id == $user->divisi->id ? 'selected' : '' }}>{{ $u->divisi->nama }}</option>
+                                        @endforeach
                                         </select>
                                 </div>
-                        </div>
-                        <div class="col-3">
+                        </div>  --}}
+                        {{--  <div class="col-3">
                             <label class="col-sm-2 col-form-label">Divisi</label>
                                 <div class="form-group col-10">
-                                    <select name="divisi_id" class="form-select" aria-label="Default select example">
+                                    <select name="user_id" class="form-select" aria-label="Default select example">
                                         <option selected="">Open this select menu</option>
                                         @foreach($divisi as $d)
                                         <option value="{{ $d->id }}"> {{ $d->nama }}</option>
                                     @endforeach
                                         </select>
                                 </div>
-                        </div>
+                        </div>  --}}
                         <div class="col-3">
                             <label class="col-sm-2 col-form-label">Jenis</label>
                                 <div class="form-group col-sm-10">
@@ -133,7 +133,7 @@
 
                                         <option value="OHS 2021">OHS 2021 </option>
                                         <option value="OHS 2019">OHS 2019 </option>
-                                        <option value="365">365 </option>
+                                        <option value="WPS">WPS </option>
                                         {{--  <option value=""> </option>  --}}
                                         </select>
                                 </div>

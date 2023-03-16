@@ -34,7 +34,7 @@
                         <span>Manage Inventory</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('invetaris.all') }}">Data Inventory</a></li>
+                        <li><a href="{{ route('invetaris.all') }}">List Inventory</a></li>
                         <li><a href="{{ route('invetaris.add') }}">Form Inventory</a></li>
                         {{--  <li><a href="{{ route('invetaris.add') }}">Form Inventory</a></li>  --}}
                     </ul>
@@ -61,8 +61,6 @@
                         <li><a href="{{ route('divisi.all') }}">Divisi</a></li>
                         <li><a href="{{ route('jenis.all') }}">Jenis</a></li>
                         <li><a href="{{ route('lokasi.all') }}">Lokasi</a></li>
-
-                        {{--  <li><a href="{{ route('invetaris.add') }}">Form Inventory</a></li>  --}}
                     </ul>
                 </li>
 
@@ -72,9 +70,8 @@
                         <span>Manage Request</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('request.all') }}">Request All Support</a></li>
-                        <li><a href="{{ route('request.pending') }}">Request Proses</a></li>
-                        {{--  <li><a href="{{ route('proses.all') }}">Handle Request</a></li>  --}}
+                        <li><a href="{{ route('request.all') }}">List Request Support</a></li>
+                        {{--  <li><a href="{{ route('request.pending') }}">Request Proses</a></li>  --}}
                     </ul>
                 </li>
 

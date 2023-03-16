@@ -12,13 +12,7 @@ class Inventory extends Model
     protected $table = 'inventory';
     protected $guarded = [];
 
-    public function Divisi(){
-        return $this->belongsTo(Divisi::class,'divisi_id','id');
-    }
 
-    public function Lokasi(){
-        return $this->belongsTo(Lokasi::class,'lokasi_id','id');
-    }
 
     public function User(){
         return $this->belongsTo(User::class,'user_id','id');
@@ -27,9 +21,14 @@ class Inventory extends Model
     public function Jenis(){
         return $this->belongsTo(Jenis::class,'jenis_id','id');
     }
+    public function Divisi(){
+        return $this->belongsTo(Divisi::class);
+    }
 
     public function history(){
         return $this->hasOne(history::class);
     }
+
+
 
 }

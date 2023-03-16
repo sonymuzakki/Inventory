@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('jenis_id');
-            $table->integer('divisi_id');
-            $table->integer('lokasi_id');
             $table->string('hostname')->nullable();
             $table->string('merk')->nullable();
             $table->string('Processor')->nullable();

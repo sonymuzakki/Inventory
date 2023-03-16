@@ -25,14 +25,37 @@
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0">Users add Page</h4>
                 </div>
-                <form method="post" action="{{ route('user.update') }}" enctype="multipart/from-data" id="myForm">
+                <form method="POST" action="{{ route('user.update', $user->id) }}">
                     @csrf
+                    @method('PUT')
 
                     <input type="hidden" name="id"  value="{{ $user->id }}" >
                     <div class="row mb-3">
                         <label for="text" class="col-2 col-form-label">Users</label>
                         <div class="form-group col-10">
                             <input name="name" class="form-control" type="text" value="{{ $user->name }}" placeholder=""                                id=" text">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Divisi</label>
+                        <div class="form-group col-sm-10">
+                            <select name="divisi_id" class="form-select" aria-label="Default select example">
+                                @foreach ($divisi as $role)
+                                    <option value="{{ $role->id }}" {{ $user->divisi_id == $role->id ? 'selected' : '' }}>{{ $role->nama }}</option>
+                                @endforeach
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Lokasi</label>
+                        <div class="form-group col-sm-10">
+                            <select name="lokasi_id" class="form-select" aria-label="Default select example">
+                                @foreach ($lokasi as $role)
+                                    <option value="{{ $role->id }}" {{ $user->lokasi_id == $role->id ? 'selected' : '' }}>{{ $role->nama }}</option>
+                                @endforeach
+                                </select>
                         </div>
                     </div>
 

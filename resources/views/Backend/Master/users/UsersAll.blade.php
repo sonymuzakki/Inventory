@@ -31,7 +31,9 @@
                         <tr>
                             <th width="5%">No</th>
                             <th>Username</th>
-                            <th width="20%">Action</th>
+                            <th>Divisi</th>
+                            <th>Lokasi</th>
+                            <th width="10%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,8 +42,11 @@
                             @endphp  --}}
                             @foreach ($user as $key => $item)
                             <tr>
-                                <td>{{ 'U-' . str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</td>
+                                <td>{{ 'U-' . str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $item->name }}</td>
+                                <td>{{ $item['divisi']['nama']}}</td>
+                                <td>{{ $item['lokasi']['nama']}}</td>
+
                                 <td>
                                      <a href="{{ route('user.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
                                      <a href="{{ route('user.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>

@@ -88,7 +88,7 @@ Route::controller(InventoryController::class)->group(function () {
     Route::post('/user-store', 'userStore')->name('user.store')->middleware('role:admin');
     Route::get('/user-delete{id}', 'userDelete')->name('user.delete')->middleware('role:admin');
     Route::get('/lokasiEdit-{id}','userEdit')->name('user.edit')->middleware('role:admin');
-    Route::post('/userUpdate','userUpdate')->name('user.update')->middleware('role:admin');
+    Route::PUT('/userUpdate','userUpdate')->name('user.update')->middleware('role:admin');
 });
 
 Route::controller(HistoryController::class)->group(function () {
