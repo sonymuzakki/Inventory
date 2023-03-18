@@ -18,15 +18,13 @@
         </div>
     </div>
 </div>
-<div class="row">
+{{--  <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('invetaris.update') }}" method="POST">
                     @csrf
                     @method('PUT')
-
-                    {{--  <input type="hidden" name="id" value="{{ $inventory->id }}"  --}}
 
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">User</label>
@@ -153,6 +151,257 @@
                     <!-- end row -->
 
 
+
+                <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update Inventory">
+                </form>
+                <!-- end row -->
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>  --}}
+
+<!--  Page 2  -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ route('inventaris.update', $inventaris->id) }}">
+                    @csrf
+                    @method('PUT')
+
+                    <h4>ID : I-{{ str_pad($inventaris->id, 3, '0', STR_PAD_LEFT) }}</h4>
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label class="col-sm-6 col-form-label">User</label>
+                            <div class="form-group col-11">
+                                <select name="user_id" class="form-select" aria-label="Default select example">
+                                    @foreach($user as $j)
+                                        <option value="{{ $j->id }}" {{ $j->id == $inventaris->user_id ? 'selected' : '' }} >{{ $j->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2 ">
+                            <label class="col-sm-6 col-form-label">Jenis</label>
+                                <div class="form-group col-11 ">
+                                    <select name="jenis_id" class="form-select" aria-label="Default select example">
+                                        <option selected="">Open this select menu</option>
+                                        @foreach($jenis as $j)
+                                            <option value="{{ $j->id }}" {{ $j->id == $inventaris->jenis_id ? 'selected' : '' }} >{{ $j->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                            <!-- end row -->
+
+                        </div>
+                    <!-- end row -->
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Hostname</label>
+                            <div class="form-group col-11">
+                                <input name="hostname" class="form-control" value={{ $inventaris->hostname }} type="text"  placeholder="" id="text" >
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <div class="col-6 mb-2">
+                            <label class="col-6 col-form-label">OS</label>
+                                <div class="form-group col-11">
+                                    <select name="os" class="form-select" aria-label="Default select example">
+                                        <option selected="{{ $inventaris->id }}">{{ $inventaris->os }}</option>
+
+                                        <option value="WIN 11">WIN 11 </option>
+                                        <option value="WIN 10">WIN 10 </option>
+                                        <option value="WIN 7">WIN 7 </option>
+                                        <option value="WINDOWS SERVER">WINDOWS SERVER </option>
+                                    </select>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Merk</label>
+                            <div class="form-group col-11">
+                                <input name="merk" class="form-control" type="text" value={{ $inventaris->merk }} placeholder="" id="text">
+                            </div>
+                        </div>
+
+                        <div class="col-6 mb-2">
+                            <label class="col-6 col-form-label">Office</label>
+                                <div class="form-group col-11">
+                                    <select name="Office" class="form-select" aria-label="Default select example">
+                                        <option selected="">{{ $inventaris->Office }}</option>
+                                        <option value="OHS 2021">OHS 2021 </option>
+                                        <option value="OHS 2019">OHS 2019 </option>
+                                        <option value="WPS">WPS </option>
+                                    </select>
+                                </div>
+                        </div>
+
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Merk</label>
+                            <div class="form-group col-11">
+                                <input name="merk" class="form-control" type="text" value={{ $inventaris->merk }} placeholder="" id="text">
+                            </div>
+                        </div>
+
+                        <div class="col-6 mb-2">
+                            <label class="col-6 col-form-label">Office</label>
+                                <div class="form-group col-11">
+                                    <select name="Office" class="form-select" aria-label="Default select example">
+                                        <option selected="">{{ $inventaris->Office }}</option>
+                                        <option value="OHS 2021">OHS 2021 </option>
+                                        <option value="OHS 2019">OHS 2019 </option>
+                                        <option value="WPS">WPS </option>
+                                    </select>
+                                </div>
+                        </div>
+
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Processor</label>
+                            <div class="form-group col-11">
+                                <input name="Processor" class="form-control" type="text" value={{ $inventaris->Processor }} placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="text" class="col-sm-2 col-form-label">AkunOffice</label>
+                            <div class="form-group col-11">
+                                <input name="akunOffice" class="form-control" type="text" value={{ $inventaris->akunOffice }} placeholder="" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">RAM</label>
+                            <div class="form-group col-11">
+                                <input name="ram" class="form-control" type="text" value={{ $inventaris->ram }} placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">SSD</label>
+                            <div class="form-group col-11">
+                                <input name="ssd" class="form-control" type="text" value={{ $inventaris->ssd }} placeholder="" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Grafik</label>
+                            <div class="form-group col-11">
+                                <input name="grafik" class="form-control" type="text" value={{ $inventaris->grafik }}  placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label class="col-6 col-form-label">Legal OS ?</label>
+                                <div class="form-group col-11">
+                                    <select name="legalos" class="form-select" aria-label="Default select example">
+                                        <option selected="">{{ $inventaris->legalos }}</option>
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
+                                        </select>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Hardisk</label>
+                            <div class="form-group col-11">
+                                <input name="hardisk" class="form-control"  type="text" value={{ $inventaris->hardisk }}  placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label class="col-6 col-form-label">Internet ?</label>
+                                <div class="form-group col-11">
+                                    <select name="internet" class="form-select" aria-label="Default select example">
+                                        <option selected="">{{ $inventaris->internet }}</option>
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
+                                        </select>
+                                </div>
+                        </div>
+
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label class="col-6 col-form-label">Security AMP ?</label>
+                                <div class="form-group col-11">
+                                    <select name="amp" class="form-select" aria-label="Default select example">
+                                        <option selected="">{{ $inventaris->amp }}</option>
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="col-6">
+                            <label class="col-6 col-form-label">Security Umbrella ?</label>
+                                <div class="form-group col-11">
+                                    <select name="umbrella" class="form-select" aria-label="Default select example">
+                                        <option selected="">{{ $inventaris->umbrella }}</option>
+                                        <option value="Yes">Yes </option>
+                                        <option value="NO">NO </option>
+                                        </select>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Ip Address</label>
+                            <div class="form-group col-11">
+                                <input name="ipaddress" value={{ $inventaris->ipaddress }} class="form-control" type="text"  placeholder="" id="text">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="text" class="col-sm-2 col-form-label">Anydesk ID</label>
+                            <div class="form-group col-11">
+                                <input name="anydeskid"  class="form-control" type="text" value={{ $inventaris->anydeskid }} placeholder="" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+                        <div class="col-6 mb-2">
+
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-3">
+
+                    </div>
+                    <!-- end row -->
 
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update Inventory">
                 </form>

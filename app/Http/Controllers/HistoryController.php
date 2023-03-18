@@ -72,25 +72,45 @@ class HistoryController extends Controller
         return view('Backend.Request.historyProses',compact('history','inventory','user'));
     }
 
-    public function historyUpdate(Request $request,$id){
-        dd($request->all());
-        $validated = $request->validate([
-           'inventory_id' => 'required|exists:App\Models\Inventory,id',
-        ]);
-        $data = history::find($id);
-        $data->inventory_id = $request->inventory_id;
-        // $data->inventory_id = $request->jenis;
-        $data->laporan = $request->laporan;
-        $data->kendala = $request->kendala;
-        $data->pengerjaan = $request->pengerjaan;
-        $data->save();
-        // $id = $request->id;
-        // $data = history::findOrFail($id);
+    public function historyUpdate(Request $request, history $id)
+        {
 
-        // $data->inventory_id
+            // @dd($id);
+            $this->validate($request, [
+                'inventory_id' => 'required',
+                'jenis_id' => 'required',
+                'laporan' => 'required',
+                'kendala' => 'required',
+                'pengerjaan' => 'required',
+            ]);
 
-        return redirect()->route('request.all');
+            // mencari data history dengan id yang diberikan
+            $history = history::findOrFail($id);
 
+            // mengupdate data history dengan data dari request
+            $history->inventory_id = $request->inventory_id;
+            // $history->jenis_id = $request->jenis_id;
+            $history->laporan = $request->laporan;
+            $history->kendala = $request->kendala;
+            $history->pengerjaan = $request->pengerjaan;
+
+            // jika data tidak diubah, maka gunakan data yang sudah ada sebelumnya
+            if ($history->filled('inventory_id')) {
+                $history->inventory_id = $history->inventory_id;
+            }
+            // if ($history->filled('jenis_id')) {
+            //     $user->jenis_id = $history->jenis_id;
+            // }
+
+            // menyimpan data yang sudah diupdate
+            $history->save();
+
+            $notification = array(
+                'message' => 'History Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('request.all')->with($notification);
     }
 
     public function historyApprove($id){

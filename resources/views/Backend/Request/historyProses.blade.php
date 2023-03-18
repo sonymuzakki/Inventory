@@ -23,29 +23,26 @@
         <div class="card">
             <div class="card-body">
                 {{--  <h4 class="mb-4">History add Page</h4>  --}}
-                <form method="POST" action="{{ route('history.update', $history->id) }}" enctype="multipart/from-data" id="myForm">
-
+                <form method="POST" action="{{ route('history.update', $history->id) }}">
                     @csrf
                     @method('PUT')
 
                     <div class="row mb-3">
-
                         <label class="col-sm-2 col-form-label">User</label>
                         <div class="form-group col-sm-10">
-                            <select name="inventory_id" class="form-select" aria-label="Default select example"disabled>
+                            <select name="inventory_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($inventory as $u)
-                                        <option value="{{ $u->id }}" {{ $u->id == $history->inventory_id ? 'selected' : '' }} ">{{ $u->user->name }}</option>
+                                    <option value="{{ $u->id }}" {{ $u->id == $history->inventory_id ? 'selected' : '' }}>{{ $u->user->name }}</option>
                                 @endforeach
-                                </select>
+                            </select>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-
                         <label class="col-sm-2 col-form-label">Jenis</label>
                         <div class="form-group col-sm-10">
-                            <select name="inventory_id" class="form-select" aria-label="Default select example"disabled>
+                            <select name="inventory_id" class="form-select" aria-label="Default select example">
                                 <option selected="">Open this select menu</option>
                                 @foreach($inventory as $u)
                                         <option value="{{ $u->id }}" {{ $u->id == $history->inventory_id ? 'selected' : '' }} ">{{ $u->jenis->nama }}</option>
@@ -57,7 +54,7 @@
                 <div class="row mb-3">
                     <label for="text" class="col-2 col-form-label">Laporan</label>
                     <div class="form-group col-10">
-                        <input name="laporan" class="form-control" type="text" value={{ $history->laporan }} placeholder="" id="text"disabled>
+                        <input name="laporan" class="form-control" type="text" value={{ $history->laporan }} placeholder="" id="text">
                     </div>
                 </div>
 

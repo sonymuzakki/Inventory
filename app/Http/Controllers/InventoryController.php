@@ -65,44 +65,136 @@ class InventoryController extends Controller
 
         public function InventarisEdit($id){
             $inventaris = Inventory::findOrFail($id);
-            $divisi = Divisi::all();
             $user = user::all();
-            $lokasi = Lokasi::all();
             $jenis = Jenis::all();
-            return view('Backend.inventoryEdit',compact('inventaris','divisi','lokasi','jenis','user'));
+            return view('Backend.inventoryEdit',compact('inventaris','jenis','user'));
         }
 
-        public function InventarisUpdate(Request $request){
-            // dd($request);
-            $id = $request->id;
+        public function InventarisUpdate(Request $request,$id){
+            //validasi inputan dari form
+                $this->validate($request, [
+                    'user_id' => 'required',
+                    'jenis_id' => 'required',
+                    'hostname' => 'required',
+                    'os' => 'required',
+                    'merk' => 'required',
+                    'Office' => 'required',
+                    'Processor' => 'required',
+                    'akunOffice' => 'required',
+                    'ram' => 'required',
+                    'ssd' => 'required',
+                    'grafik' => 'required',
+                    'legalos' => 'required',
+                    'hardisk' => 'required',
+                    'internet' => 'required',
+                    'amp' => 'required',
+                    'umbrella' => 'required',
+                    'ipaddress' => 'required',
+                    'anydeskid' => 'required'
+                ]);
 
-            Inventory::findOrFail($id)->update([
-                'user_id' => $request->user_id,
-                'lokasi_id' => $request->lokasi_id,
-                'divisi_id' => $request->divisi_id,
-                'jenis_id' => $request->jenis_id,
-                'hostname' => $request->hostname,
-                'merk' => $request->merk,
-                'Processor' => $request->Processor,
-                'ram' => $request->ram,
-                'grafik' => $request->grafik,
-                'ssd' => $request->ssd,
-                'os' => $request->os,
-                'Office' => $request->Office,
-                'akunOffice' => $request->akunOffice,
-                'hardisk' => $request->hardisk,
-                'updated_by' => Auth::user()->id,
-                'updated_by' => Carbon::now()
-            ]);
+                //mengambil data inventaris dari database
+                $inventaris = Inventory::findOrFail($id);
 
-             $notification = array(
-                'message' => 'Inventaris Updated Successfully',
-                'alert-type' => 'success'
-            );
+                //mengupdate data inventaris dengan data baru dari inputan form
+                $inventaris->user_id = $request->user_id;
+                $inventaris->jenis_id = $request->jenis_id;
+                $inventaris->hostname = $request->hostname;
+                $inventaris->os = $request->os;
+                $inventaris->merk = $request->merk;
+                $inventaris->Office = $request->Office;
+                $inventaris->Processor = $request->Processor;
+                $inventaris->akunOffice = $request->akunOffice;
+                $inventaris->ram = $request->ram;
+                $inventaris->ssd = $request->ssd;
+                $inventaris->grafik = $request->grafik;
+                $inventaris->legalos = $request->legalos;
+                $inventaris->hardisk = $request->hardisk;
+                $inventaris->internet = $request->internet;
+                $inventaris->amp = $request->amp;
+                $inventaris->umbrella = $request->umbrella;
+                $inventaris->ipaddress = $request->ipaddress;
+                $inventaris->anydeskid = $request->anydeskid;
 
-            return redirect()->route('invetaris.all',compact('inventory'))->with($notification);
+                //jika kolom tidak diubah, maka ambil nilai dari database sebelumnya
+                if (!$inventaris->isDirty('user_id')) {
+                    $inventaris->user_id = $inventaris->getOriginal('user_id');
+                }
 
-        }// End Method
+                //simpan perubahan data pada inventaris
+                $inventaris->save();
+
+                //set notifikasi untuk ditampilkan pada halaman selanjutnya
+                $notification = array(
+                    'message' => 'Inventaris Updated Successfully',
+                    'alert-type' => 'success'
+                );
+
+                //kembalikan user ke halaman inventaris dengan notifikasi
+                return redirect()->route('invetaris.all');
+            }
+        // public function InventarisUpdate(Request $request, $id){
+
+        //     // $id = $request->id;
+        //     //validasi inputan dari form
+        //     $this->validate($request,$id, [
+        //         'user_id' => 'required',
+        //         'jenis_id' => 'required',
+        //         'hostname' => 'required',
+        //         'os' => 'required',
+        //         'merk' => 'required',
+        //         'Office' => 'required',
+        //         'Processor' => 'required',
+        //         'akunOffice' => 'required',
+        //         'ram' => 'required',
+        //         'ssd' => 'required',
+        //         'grafik' => 'required',
+        //         'legalos' => 'required',
+        //         'hardisk' => 'required',
+        //         'internet' => 'required',
+        //         'amp' => 'required',
+        //         'umbrella' => 'required',
+        //         'ipaddress' => 'required',
+        //         'anydeskid' => 'required'
+        //     ]);
+
+        //     // $this->InventarisUpdate($request, $id);
+
+        //     //mengambil data inventaris dari database
+        //     $inventaris = Inventory::findOrFail($id);
+
+        //     //mengupdate data inventaris dengan data baru dari inputan form
+        //     $inventaris->user_id = $request->user_id;
+        //     $inventaris->jenis_id = $request->jenis_id;
+        //     $inventaris->hostname = $request->hostname;
+        //     $inventaris->os = $request->os;
+        //     $inventaris->merk = $request->merk;
+        //     $inventaris->Office = $request->Office;
+        //     $inventaris->Processor = $request->Processor;
+        //     $inventaris->akunOffice = $request->akunOffice;
+        //     $inventaris->ram = $request->ram;
+        //     $inventaris->ssd = $request->ssd;
+        //     $inventaris->grafik = $request->grafik;
+        //     $inventaris->legalos = $request->legalos;
+        //     $inventaris->hardisk = $request->hardisk;
+        //     $inventaris->internet = $request->internet;
+        //     $inventaris->amp = $request->amp;
+        //     $inventaris->umbrella = $request->umbrella;
+        //     $inventaris->ipaddress = $request->ipaddress;
+        //     $inventaris->anydeskid = $request->anydeskid;
+
+        //     //simpan perubahan data pada inventaris
+        //     $inventaris->save();
+
+        //     //set notifikasi untuk ditampilkan pada halaman selanjutnya
+        //     $notification = array(
+        //         'message' => 'Inventaris Updated Successfully',
+        //         'alert-type' => 'success'
+        //     );
+
+        //     //kembalikan user ke halaman inventaris dengan notifikasi
+        //     return redirect()->route('invetaris.all')->with($notification);
+        // }
         // public function InventarisUpdate(Request $request, $id)
         // {
         //     $inventory = Inventory::findOrFail($id);
@@ -196,6 +288,7 @@ class InventoryController extends Controller
 
             return view('Backend.inventoryDetails',compact('inventaris','user','jenis','history'));
         }
+
 
 
 
