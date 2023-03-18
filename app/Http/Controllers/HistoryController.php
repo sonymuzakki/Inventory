@@ -75,7 +75,7 @@ class HistoryController extends Controller
     public function historyUpdate(Request $request, history $id)
         {
 
-            // @dd($id);
+            @dd($id);
             $this->validate($request, [
                 'inventory_id' => 'required',
                 'jenis_id' => 'required',
