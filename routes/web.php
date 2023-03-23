@@ -102,6 +102,7 @@ Route::controller(HistoryController::class)->group(function () {
 
     Route::get('/history-approved-Dsh/{id}', 'historyApproveDashboard')->name('history.approvedsh')->middleware('role:admin');
 
+    Route::get('/get-jenis/{id}', 'getJenis')->name('getJenis')->middleware('role:admin');
     // Route::get('/proses-all', 'prosesAll')->name('proses.all');
     // Route::get('/proses-add', 'prosesAdd')->name('proses.add');
     // Route::post('/proses-store', 'prosesStore')->name('proses.store');

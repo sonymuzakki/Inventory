@@ -37,6 +37,13 @@
                 </div>
 
                 <div class="row mb-3">
+                    <label for="text" class="col-2 col-form-label">Username</label>
+                    <div class="form-group col-10">
+                        <input name="username" class="form-control" type="text" placeholder="" id="text">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Divisi</label>
                     <div class="form-group col-sm-10">
                         <select name="divisi_id" class="form-select" aria-label="Default select example">
@@ -59,6 +66,32 @@
                             </select>
                     </div>
                 </div>
+
+                <div class="row mb-3">
+                    <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Kata Sandi') }}</label>
+                        <div class="col-sm-10">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Konfirmasi Kata Sandi') }}</label>
+                        <div class="col-sm-10">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                </div>
+
+
 
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Submit">
                 </form>

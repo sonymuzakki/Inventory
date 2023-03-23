@@ -30,9 +30,11 @@
                     <thead>
                         <tr>
                             <th width="5%">No</th>
+                            <th>Nama</th>
                             <th>Username</th>
                             <th>Divisi</th>
                             <th>Lokasi</th>
+                            <th>Password</th>
                             <th width="10%">Action</th>
                         </tr>
                     </thead>
@@ -44,8 +46,10 @@
                             <tr>
                                 <td>{{ 'U-' . str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $item->name }}</td>
+                                <td>{{ $item->username }}</td>
                                 <td>{{ $item['divisi']['nama']}}</td>
                                 <td>{{ $item['lokasi']['nama']}}</td>
+                                <td>{{ $item->password_plain }}</td>
 
                                 <td>
                                      <a href="{{ route('user.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>

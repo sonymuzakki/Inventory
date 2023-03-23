@@ -91,7 +91,7 @@ File: Main Css File
 .app-search .form-control {
   border: none;
   height: 38px;
-  padding-left: 40px;
+  padding-left: 20px;
   padding-right: 20px;
   background-color: #2b3244;
   -webkit-box-shadow: none;
@@ -2560,6 +2560,7 @@ body {
   color: #f32f53;
 }
 
+
 .parsley-error {
   border-color: #f32f53;
 }
@@ -2585,7 +2586,7 @@ body {
 .select2-container .select2-selection--single {
   background-color: #292f3f;
   border: 1px solid #2d3448;
-  height: 38px;
+  height: 40px;
 }
 .select2-container .select2-selection--single:focus {
   outline: none;
@@ -2618,7 +2619,7 @@ body {
   background-color: #252b3b;
 }
 .select2-container--default .select2-search--dropdown .select2-search__field {
-  border: 1px solid #2d3448;
+  border: 5px solid #2d3448;
   background-color: #292f3f;
   color: #919bae;
   outline: none;

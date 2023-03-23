@@ -1,0 +1,228 @@
+warning: in the working copy of 'app/Http/Controllers/HistoryController.php', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/app/Http/Controllers/HistoryController.php b/app/Http/Controllers/HistoryController.php[m
+[1mindex 147cfa6..3e6f900 100644[m
+[1m--- a/app/Http/Controllers/HistoryController.php[m
+[1m+++ b/app/Http/Controllers/HistoryController.php[m
+[36m@@ -7,6 +7,7 @@[m
+ use Illuminate\Support\Facades\Auth;[m
+ use Illuminate\Support\Facades\Redis;[m
+ use Symfony\Component\HttpKernel\Event\RequestEvent;[m
+[32m+[m
+ use App\Models\Divisi;[m
+ use Carbon\Carbon;[m
+ use App\Models\user;[m
+[36m@@ -19,22 +20,22 @@[m
+ [m
+ class HistoryController extends Controller[m
+ {[m
+[31m-    public function HistoryAll(){[m
+[31m-        // $allData = history::latest()->first()->get();[m
+[31m-        // $inventory = Inventory::all();[m
+[31m-        // $user   = user::all();[m
+[31m-        $allData = history::with(['inventory','user'])->latest()->get();[m
+[31m-        return view('Backend.Request.historyAll',compact('allData'));[m
+[31m-    }[m
+[31m-[m
+[31m-    public function RequestAdd(){[m
+[31m-        $history = history::all();[m
+[31m-        $inventory = inventory::all();[m
+[31m-        $user = user::all();[m
+[31m-        $divisi = Divisi::all();[m
+[31m-        $jenis = Jenis::all();[m
+[31m-        return view('Backend.Request.requestAdd',compact('inventory','history','user','divisi','jenis'));[m
+[31m-    }[m
+[32m+[m[32m    // public function HistoryAll(){[m
+[32m+[m[32m    //     // $allData = history::latest()->first()->get();[m
+[32m+[m[32m    //     // $inventory = Inventory::all();[m
+[32m+[m[32m    //     // $user   = user::all();[m
+[32m+[m[32m    //     $allData = history::with(['inventory','user'])->latest()->get();[m
+[32m+[m[32m    //     return view('Backend.Request.historyAll',compact('allData'));[m
+[32m+[m[32m    // }[m
+[32m+[m
+[32m+[m[32m    // public function RequestAdd(){[m
+[32m+[m[32m    //     $history = history::all();[m
+[32m+[m[32m    //     $inventory = inventory::all();[m
+[32m+[m[32m    //     $user = user::all();[m
+[32m+[m[32m    //     $divisi = Divisi::all();[m
+[32m+[m[32m    //     $jenis = Jenis::all();[m
+[32m+[m[32m    //     return view('Backend.Request.requestAdd',compact('inventory','history','user','divisi','jenis'));[m
+[32m+[m[32m    // }[m
+ [m
+     public function RequestStore(Request $request){[m
+ [m
+[36m@@ -56,101 +57,101 @@[m [mpublic function RequestStore(Request $request){[m
+             return redirect()->route('request.all')->with($notification);[m
+     }[m
+ [m
+[31m-        public function RequestPending(){[m
+[31m-        // $allData = history::orderBy('date','desc')->where('status','0')->get();[m
+[31m-        $allData = history::latest()->where('status','0')->get();[m
+[31m-        $inventory = Inventory::all();[m
+[31m-        $user   = user::all();[m
+[31m-        return view('Backend.Request.historyAll',compact('allData'));[m
+[31m-    }[m
+[32m+[m[32m//         public function RequestPending(){[m
+[32m+[m[32m//         // $allData = history::orderBy('date','desc')->where('status','0')->get();[m
+[32m+[m[32m//         $allData = history::latest()->where('status','0')->get();[m
+[32m+[m[32m//         $inventory = Inventory::all();[m
+[32m+[m[32m//         $user   = user::all();[m
+[32m+[m[32m//         return view('Backend.Request.historyAll',compact('allData'));[m
+[32m+[m[32m//     }[m
+ [m
+[31m-    public function historyProses($id){[m
+[31m-        $history = history::find($id);[m
+[31m-        $user   = user::all();[m
+[31m-        $inventory = Inventory::all();[m
+[32m+[m[32m//     public function historyProses($id){[m
+[32m+[m[32m//         $history = history::find($id);[m
+[32m+[m[32m//         $user   = user::all();[m
+[32m+[m[32m//         $inventory = Inventory::all();[m
+ [m
+[31m-        return view('Backend.Request.historyProses',compact('history','inventory','user'));[m
+[31m-    }[m
+[32m+[m[32m//         return view('Backend.Request.historyProses',compact('history','inventory','user'));[m
+[32m+[m[32m//     }[m
+ [m
+[31m-    public function historyUpdate(Request $request, history $id)[m
+[31m-        {[m
+[32m+[m[32m//     public function historyUpdate(Request $request, history $id)[m
+[32m+[m[32m//         {[m
+ [m
+[31m-            @dd($id);[m
+[31m-            $this->validate($request, [[m
+[31m-                'inventory_id' => 'required',[m
+[31m-                'jenis_id' => 'required',[m
+[31m-                'laporan' => 'required',[m
+[31m-                'kendala' => 'required',[m
+[31m-                'pengerjaan' => 'required',[m
+[31m-            ]);[m
+[32m+[m[32m//             @dd($id);[m
+[32m+[m[32m//             $this->validate($request, [[m
+[32m+[m[32m//                 'inventory_id' => 'required',[m
+[32m+[m[32m//                 'jenis_id' => 'required',[m
+[32m+[m[32m//                 'laporan' => 'required',[m
+[32m+[m[32m//                 'kendala' => 'required',[m
+[32m+[m[32m//                 'pengerjaan' => 'required',[m
+[32m+[m[32m//             ]);[m
+ [m
+[31m-            // mencari data history dengan id yang diberikan[m
+[31m-            $history = history::findOrFail($id);[m
+[32m+[m[32m//             // mencari data history dengan id yang diberikan[m
+[32m+[m[32m//             $history = history::findOrFail($id);[m
+ [m
+[31m-            // mengupdate data history dengan data dari request[m
+[31m-            $history->inventory_id = $request->inventory_id;[m
+[31m-            // $history->jenis_id = $request->jenis_id;[m
+[31m-            $history->laporan = $request->laporan;[m
+[31m-            $history->kendala = $request->kendala;[m
+[31m-            $history->pengerjaan = $request->pengerjaan;[m
+[32m+[m[32m//             // mengupdate data history dengan data dari request[m
+[32m+[m[32m//             $history->inventory_id = $request->inventory_id;[m
+[32m+[m[32m//             // $history->jenis_id = $request->jenis_id;[m
+[32m+[m[32m//             $history->laporan = $request->laporan;[m
+[32m+[m[32m//             $history->kendala = $request->kendala;[m
+[32m+[m[32m//             $history->pengerjaan = $request->pengerjaan;[m
+ [m
+[31m-            // jika data tidak diubah, maka gunakan data yang sudah ada sebelumnya[m
+[31m-            if ($history->filled('inventory_id')) {[m
+[31m-                $history->inventory_id = $history->inventory_id;[m
+[31m-            }[m
+[31m-            // if ($history->filled('jenis_id')) {[m
+[31m-            //     $user->jenis_id = $history->jenis_id;[m
+[31m-            // }[m
+[32m+[m[32m//             // jika data tidak diubah, maka gunakan data yang sudah ada sebelumnya[m
+[32m+[m[32m//             if ($history->filled('inventory_id')) {[m
+[32m+[m[32m//                 $history->inventory_id = $history->inventory_id;[m
+[32m+[m[32m//             }[m
+[32m+[m[32m//             // if ($history->filled('jenis_id')) {[m
+[32m+[m[32m//             //     $user->jenis_id = $history->jenis_id;[m
+[32m+[m[32m//             // }[m
+ [m
+[31m-            // menyimpan data yang sudah diupdate[m
+[31m-            $history->save();[m
+[32m+[m[32m//             // menyimpan data yang sudah diupdate[m
+[32m+[m[32m//             $history->save();[m
+ [m
+[31m-            $notification = array([m
+[31m-                'message' => 'History Updated Successfully',[m
+[31m-                'alert-type' => 'success'[m
+[31m-            );[m
+[32m+[m[32m//             $notification = array([m
+[32m+[m[32m//                 'message' => 'History Updated Successfully',[m
+[32m+[m[32m//                 'alert-type' => 'success'[m
+[32m+[m[32m//             );[m
+ [m
+[31m-            return redirect()->route('request.all')->with($notification);[m
+[31m-    }[m
+[32m+[m[32m//             return redirect()->route('request.all')->with($notification);[m
+[32m+[m[32m//     }[m
+ [m
+[31m-    public function historyApprove($id){[m
+[32m+[m[32m//     public function historyApprove($id){[m
+ [m
+[31m-        $history = history::findOrFail($id);[m
+[32m+[m[32m//         $history = history::findOrFail($id);[m
+ [m
+[31m-        if($history->save()){[m
+[32m+[m[32m//         if($history->save()){[m
+ [m
+[31m-            history::findOrFail($id)->update([[m
+[31m-                'status' => '1',[m
+[31m-            ]);[m
+[32m+[m[32m//             history::findOrFail($id)->update([[m
+[32m+[m[32m//                 'status' => '1',[m
+[32m+[m[32m//             ]);[m
+ [m
+[31m-             $notification = array([m
+[31m-        'message' => 'Status Approved Successfully',[m
+[31m-        'alert-type' => 'success'[m
+[31m-          );[m
+[31m-    return redirect()->route('request.all')->with($notification);[m
+[32m+[m[32m//              $notification = array([m
+[32m+[m[32m//         'message' => 'Status Approved Successfully',[m
+[32m+[m[32m//         'alert-type' => 'success'[m
+[32m+[m[32m//           );[m
+[32m+[m[32m//     return redirect()->route('request.all')->with($notification);[m
+ [m
+[31m-        }[m
+[32m+[m[32m//         }[m
+ [m
+[31m-    }// End Method[m
+[32m+[m[32m//     }// End Method[m
+ [m
+[31m-    public function historyApproveDashboard($id){[m
+[32m+[m[32m//     public function historyApproveDashboard($id){[m
+ [m
+[31m-        $history = history::findOrFail($id);[m
+[32m+[m[32m//         $history = history::findOrFail($id);[m
+ [m
+[31m-        if($history->save()){[m
+[32m+[m[32m//         if($history->save()){[m
+ [m
+[31m-            history::findOrFail($id)->update([[m
+[31m-                'status' => '1',[m
+[31m-            ]);[m
+[32m+[m[32m//             history::findOrFail($id)->update([[m
+[32m+[m[32m//                 'status' => '1',[m
+[32m+[m[32m//             ]);[m
+ [m
+[31m-             $notification = array([m
+[31m-        'message' => 'Status Approved Successfully',[m
+[31m-        'alert-type' => 'success'[m
+[31m-          );[m
+[31m-    return redirect()->route('dashboard')->with($notification);[m
+[32m+[m[32m//              $notification = array([m
+[32m+[m[32m//         'message' => 'Status Approved Successfully',[m
+[32m+[m[32m//         'alert-type' => 'success'[m
+[32m+[m[32m//           );[m
+[32m+[m[32m//     return redirect()->route('dashboard')->with($notification);[m
+ [m
+[31m-        }[m
+[32m+[m[32m//         }[m
+ [m
+[31m-    }// End Method[m
+[32m+[m[32m//     }// End Method[m
+ [m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m}[m

@@ -26,43 +26,37 @@
                 <form method="POST" action="{{ route('request.store') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
 
-                    <div class="row mb-3">
-
-                        <label class="col-sm-2 col-form-label">User</label>
-                        <div class="form-group col-sm-10">
-                            <select name="inventory_id"class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($inventory as $i)
-                                <option value="{{ $i->id }}">{{ $i->user->name}}</option>
-                               @endforeach
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label class="form-label">User - Jenis </label>
+                                <select class="form-control select2" name="inventory_id" >
+                                    <option>Select Option</option>
+                                    @foreach ($inventory as $inv)
+                                            <option value="{{ $inv->id }}">{{ $inv->user->name }} - {{ $inv->jenis->nama }}</option>
+                                    @endforeach
                                 </select>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Jenis</label>
-                        <div class="form-group col-sm-10">
-                            <select name="inventory_id" class="form-select" aria-label="Default select example">
-                                {{--  <option selected="">Open this select menu</option>  --}}
-                                @foreach($inventory as $u)
-                                        <option value="{{ $u->id }}">{{ $u->jenis->nama }}</option>
-                                @endforeach
-                                </select>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="mb-3">
+                                <label for="validationCustom01" class="form-label">Laporan</label>
+                                <input type="text" name="laporan" class="form-control" id="validationCustom01"
+                                    placeholder="Laporan" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-
-                <div class="row mb-3">
+                {{--  <div class="row mb-3">
                     <label for="text" class="col-2 col-form-label">Laporan</label>
                     <div class="form-group col-10">
                         <input name="laporan" class="form-control" type="text" placeholder="" id="text">
-                    </div>
-                </div>
-
-                {{--  <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Status</label>
-                    <div class="form-group col-10">
-                        <input name="status" class="form-control" type="text" placeholder="" id="text">
                     </div>
                 </div>  --}}
 
@@ -74,7 +68,7 @@
     </div> <!-- end col -->
 </div>
 
-<script type="text/javascript">
+{{--  <script type="text/javascript">
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
@@ -113,6 +107,6 @@
         });
     });
 
-</script>
+</script>  --}}
 
 @endsection

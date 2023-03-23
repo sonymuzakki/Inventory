@@ -220,9 +220,11 @@ class MasterController extends Controller
         $user->name = $request->input('name');
         $user->divisi_id = $request->input('divisi_id');
         $user->lokasi_id = $request->input('lokasi_id');
-        $user->username = strtolower(str_replace(' ', '', $request->name));
+        // $user->username = strtolower(str_replace(' ', '', $request->name));
+        $user->username = $request->input('username');
         $user->email = strtolower(str_replace(' ', '.', $request->input('name'))) . '@gmail.com';
-        $user->password = Hash::make('password');
+        $user->password = bcrypt($request['password']);
+        $user->password_plain = ($request['password']);
         $user->save();
 
         $notification = array(
@@ -254,6 +256,7 @@ class MasterController extends Controller
             $user = User::findOrFail($id);
 
             $user->name = $request->name;
+            $user->username = $request->username;
 
             if ($request->filled('password')) {
                 $user->password = bcrypt($request->password);

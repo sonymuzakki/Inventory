@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                            @foreach ($allData as $key => $item)
+                            @foreach ($history as $key => $item)
                             <tr>
                                 {{--  <td>{{ $key+1}}</td>  --}}
                                 <td>{{ 'R-' . str_pad($loop->iteration, 4, '0', STR_PAD_LEFT) }}</td>

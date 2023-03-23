@@ -35,7 +35,14 @@
                         <div class="form-group col-10">
                             <input name="name" class="form-control" type="text" value="{{ $user->name }}" placeholder=""                                id=" text">
                         </div>
-                    </div>  
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="text" class="col-2 col-form-label">Username</label>
+                        <div class="form-group col-10">
+                            <input name="username" class="form-control" type="text" value="{{ $user->username }}" placeholder=""                                id=" text">
+                        </div>
+                    </div>
 
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Divisi</label>

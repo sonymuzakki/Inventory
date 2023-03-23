@@ -27,7 +27,7 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="row mb-3">
+                    {{--  <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">User</label>
                         <div class="form-group col-sm-10">
                             <select name="inventory_id" class="form-select" aria-label="Default select example">
@@ -37,9 +37,22 @@
                                 @endforeach
                             </select>
                         </div>
+                    </div>  --}}
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label class="form-label">User - Jenis </label>
+                                <select class="form-control select2" name="inventory_id"disabled>
+                                    @foreach ($inventory as $inv)
+                                        <option value="{{ $inv->id }}" @if($inv->id == $history->inventory_id) selected @endif>{{ $inv->user->name }} - {{ $inv->jenis->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="row mb-3">
+                    {{--  <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Jenis</label>
                         <div class="form-group col-sm-10">
                             <select name="inventory_id" class="form-select" aria-label="Default select example">
@@ -49,12 +62,12 @@
                                 @endforeach
                                 </select>
                         </div>
-                    </div>
+                    </div>  --}}
 
                 <div class="row mb-3">
                     <label for="text" class="col-2 col-form-label">Laporan</label>
                     <div class="form-group col-10">
-                        <input name="laporan" class="form-control" type="text" value={{ $history->laporan }} placeholder="" id="text">
+                        <input name="laporan" class="form-control" type="text" value={{ $history->laporan }} placeholder="" id="text" disabled>
                     </div>
                 </div>
 
