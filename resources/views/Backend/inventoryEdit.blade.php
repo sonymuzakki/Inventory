@@ -216,7 +216,7 @@
                                 <div class="form-group col-11">
                                     <select name="os" class="form-select" aria-label="Default select example">
                                         <option selected="{{ $inventaris->id }}">{{ $inventaris->os }}</option>
-
+                                        
                                         <option value="WIN 11">WIN 11 </option>
                                         <option value="WIN 10">WIN 10 </option>
                                         <option value="WIN 7">WIN 7 </option>

@@ -71,6 +71,29 @@ class HistoryController extends Controller
         return view('Backend.Request.historyProses',compact('history','inventory','user'));
     }
 
+    public function historyUpdate(Request $request,$id){
+
+        $this->validate($request, [
+            'inventory_id' => 'required',
+            'laporan' => 'required',
+            'kendala' => 'required',
+            'pengerjaan' => 'required'
+        ]);
+
+        $history = History::findOrFail($id);
+        $history->inventory_id = $request->inventory_id;
+        $history->laporan = $request->laporan;
+        $history->kendala = $request->kendala;
+        $history->pengerjaan = $request->pengerjaan;
+        $history->save();
+
+        $notification = array(
+            'message' => 'Inventaris Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('request.all')->with($notification);
+    }
+
     // public function historyUpdate(Request $request, history $id)
     //     {
 

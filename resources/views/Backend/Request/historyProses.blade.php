@@ -27,18 +27,6 @@
                     @csrf
                     @method('PUT')
 
-                    {{--  <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">User</label>
-                        <div class="form-group col-sm-10">
-                            <select name="inventory_id" class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($inventory as $u)
-                                    <option value="{{ $u->id }}" {{ $u->id == $history->inventory_id ? 'selected' : '' }}>{{ $u->user->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>  --}}
-
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="mb-3">
@@ -52,50 +40,48 @@
                         </div>
                     </div>
 
-                    {{--  <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Jenis</label>
-                        <div class="form-group col-sm-10">
-                            <select name="inventory_id" class="form-select" aria-label="Default select example">
-                                <option selected="">Open this select menu</option>
-                                @foreach($inventory as $u)
-                                        <option value="{{ $u->id }}" {{ $u->id == $history->inventory_id ? 'selected' : '' }} ">{{ $u->jenis->nama }}</option>
-                                @endforeach
-                                </select>
+                    {{--  Laporan  --}}
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="mb-3">
+                                <label for="validationCustom01" class="form-label">Laporan</label>
+                                <input type="text" name="laporan" value={{ $history->laporan }} class="form-control" id="validationCustom01"
+                                    placeholder="Laporan"  required disabled>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
                         </div>
-                    </div>  --}}
-
-                <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Laporan</label>
-                    <div class="form-group col-10">
-                        <input name="laporan" class="form-control" type="text" value={{ $history->laporan }} placeholder="" id="text" disabled>
                     </div>
-                </div>
 
-                <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Kendala</label>
-                    <div class="form-group col-10">
-                        <input name="kendala" class="form-control" type="text" placeholder="" id="text">
+                    {{--  Kendala  --}}
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="mb-3">
+                                <label for="validationCustom01" class="form-label">Kendala</label>
+                                <input type="text" name="kendala" value={{ $history->kendala }} class="form-control" id="validationCustom01"
+                                    placeholder="Kendala" required >
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Pengerjaan</label>
-                    <div class="form-group col-10">
-                        <input name="pengerjaan" class="form-control" type="text" placeholder="" id="text">
+
+                    {{--  Pengerjaan  --}}
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="mb-3">
+                                <label for="validationCustom01" class="form-label">Pengerjaan</label>
+                                <input type="text" name="pengerjaan" value={{ $history->pengerjaan }} class="form-control" id="validationCustom01"
+                                    placeholder="Pengerjaan" required >
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                {{--  <div class="row mb-3">
-
-                    <label class="col-sm-2 col-form-label">Pengerjaan</label>
-                    <div class="form-group col-sm-10">
-                        <select name="pengerjaan" class="form-select" aria-label="Default select example">
-                            <option selected="">Open this select menu</option>
-                               <option value="Office">Office</option>
-                               <option value="Keluar">Keluar</option>
-                            </select>
-                    </div>
-                </div>  --}}
 
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Submit">
                 </form>
