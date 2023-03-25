@@ -9,9 +9,11 @@ use App\Models\Jenis;
 use App\Models\Divisi;
 use App\Models\Lokasi;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
+use Spatie\Permission\Models\Permission;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class MasterController extends Controller
@@ -206,11 +208,32 @@ class MasterController extends Controller
             $user = user::all();
             $divisi = divisi::all();
             $lokasi = lokasi::all();
-            return view('Backend.Master.users.userAdd',compact('user','divisi','lokasi'));
+            $roles = Role::pluck('name', 'id');
+            $permissions = Permission::pluck('name', 'id');
+
+
+    // return view('users.create', compact('roles', 'permissions'));
+            return view('Backend.Master.users.userAdd',compact('user','divisi','lokasi','roles','permissions'));
         }
 
         public function userStore(Request $request){
         // @dd($request);
+        // $validatedData = $request->validate([
+        //     'name' => 'required|string|max:255',
+        // ]);
+
+        // // create a new user object and fill it with the form data
+        // $user = new User();
+        // $user->name = $request->input('name');
+        // $user->divisi_id = $request->input('divisi_id');
+        // $user->lokasi_id = $request->input('lokasi_id');
+        // // $user->username = strtolower(str_replace(' ', '', $request->name));
+        // $user->username = $request->input('username');
+        // $user->email = strtolower(str_replace(' ', '.', $request->input('name'))) . '@gmail.com';
+        // $user->password = bcrypt($request['password']);
+        // $user->password_plain = ($request['password']);
+        // $user->save();
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
         ]);
@@ -218,13 +241,14 @@ class MasterController extends Controller
         // create a new user object and fill it with the form data
         $user = new User();
         $user->name = $request->input('name');
+        $user->username = $request->input('username');
         $user->divisi_id = $request->input('divisi_id');
         $user->lokasi_id = $request->input('lokasi_id');
         // $user->username = strtolower(str_replace(' ', '', $request->name));
-        $user->username = $request->input('username');
         $user->email = strtolower(str_replace(' ', '.', $request->input('name'))) . '@gmail.com';
-        $user->password = bcrypt($request['password']);
-        $user->password_plain = ($request['password']);
+
+        // $password = Hash::make($request->input('password'));
+        $user->password = Hash::make('password');
         $user->save();
 
         $notification = array(

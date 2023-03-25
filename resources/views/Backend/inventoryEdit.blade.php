@@ -172,16 +172,17 @@
                     <h4>ID : I-{{ str_pad($inventaris->id, 3, '0', STR_PAD_LEFT) }}</h4>
 
                     <div class="row">
-                        <div class="col-6 mb-2">
-                            <label class="col-sm-6 col-form-label">User</label>
-                            <div class="form-group col-11">
-                                <select name="user_id" class="form-select" aria-label="Default select example">
-                                    @foreach($user as $j)
-                                        <option value="{{ $j->id }}" {{ $j->id == $inventaris->user_id ? 'selected' : '' }} >{{ $j->name }}</option>
-                                    @endforeach
-                                </select>
+                         <div class="row">
+                            <div class="col-lg-6 mb-2">
+                                <label class="col-lg-11 col-form-label">User</label>
+                                    <div class="form-group col-lg-11">
+                                            <select class="form-control select2" name="user_id">
+                                                @foreach ($user as $inv)
+                                                    <option value="{{ $inv->id }}">{{ $inv->name }}</option>
+                                                @endforeach
+                                            </select>
+                                    </div>
                             </div>
-                        </div>
                         <div class="col-6 mb-2 ">
                             <label class="col-sm-6 col-form-label">Jenis</label>
                                 <div class="form-group col-11 ">
@@ -216,7 +217,7 @@
                                 <div class="form-group col-11">
                                     <select name="os" class="form-select" aria-label="Default select example">
                                         <option selected="{{ $inventaris->id }}">{{ $inventaris->os }}</option>
-                                        
+
                                         <option value="WIN 11">WIN 11 </option>
                                         <option value="WIN 10">WIN 10 </option>
                                         <option value="WIN 7">WIN 7 </option>
@@ -258,16 +259,11 @@
                             </div>
                         </div>
 
-                        <div class="col-6 mb-2">
-                            <label class="col-6 col-form-label">Office</label>
-                                <div class="form-group col-11">
-                                    <select name="Office" class="form-select" aria-label="Default select example">
-                                        <option selected="">{{ $inventaris->Office }}</option>
-                                        <option value="OHS 2021">OHS 2021 </option>
-                                        <option value="OHS 2019">OHS 2019 </option>
-                                        <option value="WPS">WPS </option>
-                                    </select>
-                                </div>
+                        <div class="col-6">
+                            <label for="text" class="col-sm-2 col-form-label">AkunOffice</label>
+                            <div class="form-group col-11">
+                                <input name="akunOffice" class="form-control" type="text" value={{ $inventaris->akunOffice }} placeholder="" id="text">
+                            </div>
                         </div>
 
                     </div>
@@ -317,6 +313,7 @@
                                 <div class="form-group col-11">
                                     <select name="legalos" class="form-select" aria-label="Default select example">
                                         <option selected="">{{ $inventaris->legalos }}</option>
+
                                         <option value="Yes">Yes </option>
                                         <option value="NO">NO </option>
                                         </select>
@@ -402,7 +399,7 @@
 
                     </div>
                     <!-- end row -->
-
+                </div>
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update Inventory">
                 </form>
                 <!-- end row -->

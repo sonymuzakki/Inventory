@@ -67,8 +67,8 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
-                    <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Kata Sandi') }}</label>
+                {{--  <div class="row mb-3">
+                    <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('kata sandi') }}</label>
                         <div class="col-sm-10">
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 @error('password')
@@ -77,9 +77,9 @@
                                     </span>
                                 @enderror
                         </div>
-                </div>
+                </div>  --}}
 
-                <div class="row mb-3">
+                {{--  <div class="row mb-3">
                     <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Konfirmasi Kata Sandi') }}</label>
                         <div class="col-sm-10">
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -89,8 +89,7 @@
                                     </span>
                                 @enderror
                         </div>
-                </div>
-
+                </div>   --}}
 
 
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Submit">

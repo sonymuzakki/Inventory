@@ -18,7 +18,7 @@ use Carbon\Carbon;
 class InventoryController extends Controller
 {
         public function InventarisAll(){
-            $inventory = Inventory::latest()->get();
+            $inventory = Inventory::all();
             return view('Backend.InventoryAll',compact('inventory'));
         }
 

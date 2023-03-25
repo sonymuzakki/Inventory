@@ -32,9 +32,9 @@
                             <th width="5%">No</th>
                             <th>Nama</th>
                             <th>Username</th>
-                            <th>Divisi</th>
-                            <th>Lokasi</th>
-                            <th>Password</th>
+                            <th width="15%">Divisi</th>
+                            <th width="15%">Lokasi</th>
+                            {{--  <th>Password</th>  --}}
                             <th width="10%">Action</th>
                         </tr>
                     </thead>
@@ -49,7 +49,7 @@
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item['divisi']['nama']}}</td>
                                 <td>{{ $item['lokasi']['nama']}}</td>
-                                <td>{{ $item->password_plain }}</td>
+                                {{--  <td>{{ $item->password_plain }}</td>  --}}
 
                                 <td>
                                      <a href="{{ route('user.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>

@@ -24,7 +24,6 @@ class UserSeeder extends Seeder
             'divisi_id' => 1,
             'lokasi_id' => 1,
             'password' => bcrypt('1'),
-            'password_plain' => 1
         ]);
         $admin->assignRole('admin');
 
@@ -35,7 +34,7 @@ class UserSeeder extends Seeder
             'divisi_id' => 1,
             'lokasi_id' => 1,
             'password' => bcrypt('1234'),
-            'password_plain' => 1234
+            // 'password_plain' => 1234
         ]);
         $IT->assignRole('admin');
 
@@ -46,7 +45,6 @@ class UserSeeder extends Seeder
             'divisi_id' => 1,
             'lokasi_id' => 1,
             'password' => bcrypt('1'),
-            'password_plain' => 1
         ]);
         $user->assignRole('user');
     }

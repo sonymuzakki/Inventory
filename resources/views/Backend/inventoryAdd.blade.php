@@ -49,36 +49,14 @@
                         <div class="col-3 mb-2">
                             <label class="col-sm-2 col-form-label">User</label>
                                 <div class="form-group col-sm-10">
-                                    <select name="user_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
-                                        @foreach($user as $u)
-                                        <option value="{{ $u->id }}"">{{ $u->name }}</option>
-                                    @endforeach
+                                        <select class="form-control select2" name="user_id">
+                                            @foreach ($user as $inv)
+                                                <option value="{{ $inv->id }}">{{ $inv->name }}</option>
+                                            @endforeach
                                         </select>
                                 </div>
                         </div>
-                        {{--  <div class="col-3 mb-2">
-                            <label class="col-2 col-form-label">Lokasi</label>
-                                <div class="form-group col-sm-10">
-                                    <select name="user_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
-                                        @foreach($user as $u)
-                                            <option value="{{ $u->id }}" {{ $u->divisi_id == $user->divisi->id ? 'selected' : '' }}>{{ $u->divisi->nama }}</option>
-                                        @endforeach
-                                        </select>
-                                </div>
-                        </div>  --}}
-                        {{--  <div class="col-3">
-                            <label class="col-sm-2 col-form-label">Divisi</label>
-                                <div class="form-group col-10">
-                                    <select name="user_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
-                                        @foreach($divisi as $d)
-                                        <option value="{{ $d->id }}"> {{ $d->nama }}</option>
-                                    @endforeach
-                                        </select>
-                                </div>
-                        </div>  --}}
+
                         <div class="col-3">
                             <label class="col-sm-2 col-form-label">Jenis</label>
                                 <div class="form-group col-sm-10">

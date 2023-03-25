@@ -87,11 +87,19 @@ class HistoryController extends Controller
         $history->pengerjaan = $request->pengerjaan;
         $history->save();
 
-        $notification = array(
-            'message' => 'Inventaris Updated Successfully',
-            'alert-type' => 'success'
+        if ($history->wasChanged()) {
+            $notification = array(
+                'message' => 'Inventaris Updated Successfully',
+                'alert-type' => 'success'
+            );
+        } else {
+            $notification = array(
+                'message' => 'No changes were made to the inventaris',
+                'alert-type' => 'warning'
+
         );
         return redirect()->route('request.all')->with($notification);
+    }
     }
 
     // public function historyUpdate(Request $request, history $id)
@@ -135,44 +143,44 @@ class HistoryController extends Controller
     //         return redirect()->route('request.all')->with($notification);
     // }
 
-    // public function historyApprove($id){
+    public function historyApprove($id){
 
-    //     $history = history::findOrFail($id);
+        $history = history::findOrFail($id);
 
-    //     if($history->save()){
+        if($history->save()){
 
-    //         history::findOrFail($id)->update([
-    //             'status' => '1',
-    //         ]);
+            history::findOrFail($id)->update([
+                'status' => '1',
+            ]);
 
-    //          $notification = array(
-    //     'message' => 'Status Approved Successfully',
-    //     'alert-type' => 'success'
-    //       );
-    // return redirect()->route('request.all')->with($notification);
+             $notification = array(
+        'message' => 'Status Approved Successfully',
+        'alert-type' => 'success'
+          );
+    return redirect()->route('request.all')->with($notification);
 
-    //     }
+        }
 
-    // }// End Method
+    }// End Method
 
-    // public function historyApproveDashboard($id){
+    public function historyApproveDashboard($id){
 
-    //     $history = history::findOrFail($id);
+        $history = history::findOrFail($id);
 
-    //     if($history->save()){
+        if($history->save()){
 
-    //         history::findOrFail($id)->update([
-    //             'status' => '1',
-    //         ]);
+            history::findOrFail($id)->update([
+                'status' => '1',
+            ]);
 
-    //          $notification = array(
-    //     'message' => 'Status Approved Successfully',
-    //     'alert-type' => 'success'
-    //       );
-    // return redirect()->route('dashboard')->with($notification);
+             $notification = array(
+        'message' => 'Status Approved Successfully',
+        'alert-type' => 'success'
+          );
+    return redirect()->route('dashboard')->with($notification);
 
-    //     }
+        }
 
-    // }// End Method
+    }// End Method
 
 }

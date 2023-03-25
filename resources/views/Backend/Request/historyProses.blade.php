@@ -59,8 +59,8 @@
                         <div class="col-sm-8">
                             <div class="mb-3">
                                 <label for="validationCustom01" class="form-label">Kendala</label>
-                                <input type="text" name="kendala" value={{ $history->kendala }} class="form-control" id="validationCustom01"
-                                    placeholder="Kendala" required >
+                                <input type="text" name="kendala" class="form-control" id="validationCustom01"
+                                    placeholder="Kendala"  required >
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -68,14 +68,13 @@
                         </div>
                     </div>
 
-
                     {{--  Pengerjaan  --}}
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="mb-3">
                                 <label for="validationCustom01" class="form-label">Pengerjaan</label>
-                                <input type="text" name="pengerjaan" value={{ $history->pengerjaan }} class="form-control" id="validationCustom01"
-                                    placeholder="Pengerjaan" required >
+                                <input type="text" name="pengerjaan" class="form-control" id="validationCustom01"
+                                    placeholder="Pengerjaan"  required >
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
