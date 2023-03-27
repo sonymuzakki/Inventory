@@ -44,7 +44,6 @@
                                 <nav class="menu__nav">
                                     <div class="logo">
                                         <a href="" class="logo__black"><img src="frontend/assets/img/logo/toyotaintercom.png" alt=""></a>
-                                        {{--  <a href="index.html" class="logo__white"><img src="assets/img/logo/logo_white.png" alt=""></a>  --}}
                                     </div>
                                     <div class="navbar__wrap main__menu d-none d-xl-flex">
                                         <ul class="navigation">
@@ -91,75 +90,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-12">
+                        <div class="section__title">
+                            <span class="sub-title">Request Support</span>
+                            <h2 class="title">Any Request? <br> please describe your problem</h2>
+                        </div>
+                    </div>
                     <div class="row work__process__wrap">
                         <div class="col">
                             <div class="work__process__item">
-                                <span class="work__process_step"></span>
-                                <div class="work__process__icon">
-                                </div>
-                                <div class="work__process__content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="work__process__item">
-                                <span class="work__process_step"></span>
-                                <div class="work__process__icon">
-                                    <img class="light" src="assets/img/icons/wp_light_icon02.png" alt="">
-                                    <img class="dark" src="assets/img/icons/wp_icon02.png" alt="">
-                                </div>
-                                <div class="work__process__content">
-                                    {{--  <h4 class="title">/</h4>
-                                    <p>/</p>  --}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="work__process__item">
-                                <span class="work__process_step"></span>
-                                <div class="work__process__icon">
-                                    <img class="light" src="assets/img/icons/wp_light_icon03.png" alt="">
-                                    <img class="dark" src="assets/img/icons/wp_icon03.png" alt="">
-                                </div>
-                                <div class="work__process__content">
-                                    {{--  <h4 class="title">Develop</h4>
-                                    <p>Design-Led concept and Proposals hearted & assessed</p>  --}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="work__process__item">
-                                <span class="work__process_step"></span>
-                                <div class="work__process__icon">
-                                    <img class="light" src="assets/img/icons/wp_light_icon04.png" alt="">
-                                    <img class="dark" src="assets/img/icons/wp_icon04.png" alt="">
-                                </div>
-                                <div class="work__process__content">
-                                    <h4 class="title"></h4>
-                                    <p>Process outcomes finalised & Implemented</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- work-process-area-end -->
 
-        </main>
-        <!-- main-area-end -->
+                            </div>
+                        </div>
 
 
-
-        <section class="homeContact">
-            <div class="container">
-                <div class="homeContact__wrap">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="section__title">
-                                <span class="sub-title">Request Support</span>
-                                <h2 class="title">Any Request? <br> please describe your problem</h2>
-                            </div>
-                        </div>
                         <div class="col-lg-6">
                             <div class="homeContact__form">
                                 <form method="POST" action="{{ route('request') }}" enctype="multipart/from-data" id="myForm">
@@ -176,8 +120,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-
 
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label">Jenis</label>
@@ -203,9 +145,75 @@
                             </div>
                         </div>
                     </div>
+                    {{--  <div class="col-lg-6">
+                        <div class="section__title">
+                            <span class="sub-title">Request Support</span>
+                            <h2 class="title">Any Request? <br> please describe your problem</h2>
+                        </div>
+                    </div>  --}}
+                </div>
+            </section>
+            <!-- work-process-area-end -->
+
+        </main>
+        <!-- main-area-end -->
+
+
+
+        {{--  <section class="homeContact">
+            <div class="container">
+                <div class="homeContact__wrap">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="section__title">
+                                <span class="sub-title">Request Support</span>
+                                <h2 class="title">Any Request? <br> please describe your problem</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="homeContact__form">
+                                <form method="POST" action="{{ route('request') }}" enctype="multipart/from-data" id="myForm">
+                                    @csrf
+
+                                    <div class="row mb-3">
+                                        <label class="col-sm-2 col-form-label">User</label>
+                                        <div class="form-group col-sm-10">
+                                            <select name="inventory_id"class="form-select" aria-label="Default select example" value=()>
+                                                <option selected value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
+                                                @foreach($inventory as $i)
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row mb-3">
+                                        <label class="col-sm-2 col-form-label">Jenis</label>
+                                        <div class="form-group col-sm-10">
+                                            <select name="inventory_id" class="form-select" aria-label="Default select example">
+                                                @foreach($inventory as $u)
+                                                        <option value="{{ $u->id }}">{{ $u->jenis->nama }}</option>
+                                                @endforeach
+                                                </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <label for="text" class="col-2 col-form-label">Laporan</label>
+                                        <div class="form-group col-10">
+                                            <input name="laporan" class="form-control" type="text" placeholder="" id="text">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-info waves waves-effect waves-light "value="Submit">
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </section>  --}}
 
 
 

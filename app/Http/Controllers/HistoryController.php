@@ -73,75 +73,34 @@ class HistoryController extends Controller
 
     public function historyUpdate(Request $request,$id){
 
-        $this->validate($request, [
-            'inventory_id' => 'required',
-            'laporan' => 'required',
-            'kendala' => 'required',
-            'pengerjaan' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'inventory_id' => 'required',
+        //     'laporan' => 'required',
+        //     'kendala' => 'required',
+        //     'pengerjaan' => 'required'
+        // ]);
 
         $history = History::findOrFail($id);
-        $history->inventory_id = $request->inventory_id;
-        $history->laporan = $request->laporan;
+        //
+        if ($request->filled('inventory_id')) {
+            $history->inventory_id = $request->inventory_id;
+        }
+        if ($request->filled('laporan')) {
+            $history->laporan = $request->laporan;
+        }
+
+        // $history->laporan = $request->laporan;
         $history->kendala = $request->kendala;
         $history->pengerjaan = $request->pengerjaan;
         $history->save();
 
-        if ($history->wasChanged()) {
-            $notification = array(
-                'message' => 'Inventaris Updated Successfully',
-                'alert-type' => 'success'
-            );
-        } else {
-            $notification = array(
-                'message' => 'No changes were made to the inventaris',
-                'alert-type' => 'warning'
-
+        $notification = array(
+            'message' => 'Product Inserted Successfully',
+            'alert-type' => 'success'
         );
+
         return redirect()->route('request.all')->with($notification);
     }
-    }
-
-    // public function historyUpdate(Request $request, history $id)
-    //     {
-
-    //         @dd($id);
-    //         $this->validate($request, [
-    //             'inventory_id' => 'required',
-    //             'jenis_id' => 'required',
-    //             'laporan' => 'required',
-    //             'kendala' => 'required',
-    //             'pengerjaan' => 'required',
-    //         ]);
-
-    //         // mencari data history dengan id yang diberikan
-    //         $history = history::findOrFail($id);
-
-    //         // mengupdate data history dengan data dari request
-    //         $history->inventory_id = $request->inventory_id;
-    //         // $history->jenis_id = $request->jenis_id;
-    //         $history->laporan = $request->laporan;
-    //         $history->kendala = $request->kendala;
-    //         $history->pengerjaan = $request->pengerjaan;
-
-    //         // jika data tidak diubah, maka gunakan data yang sudah ada sebelumnya
-    //         if ($history->filled('inventory_id')) {
-    //             $history->inventory_id = $history->inventory_id;
-    //         }
-    //         // if ($history->filled('jenis_id')) {
-    //         //     $user->jenis_id = $history->jenis_id;
-    //         // }
-
-    //         // menyimpan data yang sudah diupdate
-    //         $history->save();
-
-    //         $notification = array(
-    //             'message' => 'History Updated Successfully',
-    //             'alert-type' => 'success'
-    //         );
-
-    //         return redirect()->route('request.all')->with($notification);
-    // }
 
     public function historyApprove($id){
 

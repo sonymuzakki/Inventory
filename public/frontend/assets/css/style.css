@@ -4693,12 +4693,12 @@ Breadcrumb
   .homeContact__form form input {
     display: block;
     width: 100%;
-    border: none;
-    border-bottom: 2px solid #F7F7F7;
-    padding: 0 0 10px;
-    color: #68666C;
+    border: 20px;
+    border-bottom: 2px solid #050505;
+    padding: 0 0 20px;
+    color: #68666C; 
     font-size: 15px;
-    margin-bottom: 28px;
+    margin-bottom: 55px;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -ms-transition: all 0.3s ease-out 0s;
@@ -4720,9 +4720,9 @@ Breadcrumb
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 2px solid #F7F7F7;
+    border-bottom: 2px solid #0054FF;
     padding: 0 0 30px;
-    color: #68666C;
+    color: #0054FF;
     font-size: 15px;
     height: 105px;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -4737,21 +4737,21 @@ Breadcrumb
   .homeContact__form form [type=submit] {
     position: absolute;
     right: 0;
-    bottom: 14px;
+    bottom: 10px;
     border: none;
-    color: #191B1E;
+    color: #0054FF;
     text-transform: uppercase;
     background: transparent;
     padding: 0;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 900;
     letter-spacing: 0.1em;
     line-height: 1; }
     .homeContact__form form [type=submit]::after {
       content: "\f1d8";
       font-family: "Font Awesome 5 Pro";
-      font-weight: 700;
-      margin-left: 8px; }
+      font-weight: 900;
+      margin-left: 35px; }
     .homeContact__form form [type=submit]:hover {
       color: #0054FF; }
 

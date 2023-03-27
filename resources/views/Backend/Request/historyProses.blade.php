@@ -82,6 +82,26 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label class="form-label">Internal/External</label>
+                                <select class="form-control " name="is_internal" id="is_internal">
+                                    <option value="1">Internal</option>
+                                    <option value="0">External</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="external-laporan" style="display:none;">
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label class="form-label">External Laporan</label>
+                                <textarea class="form-control" name="eks_history_"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Submit">
                 </form>
                 <!-- end row -->
@@ -89,6 +109,18 @@
         </div>
     </div> <!-- end col -->
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("#is_internal").change(function() {
+            if ($("#is_internal option:selected").val() == "0") {
+                $("#external-laporan").show();
+            } else {
+                $("#external-laporan").hide();
+            }
+        });
+    });
+</script>
 
 <script type="text/javascript">
     $(document).ready(function (){
