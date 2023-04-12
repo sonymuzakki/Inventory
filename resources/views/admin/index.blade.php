@@ -12,7 +12,7 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Upcube</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Tinves</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
@@ -22,6 +22,7 @@
     </div>
     <!-- end page title -->
 
+    <!-- Column -->
     <div class="row">
         <div class="col-xl-3 col-md-6">
             <div class="card">
@@ -94,15 +95,14 @@
         </div><!-- end col -->
     </div><!-- end row -->
 
+    <!-- Datatable Proses -->
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
-                    <a href="{{ route('request.all') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">View More</a> <br></br>
-
-                    <h4>Request Proses Data</h4>
-                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
+                    <a href="{{ route('request.all') }}" class="btn btn-dark btn-rounded waves-effect waves-light"  style="float:right">View More</a>
+                        <h4 class="font-weight-bold">List Request</h4><br>
+                    <table id="" class="table table-hover" style="table-bordered border-collapse:collapse;border-spacing:0; width:100%;">
                         <thead>
                             <tr>
                                 <th width="5%">No</th>
@@ -153,5 +153,116 @@
         </div>
     </div>
     <!-- end row -->
+
+    <!-- Data Form -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ route('request.all') }}" class="btn btn-dark btn-rounded waves-effect waves-light width=1px"   style="float:right">View More</a>
+                    <h4>Form Loan Electronic</h4>
+                    <table id="" class="table table-hover" style="table-bordered border-collapse:collapse;border-spacing:0; width:100%;">
+                        <thead>
+                            <tr>
+                                <th width="5%">No</th>
+                                <th>User</th>
+                                <th>Jenis</th>
+                                <th>Laporan</th>
+                                <th>Tanggal</th>
+                                <th>Proses</th>
+                                <th width="20%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                @foreach ($allData as $key => $item)
+                                <tr>
+                                    <td>{{ $key+1}}</td>
+                                    <td>{{ $item['inventory']['user']['name'] }}</td>
+                                    <td>{{ $item['inventory']['jenis']['nama'] }}</td>
+                                    <td>{{ $item->laporan}}</td>
+                                    {{--  <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>  --}}
+                                    <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>
+                                    <td>
+                                        @if ($item->status == "0")
+                                            <button type="button" class="btn btn-warning waves-effect waves-light">
+                                                <i class="ri-error-warning-line align-middle me-2"></i> Pending
+                                            </button>
+                                        @elseif ($item->status == "1")
+                                            <button type="button" class="btn btn-success waves-effect waves-light">
+                                                <i class="ri-check-line align-middle me-2"></i> Success
+                                            </button>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item->status == '0')
+                                        <a href="{{ route('history.proses', $item->id) }}" class="btn btn-danger sm" title="Proses"> <i class="ri-donut-chart-fill"></i></a>
+                                        <a href="{{ route('history.approvedsh' , $item->id )}}" class="btn btn-info sm" title="Approved" id="ApprovedBtn"> <i class="fas fa-check-circle"></i></a>
+                                        @elseif ($item->status == '1')
+                                            <h5 class="container"> - </h5>
+                                        @endif
+                                         {{--  <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
+                                         <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>  --}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="font-weight-bold">Item Request</h4>
+                    <table id="" class="table table-hover" style="table-bordered border-collapse:collapse;border-spacing:0; width:100%;">
+                        <thead>
+                            <tr>
+                                <th width="5%">No</th>
+                                <th>User</th>
+                                <th>Jenis</th>
+                                <th>Laporan</th>
+                                <th>Tanggal</th>
+                                <th>Proses</th>
+                                <th width="20%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                @foreach ($allData as $key => $item)
+                                <tr>
+                                    <td>{{ $key+1}}</td>
+                                    <td>{{ $item['inventory']['user']['name'] }}</td>
+                                    <td>{{ $item['inventory']['jenis']['nama'] }}</td>
+                                    <td>{{ $item->laporan}}</td>
+                                    {{--  <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>  --}}
+                                    <td>{{ $item->created_at->format('d-M-Y h:i')}}</td>
+                                    <td>
+                                        @if ($item->status == "0")
+                                            <button type="button" class="btn btn-warning waves-effect waves-light">
+                                                <i class="ri-error-warning-line align-middle me-2"></i> Pending
+                                            </button>
+                                        @elseif ($item->status == "1")
+                                            <button type="button" class="btn btn-success waves-effect waves-light">
+                                                <i class="ri-check-line align-middle me-2"></i> Success
+                                            </button>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item->status == '0')
+                                        <a href="{{ route('history.proses', $item->id) }}" class="btn btn-danger sm" title="Proses"> <i class="ri-donut-chart-fill"></i></a>
+                                        <a href="{{ route('history.approvedsh' , $item->id )}}" class="btn btn-info sm" title="Approved" id="ApprovedBtn"> <i class="fas fa-check-circle"></i></a>
+                                        @elseif ($item->status == '1')
+                                            <h5 class="container"> - </h5>
+                                        @endif
+                                         {{--  <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
+                                         <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>  --}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

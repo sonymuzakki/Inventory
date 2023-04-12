@@ -17,6 +17,8 @@
         </div>
     </div>
 </div>
+
+<!--  Datatable  -->
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -34,6 +36,7 @@
                             <th>Laporan</th>
                             <th>Kendala</th>
                             <th>Pengerjaan</th>
+                            <th>Vendor</th>
                             <th>Tanggal</th>
                             <th>Proses</th>
                             <th width="20%">Action</th>
@@ -42,14 +45,13 @@
                     <tbody>
                             @foreach ($history as $key => $item)
                             <tr>
-                                {{--  <td>{{ $key+1}}</td>  --}}
                                 <td>{{ 'R-' . str_pad($loop->iteration, 4, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $item['inventory']['user']['name'] }}</td>
                                 <td>{{ $item['inventory']['jenis']['nama'] }}</td>
                                 <td>{{ $item->laporan}}</td>
                                 <td>{{ $item->kendala}}</td>
                                 <td>{{ $item->pengerjaan}}</td>
-                                {{--  <td>{{ $item->created_at->format('l\,d-m-Y h:i')}}</td>  --}}
+                                <td>{{ $item->vendor}}</td>
                                 <td>{{ $item->created_at->format('d-M-Y h:i A')}}</td>
                                 <td>
                                     @if ($item->status == "0")
@@ -58,34 +60,17 @@
                                         </button>
                                     @elseif ($item->status == "1")
                                         <button type="button" class="btn btn-success waves-effect waves-light">
-                                            <i class="ri-check-line align-middle me-2"></i> Success
+                                            <i class="ri-check-line align-middle me-2"></i> Finish
                                         </button>
                                     @endif
-
                                 </td>
-                                {{--  <td>
-                                        @if ($item->status == 1)
-                                        @php $warna = 'success' @endphp
-                                    @else
-                                        @php $warna = 'danger' @endphp
-                                    @endif
-                                    <span class="badge badge-pill badge-{{ $warna }}">
-                                        {{ $item->status }}
-                                </span>
-
-                                </td>  --}}
-
                                 <td>
                                     @if ($item->status == '0')
                                         <a href="{{ route('history.proses', $item->id) }}" class="btn btn-danger sm" title="Proses"> <i class="ri-donut-chart-fill"></i></a>
-                                        <a href="{{ route('history.approve' , $item->id )}}" class="btn btn-info sm" title="Approved" id="ApprovedBtn"> <i class="fas fa-check-circle"></i></a>
+                                        <a href="{{ route('history.approve' , $item->id )}}" class="btn btn-info sm" title="Finish" id="ApprovedBtn"> <i class="fas fa-check-circle"></i></a>
                                     @elseif ($item->status == '1')
                                         <h5 class="container"> - </h5>
                                     @endif
-
-
-                                     {{--  <a href="{{ route('lokasi.edit' , $item->id )}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i></a>
-                                     <a href="{{ route('lokasi.delete', $item->id) }}" class="btn btn-danger sm" title="Delete" id="delete"> <i class="fas fa-trash-alt"></i></a>  --}}
                                 </td>
                             </tr>
                         @endforeach

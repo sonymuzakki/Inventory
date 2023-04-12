@@ -19,10 +19,9 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-10">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
-                {{--  <h4 class="mb-4">History add Page</h4>  --}}
                 <form method="POST" action="{{ route('request.store') }}" enctype="multipart/from-data" id="myForm">
                     @csrf
 
@@ -52,13 +51,6 @@
                             </div>
                         </div>
                     </div>
-
-                {{--  <div class="row mb-3">
-                    <label for="text" class="col-2 col-form-label">Laporan</label>
-                    <div class="form-group col-10">
-                        <input name="laporan" class="form-control" type="text" placeholder="" id="text">
-                    </div>
-                </div>  --}}
 
                 <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Submit">
                 </form>

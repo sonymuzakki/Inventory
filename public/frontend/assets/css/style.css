@@ -4691,12 +4691,12 @@ Breadcrumb
     .homeContact__form {
       margin-top: 50px; } }
   .homeContact__form form input {
-    display: block;
+    display: inline-block;
     width: 100%;
     border: 20px;
-    border-bottom: 2px solid #050505;
-    padding: 0 0 20px;
-    color: #68666C; 
+    border: px solid #615e5e;
+    padding: 0 0 10px;
+    color: #68666C;
     font-size: 15px;
     margin-bottom: 55px;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -4719,7 +4719,7 @@ Breadcrumb
   .homeContact__form form textarea {
     display: block;
     width: 100%;
-    border: none;
+    border-style: solid;
     border-bottom: 2px solid #0054FF;
     padding: 0 0 30px;
     color: #0054FF;
@@ -4731,27 +4731,29 @@ Breadcrumb
     -o-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s; }
     .homeContact__form form textarea::placeholder {
-      color: #68666C; }
+      color: #68666C;
+     }
+
     .homeContact__form form textarea:focus {
       border-color: #0054FF; }
   .homeContact__form form [type=submit] {
-    position: absolute;
+    position: fixed;
     right: 0;
-    bottom: 10px;
+    bottom: 0.5px;
     border: none;
     color: #0054FF;
     text-transform: uppercase;
     background: transparent;
     padding: 0;
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: 0.1em;
+    font-size: 5px;
+    font-weight: 2;
+    letter-spacing: 1em;
     line-height: 1; }
     .homeContact__form form [type=submit]::after {
       content: "\f1d8";
       font-family: "Font Awesome 5 Pro";
-      font-weight: 900;
-      margin-left: 35px; }
+      font-weight: 50;
+      margin-left: 65px; }
     .homeContact__form form [type=submit]:hover {
       color: #0054FF; }
 
@@ -5185,6 +5187,7 @@ body.active-dark-mode {
       color: #9099AB; }
   .active-dark-mode .homeContact__form form textarea {
     background: transparent;
+    border: none;
     border-color: #313B58;
     color: #9099AB; }
     .active-dark-mode .homeContact__form form textarea::placeholder {

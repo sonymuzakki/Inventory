@@ -94,11 +94,8 @@ class MasterController extends Controller
 
         public function divisiStore(Request $request){
 
-            // $id = IdGenerator::generate(['divisi' => 'divisi', 'length' => 3, 'prefix' => date('D-')]);
-
            divisi::insert([
                 'nama' => $request->nama,
-                // 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now()
             ]);
             $notification = array (

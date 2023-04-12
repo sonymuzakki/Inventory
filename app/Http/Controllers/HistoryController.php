@@ -28,9 +28,10 @@ class HistoryController extends Controller
 
     public function RequestAdd(){
         $history = history::all();
+        // $inventory = Inventory::select('id','hostname','jenis_id','user_id','merk','processor','ram','grafik','hardisk','amp','umbrella','ipaddress','os','Office','Akunoffice','ssd','legalos','internet','anydeskid')
+        //             ->with('user','jenis')
+        //             ->get();
         $inventory = Inventory::with('user','jenis')->get();
-        // $inventory = Inventory::pluck('user_id','id');
-        // $jenis = jenis::pluck('nama','id');
 
         return view('Backend.Request.requestAdd',compact('history','inventory'));
     }
@@ -40,7 +41,6 @@ class HistoryController extends Controller
             history::insert([
 
                 'inventory_id' => $request->inventory_id,
-                // 'inventory_id' => $request->jenis_id,
                 'laporan' => $request->laporan,
                 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now(),
@@ -55,14 +55,6 @@ class HistoryController extends Controller
             return redirect()->route('request.all')->with($notification);
     }
 
-    //     public function RequestPending(){
-    //     // $allData = history::orderBy('date','desc')->where('status','0')->get();
-    //     $allData = history::latest()->where('status','0')->get();
-    //     $inventory = Inventory::all();
-    //     $user   = user::all();
-    //     return view('Backend.Request.historyAll',compact('allData'));
-    // }
-
     public function historyProses($id){
         $history = history::find($id);
         $user   = user::all();
@@ -73,26 +65,20 @@ class HistoryController extends Controller
 
     public function historyUpdate(Request $request,$id){
 
-        // $this->validate($request, [
-        //     'inventory_id' => 'required',
-        //     'laporan' => 'required',
-        //     'kendala' => 'required',
-        //     'pengerjaan' => 'required'
-        // ]);
-
         $history = History::findOrFail($id);
-        //
-        if ($request->filled('inventory_id')) {
-            $history->inventory_id = $request->inventory_id;
-        }
-        if ($request->filled('laporan')) {
-            $history->laporan = $request->laporan;
-        }
+            // $history->inventory_id = $request->inventory_id;
+            $history->kendala = $request->kendala;
+            $history->pengerjaan = $request->pengerjaan;
+            $history->vendor = $request->vendor;
+            // $history->is_internal = $request->is_internal;
 
-        // $history->laporan = $request->laporan;
-        $history->kendala = $request->kendala;
-        $history->pengerjaan = $request->pengerjaan;
-        $history->save();
+            // if ($request->is_internal) {
+            //     $history->laporan = $request->laporan;
+            // } else {
+            //     $history->eks_history = $request->eks_history;
+            // }
+
+            $history->save();
 
         $notification = array(
             'message' => 'Product Inserted Successfully',

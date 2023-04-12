@@ -96,7 +96,7 @@ File: Main Css File
   background-color: #f1f5f7;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border-radius: 30px;
+  border-radius: 315px;
 }
 .app-search span {
   position: absolute;
@@ -2595,7 +2595,7 @@ body {
 .select2-container .select2-selection--single {
   background-color: #fff;
   border: 1px solid #ced4da;
-  height: 38px;
+  height: 45px;
 }
 .select2-container .select2-selection--single:focus {
   outline: none;
@@ -2967,8 +2967,8 @@ table.dataTable thead .sorting_desc_disabled:after {
   left: 0.5em;
   content: "\f035d";
   font-family: "Material Design Icons";
-  top: 15px;
-  font-size: 1rem;
+  top: 10px;
+  font-size: 0.5rem;
 }
 table.dataTable thead tr th.sorting_asc, table.dataTable thead tr th.sorting_desc, table.dataTable thead tr th.sorting,
 table.dataTable thead tr td.sorting_asc,
@@ -3001,7 +3001,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > td:first-child:bef
 table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > th:first-child:before {
   -webkit-box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
-  background-color: #6fd088;
+  background-color: #3f8b52;
   bottom: auto;
 }
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before,
@@ -3339,18 +3339,18 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
 }
 
 .table-edits input, .table-edits select {
-  height: calc(1.5em + 0.5rem + 2px);
+  height: calc(2.5em + 1.5rem + 3px);
   padding: 0.25rem 0.5rem;
   border: 1px solid #ced4da;
   background-color: #fff;
   color: #505d69;
   border-radius: 0.25rem;
 }
+
 .table-edits input:focus, .table-edits select:focus {
   outline: none;
   border-color: #b1bbc4;
 }
-
 .apex-charts {
   min-height: 10px !important;
 }

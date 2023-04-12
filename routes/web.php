@@ -37,16 +37,16 @@ Route::controller(FrontendController::class)->group(function () {
     Route::post('/request', 'RequestStore')->name('request');
 });
 
-// Route::get('/dashboard', function () {
-//      return view('admin.index');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout')->middleware(['auth','verified']);
     Route::get('/profile', 'profile')->name('admin.profile')->middleware('role:admin');
     Route::get('/editProfile', 'editProfile')->name('edit.profile')->middleware('role:admin');
     Route::post('/storeProfile', 'storeProfile')->name('store.profile')->middleware('role:admin');
+
+    // Form peminjaman
+    Route::get('/formElektronik', 'formElektronik')->name('form.elektronic')->middleware('role:admin');
+    Route::get('/form-all', 'formAll')->name('form.all')->middleware('role:admin');
+
 });
 
 Route::controller(InventoryController::class)->group(function () {
@@ -58,7 +58,6 @@ Route::controller(InventoryController::class)->group(function () {
     Route::get('/InventarisDelete-{id}','InventarisDelete')->name('invetaris.delete')->middleware('role:admin');
     Route::get('/InventarisDetails-{id}','InventarisDetails')->name('invetaris.details')->middleware('role:admin');
 });
-
 
     Route::controller(MasterController::class)->group(function () {
     Route::get('/jenis-all', 'jenisAll')->name('jenis.all')->middleware('role:admin');

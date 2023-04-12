@@ -105,17 +105,17 @@
 
 
                         <div class="col-lg-6">
-                            <div class="homeContact__form">
+                            <div class="homeContact ">
                                 <form method="POST" action="{{ route('request') }}" enctype="multipart/from-data" id="myForm">
                                     @csrf
 
-                                    <div class="row mb-3">
+                                    <h3>Request Support</h3>
+                                    <div class="row mb-3 mt-3">
                                         <label class="col-sm-2 col-form-label">User</label>
                                         <div class="form-group col-sm-10">
                                             <select name="inventory_id"class="form-select" aria-label="Default select example" value=()>
                                                 <option selected value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
                                                 @foreach($inventory as $i)
-                                                {{--  <option value="{{ $i->id }}">{{ $i->user->name}}</option>  --}}
                                                @endforeach
                                             </select>
                                         </div>
@@ -125,7 +125,6 @@
                                         <label class="col-sm-2 col-form-label">Jenis</label>
                                         <div class="form-group col-sm-10">
                                             <select name="inventory_id" class="form-select" aria-label="Default select example">
-                                                {{--  <option selected="">Open this select menu</option>  --}}
                                                 @foreach($inventory as $u)
                                                         <option value="{{ $u->id }}">{{ $u->jenis->nama }}</option>
                                                 @endforeach
@@ -134,23 +133,20 @@
                                     </div>
 
                                     <div class="row mb-2">
-                                        <label for="text" class="col-2 col-form-label">Laporan</label>
-                                        <div class="form-group col-10">
-                                            <input name="laporan" class="form-control" type="text" placeholder="" id="text">
+                                        <label class="col-sm-2 col-form-label">Laporan</label>
+                                        <div class="form-group col-sm-10">
+                                            <input name="laporan" class="form-control" type="text-area" placeholder="" id="text" required autofocus>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info waves waves-effect waves-light "value="Submit">
+
+                                    <div class="row mb-2">
+                                    </div>
+                                    <input type="submit" class="btn btn-info waves waves-effect waves-light mb-3" value="Submit">
                                 </form>
 
                             </div>
                         </div>
                     </div>
-                    {{--  <div class="col-lg-6">
-                        <div class="section__title">
-                            <span class="sub-title">Request Support</span>
-                            <h2 class="title">Any Request? <br> please describe your problem</h2>
-                        </div>
-                    </div>  --}}
                 </div>
             </section>
             <!-- work-process-area-end -->
@@ -205,6 +201,9 @@
                                             <input name="laporan" class="form-control" type="text" placeholder="" id="text">
                                         </div>
                                     </div>
+
+
+
                                     <button type="submit" class="btn btn-info waves waves-effect waves-light "value="Submit">
                                 </form>
 
@@ -214,8 +213,6 @@
                 </div>
             </div>
         </section>  --}}
-
-
 
 
 		<!-- JS here -->
@@ -231,6 +228,7 @@
         <script src="frontend/assets/js/plugins.js"></script>
         <script src="frontend/assets/js/main.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <script>

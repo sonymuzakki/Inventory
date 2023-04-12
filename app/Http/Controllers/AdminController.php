@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\pinjam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -53,9 +54,14 @@ class AdminController extends Controller
         return redirect('')->with($notification);
     }
 
-    public function dashboard(){
-        $inventory = Inventory::all();
-
+    public function formAll(){
+        $data = pinjam::all();
+        return view('Backend.Form.pinjamAll',compact('data'));
     }
 
+    public function formElektronik(){
+        $data = pinjam::all();
+        return view ('Backend.Form.pinjamElektronik',compact('data'));
+
+    }
 }

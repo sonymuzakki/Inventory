@@ -36,19 +36,8 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('invetaris.all') }}">List Inventory</a></li>
                         <li><a href="{{ route('invetaris.add') }}">Form Inventory</a></li>
-                        {{--  <li><a href="{{ route('invetaris.add') }}">Form Inventory</a></li>  --}}
                     </ul>
                 </li>
-
-                {{--  <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-layout-3-line"></i>
-                        <span>Manage Jenis</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('jenis.all') }}">Data Jenis</a></li>
-                        <li><a href="">Form Inventory</a></li>
-                </li>  --}}
 
 
                 <li>
@@ -98,9 +87,8 @@
                         </li>
                     </ul>
                 </li>  --}}
-
+                <!--- Pages  --->
                 <li class="menu-title">Pages</li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-account-circle-line"></i>
@@ -114,15 +102,36 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-profile-line"></i>
-                        <span>Support</span>
+                        <i class="ri-search-eye-line"></i>
+                        <span>Monitoring Periperal</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        {{--  <li><a href="{{ route('request.all') }}">Request Support</a></li>  --}}
-                        <li><a href="{{ route('request.add') }}">Form Request Support</a></li>
-
+                        <li><a href="{{ route('admin.profile') }}">Network</a></li>
+                        <li><a href"/"=>CCTV</a></li>
+                        <li><a href"/"=>Notes</a></li>
                     </ul>
                 </li>
+
+                <!--- Forms  --->
+                <li class="menu-title">Forms </li>
+                    <li>
+                        <a href="{{ route('request.add') }}" class="waves-effect">
+                            <i class="ri-profile-line"></i><span class="badge rounded-pill bg-success float-end"></span>
+                            <span>Request Support</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('form.all') }}" class="waves-effect">
+                            <i class="fab fa-wpforms"></i><span class="badge rounded-pill bg-success float-end"></span>
+                            <span>Peminjaman Elektronic</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect">
+                            <i class="fab fa-wpforms"></i><span class="badge rounded-pill bg-success float-end"></span>
+                            <span>Form Item Request</span>
+                        </a>
+                    </li>
 
             </ul>
         </div>

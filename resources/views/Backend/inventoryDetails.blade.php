@@ -17,9 +17,9 @@
     </div>
 </div>
 
-<!-- Start Page  -->
+<!-- Start Page 1  -->
 <div class="row">
-    <div class="col-4   ">
+    <div class="col-12  ">
         <div class="card">
             <div class="card-body">
                 <form method="post" action="{{ route('invetaris.store') }}" enctype="multipart/from-data" id="myForm">
@@ -29,17 +29,6 @@
                         <h5>User   : {{ $inventaris->user->name }}</h5><br></br>
                         <h6>Divisi : {{ $inventaris->user->Divisi->nama }}</h6><br></br>
                         <h6>Lokasi : {{ $inventaris->user->Lokasi->nama }}</h6>
-                        {{--  <div class="col-3 mb-2">  --}}
-                            {{--  <label class="col-sm-2 col-form-label">User</label>
-                                <div class="form-group col-sm-10">
-                                    <select name="user_id" class="form-select" aria-label="Default select example"disabled>
-                                        <option selected="">Open this select menu</option>
-                                        @foreach($user as $u)
-                                        <option value="{{ $u->id }}" {{ $u->id == $inventaris->user_id ? 'selected' : '' }} ">{{ $u->name }}</option>
-                                    @endforeach
-                                        </select>
-                                </div>  --}}
-                        {{--  </div>  --}}
                     <!-- end row -->
 
                 {{--  <input type="submit" class="btn btn-info waves waves-effect waves-light" value="Update Inventory">  --}}
@@ -55,61 +44,13 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                {{--  <form method="post" action="{{ route('invetaris.store') }}" enctype="multipart/from-data" id="myForm">
-                    @csrf  --}}
                     <h4>ID : I-{{ str_pad($inventaris->id, 3, '0', STR_PAD_LEFT) }}</h4>
 
-
-                        {{--  <div class="col-3 mb-2">
-                            <label class="col-sm-2 col-form-label">User</label>
-                                <div class="form-group col-sm-10">
-                                    <select name="user_id" class="form-select" aria-label="Default select example"disabled>
-                                        <option selected="">Open this select menu</option>
-                                        @foreach($user as $u)
-                                        <option value="{{ $u->id }}" {{ $u->id == $inventaris->user_id ? 'selected' : '' }} ">{{ $u->name }}</option>
-                                    @endforeach
-                                        </select>
-                                </div>
-                        </div>  --}}
-                        {{--  <div class="col-3 mb-2">
-                            <label class="col-2 col-form-label">Lokasi</label>
-                                <div class="form-group col-sm-10">
-                                    <select name="user_id" class="form-select" aria-label="Default select example"disabled>
-                                        <option selected="">Open this select menu</option>
-                                        @foreach($user as $l)
-                                        <option value="{{ $l->divisi->id }}" {{ $l->divisi_id == $user->divisi_id ? 'selected' : '' }} >{{ $l->nama }}</option>
-                                    @endforeach
-                                        </select>
-                                </div>
-                        </div>  --}}
-
-                        {{--  <div class="col-3 mb-2">
-                            <label class="col-2 col-form-label">Divisi</label>
-                            <div class="form-group col-sm-10">
-                                <select name="user_id" class="form-select" aria-label="Default select example">
-                                    <option value="" selected disabled>Pilih Divisi</option>
-                                    @foreach($user as $u)
-                                        <option value="{{ $u->divisi_id}}" {{ $u->divisi_id== $user->divisi_id ? 'selected' : '' }}>{{ $u->nama }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>  --}}
-
-                        {{--  <div class="col-3">
-                            <label class="col-sm-2 col-form-label">Divisi</label>
-                                <div class="form-group col-10">
-                                    <select name="divisi_id" class="form-select" aria-label="Default select example"disabled>
-                                        <option selected="">Open this select menu</option>
-                                        @foreach($divisi as $d)
-                                        <option value="{{ $d->id }}" {{ $d->id == $inventaris->divisi_id ? 'selected' : '' }} >{{ $l->nama }}</option>
-                                    @endforeach
-                                        </select>
-                                </div>
-                        </div>  --}}
                     <div class="row">
-                        <div class="col-6">
-                            <label class="col-sm-2 col-form-label">Jenis</label>
-                                <div class="form-group ">
+                        <div class="col-6 mb-2">
+
+                            <label class="col-5 col-form-label">Jenis</label>
+                                <div class="form-group col-11 ">
                                     <select name="jenis_id" class="form-select" aria-label="Default select example"disabled>
                                         <option selected="">Open this select menu</option>
                                         @foreach($jenis as $j)
@@ -125,6 +66,7 @@
                         </div>
                     </div>
                     <!-- end row -->
+
                     <div class="row">
                         <div class="col-6 mb-2">
                             <label for="text" class="col-sm-2 col-form-label">Hostname</label>
@@ -132,7 +74,6 @@
                                 <input name="hostname" class="form-control" value={{ $inventaris->hostname }} type="text"  placeholder="" id="text" disabled>
                             </div>
                         </div>
-                        <!-- end row -->
 
                         <div class="col-6 mb-2">
                             <label class="col-6 col-form-label">OS</label>
@@ -142,8 +83,8 @@
                                         </select>
                                 </div>
                         </div>
+
                     </div>
-                    <!-- end row -->
 
                     <div class="row">
                         <div class="col-6 mb-2">
@@ -232,7 +173,6 @@
                                         </select>
                                 </div>
                         </div>
-
                     </div>
                     <!-- end row -->
 
@@ -298,6 +238,7 @@
     </div> <!-- end col -->
 </div>
 
+<!--  Data History  -->
 <div class="row mt-3">
     <div class="col-12">
         <class class="card container-fluid mb-3">
@@ -308,6 +249,8 @@
                     <th width="5%">No</th>
                     <th width="20px">Laporan</th>
                     <th width="20px">Tanggal</th>
+                    <th>Kendala</th>
+                    <th>Pengerjaan</th>
                     <th width="10px">Status</th>
                   </tr>
                 </thead>
@@ -316,6 +259,8 @@
                     <tr>
                         <td>{{ $key+1}}</td>
                         <td>{{ $item->laporan }}</td>
+                        <td>{{ $item->kendala }}</td>
+                        <td>{{ $item->pengerjaan }}</td>
                         <td>{{ $item->created_at->format('d-M-Y h:i A')}}</td>
                         <td>
                             @if ($item->status == "0")
@@ -384,7 +329,6 @@
 </script>
 <!-- Responsive Table js -->
 <script src="assets/libs/admin-resources/rwd-table/rwd-table.min.js"></script>
-
 <!-- Init js -->
 <script src="assets/js/pages/table-responsive.init.js"></script>
 
