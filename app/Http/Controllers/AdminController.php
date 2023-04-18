@@ -64,4 +64,29 @@ class AdminController extends Controller
         return view ('Backend.Form.pinjamElektronik',compact('data'));
 
     }
+
+    public function addData(Request $request)
+{
+
+    $request->validate([
+        'nama_alat' => 'required',
+        'peminjam' => 'required',
+        'jabatan' => 'required',
+        'tanggal_pinjam' =>'required',
+        'tanggal_kembali' =>'required',
+        'lama_pinjam' =>'required',
+        'keperluan' =>'required',
+    ]);
+    $data = new pinjam();
+    $data->nama_alat = $request->input('nama_alat');
+    $data->peminjam = $request->input('peminjam');
+    $data->jabatan = $request->input('jabatan');
+    $data->tanggal_pinjam = $request->input('tanggal_pinjam');
+    $data->tanggal_kembali = $request->input('tanggal_kembali');
+    $data->lama_pinjam = $request->input('lama_pinjam');
+    $data->keperluan = $request->input('keperluan');
+    $data->save();
+
+    return response()->json(['success' => 'Data berhasil ditambahkan.']);
+}
 }

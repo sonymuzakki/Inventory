@@ -112,6 +112,13 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class="far fa-sticky-note"></i><span class="badge rounded-pill bg-success float-end"></span>
+                        <span>Notes</span>
+                    </a>
+                </li>
+
                 <!--- Forms  --->
                 <li class="menu-title">Forms </li>
                     <li>

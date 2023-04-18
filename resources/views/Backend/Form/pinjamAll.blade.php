@@ -1,7 +1,9 @@
-@extends('admin.admin_master')
 
+@extends('admin.admin_master')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @section('admin')
 
+//Head main menu
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -19,11 +21,17 @@
     </div>
 </div>
 
+{{--  Data Table  --}}
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <button type="button" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Data</button>
+                {{--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+                    Tambah
+                  </button>  --}}
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Tambah Data</button>
+                {{--  <button type="button" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Data</button>  --}}
                 <h4>List Peminjaman</h4>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
                     <thead>
@@ -63,8 +71,8 @@
     </div>
 </div>
 
-<div class="col-sm-6 col-md-4 col-xl-3">
-
+{{--    --}}
+{{--  <div class="col-sm-6 col-md-4 col-xl-3">
     <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -75,7 +83,6 @@
                 <div class="modal-body">
                     <form method="POST" action="" enctype="multipart/from-data" id="myForm">
                         @csrf
-
                         <div class="row mb-3">
                             <label for="text" class="col-2 col-form-label">Nama Alat</label>
                             <div class="form-group col-8">
@@ -128,5 +135,98 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-</div>
+</div>  --}}
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">Tambah Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+                <div class="row mb-3">
+                    <label for="text" class="col-2 col-form-label">Nama Alat</label>
+                    <div class="form-group col-8">
+                        <input name="nama_alat" class="form-control" type="text" placeholder="" id="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="text" class="col-2 col-form-label">Peminjam</label>
+                    <div class="form-group col-8">
+                        <input name="peminjam" class="form-control" type="text" placeholder="" id="text">
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="text" class="col-2 col-form-label">Jabatan</label>
+                    <div class="form-group col-8">
+                        <input name="jabatan" class="form-control" type="text" placeholder="" id="text">
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="text" class="col-2 col-form-label">Tanggal Pinjam</label>
+                    <div class="form-group col-8">
+                        <input name="tanggal_pinjam" class="form-control" type="text" placeholder="" id="text">
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="text" class="col-2 col-form-label">Tanggal Kembali</label>
+                    <div class="form-group col-8">
+                        <input name="tanggal_kembali" class="form-control" type="text" placeholder="" id="text">
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="addButton">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="path/to/other/javascript/files.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#addButton').click(function () {
+        $.ajax({
+          type: 'POST',
+          url: '{{ route("addData") }}',
+          data: $('#addForm').serialize(),
+          success: function (data) {
+            $('#addModal').modal('hide');
+            // refresh halaman atau tampilkan pesan berhasil ditambahkan
+          },
+          error: function (data) {
+            console.log('Error:', data);
+          }
+        });
+      });
+
+      $('#addModal').on('show.bs.modal', function () {
+        // reset form ketika modal ditampilkan
+        $('#addForm')[0].reset();
+      });
+    });
+  </script>
+
 @endsection

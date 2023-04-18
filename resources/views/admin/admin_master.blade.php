@@ -36,6 +36,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
         <link href="{{ asset ('assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset ('assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
 
     </head>
 
@@ -134,6 +135,8 @@
         <script src="{{  asset('assets/js/app.js') }}"></script>
         <!-- Toast-->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 
         <script>
             @if(Session::has('message'))

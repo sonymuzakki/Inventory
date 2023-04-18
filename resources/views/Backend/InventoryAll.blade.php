@@ -18,12 +18,32 @@
         </div>
     </div>
 </div>
+
+{{--  <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <button class="btn btn-primary mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                        Filter
+                    </button>
+                </p>
+                <div class="collapse show" id="collapseExample" style="">
+                    <div class="card card-body mb-0">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>  --}}
+
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
 
-                <a href="{{ route('invetaris.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Inventory</a> <br></br>
+                <a href="{{ route('invetaris.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Inventory</a>
 
                 <h4>Inventory All Data</h4>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
@@ -39,9 +59,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                            {{--  @php
-                                $no = 1;
-                            @endphp  --}}
                             @foreach ($inventory as $key => $item)
                             <tr>
                                 <td>{{ 'R-' . str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</td>

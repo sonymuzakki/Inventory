@@ -3,7 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\notes;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +27,11 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(RoleSeederr::class);
         $this->call(UserSeeder::class);
+        // $this->call(notesSeeder::class);
+        for ($i = 0; $i < 20000; $i++) {
+            DB::table('notes')->insert([
+                'deskripsi' => Str::random(10),
+            ]);
+    }
     }
 }

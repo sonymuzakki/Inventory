@@ -27,7 +27,7 @@
                 <a href="{{ route('request.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right">Add Request</a> <br></br>
 
                 <h4>Request All Data</h4>
-                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
+                <table id="datatable" class="table table-responsive dt-responsive nowrap" style="border-collapse:collapse;border-spacing:0; width:100%;">
                     <thead>
                         <tr>
                             <th width="5%">No</th>
@@ -39,7 +39,7 @@
                             <th>Vendor</th>
                             <th>Tanggal</th>
                             <th>Proses</th>
-                            <th width="20%">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

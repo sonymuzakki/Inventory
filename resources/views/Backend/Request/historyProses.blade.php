@@ -25,72 +25,72 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-2 mb-2">
+                    <div class="col-3 mb-2">
                         <label for="validationCustom01" class="form-label">Hostname</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->hostname }}" class="form-control"disabled>
                     </div>
 
-                    <div class="col-2 mb-4">
-                        <label class="col-sm-3 ">Jenis</label>
+                    <div class="col-3 mb-4">
+                        <label class="col-sm-4 ">Jenis</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->Jenis->nama }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
-                        <label class="col-sm-3 ">Merk</label>
+                    <div class="col-3 mb-4">
+                        <label class="col-sm-4 ">Merk</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->merk }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
-                        <label class="col-sm-3 ">Procsor</label>
+                    <div class="col-3 mb-4">
+                        <label class="col-sm-4 ">Processor</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->Processor }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">Ram</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->ram }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">Grafik</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->grafik }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">Hardisk</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->hardisk }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">OS</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->os }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">Office</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->Office }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">SSD</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->ssd }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">Internet</label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->internet }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">IP </label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->ipaddress }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">User </label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->User->name }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-3 ">AMP </label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->amp }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-4 ">Umbrella </label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->umbrella }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-5 ">Akun Office </label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->akunOffice }}" class="form-control"disabled>
                     </div>
-                    <div class="col-2 mb-4">
+                    <div class="col-3 mb-4">
                         <label class="col-sm-5 ">Anydesk Id </label>
                             <input type="text" name="inventory_id" value="{{ $history->inventory->anydeskid }}" class="form-control"disabled>
                     </div>

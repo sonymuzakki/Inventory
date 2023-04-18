@@ -11,6 +11,7 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\notesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::controller(AdminController::class)->group(function () {
     // Form peminjaman
     Route::get('/formElektronik', 'formElektronik')->name('form.elektronic')->middleware('role:admin');
     Route::get('/form-all', 'formAll')->name('form.all')->middleware('role:admin');
+    Route::post('/addData', 'addData')->name('addData')->middleware('role:admin');
 
 });
 
@@ -121,6 +123,8 @@ Route::controller(DashboardController::class)->group(function () {
 //     Route::get('/storeProfile', [ProfileController::class, 'storeProfiel'])->name('store.profile');
 //     Route::get('/admin/logout', [ProfileController::class, 'destroy'])->name('admin.logout');
 // });
+
+// Route::get()
 
 require __DIR__.'/auth.php';
 

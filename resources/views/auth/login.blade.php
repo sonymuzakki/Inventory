@@ -23,76 +23,66 @@
 
     <body class="auth-body-bg">
         <div class="bg-overlay"></div>
-        <div class="wrapper-page">
-            <div class="container-fluid p-0">
-                <div class="card">
-                    <div class="card-body">
+            <div class="wrapper-page">
+                <div class="container-fluid p-0">
+                    <div class="card">
+                        <div class="card-body">
 
-                        <div class="text-center mt-4">
-                            <div class="mb-3">
-                                <a href="" class="auth-logo">
-                                    <img src="logo/icon.png" height="75" class="logo-dark mx-auto" alt="">
-                                    <img src="logo/icon.png" height="75" class="logo-light mx-auto" alt="">
-                                </a>
+                            <div class="text-center mt-2">
+                                <div class="mb-3">
+                                    <a href="" class="auth-logo">
+                                        <img src="logo/icon.png" height="75" class="logo-dark mx-auto" alt="">
+                                        <img src="logo/icon.png" height="75" class="logo-light mx-auto" alt="">
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
+                            <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
 
 
-                        <div class="p-3">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
+                            <div class="p-3">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
 
-                                <div class="form-group row">
-                                <div class="col-col-12 mb-3">
-                                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Username" required autofocus>
-                                        @error('username')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
-                                        <input class="form-control" id="password" type="password" name="password" required="autocomplete="current-password"" placeholder="Password">
-                                    </div>
-                                </div>
-
-                                {{--  <div class="form-group mb-3 row">
-                                    <div class="col-12">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="form-label ms-1" for="customCheck1">Remember me</label>
+                                    <div class="form-group row">
+                                    <div class="col-col-12 mb-3">
+                                            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Username" required autofocus>
+                                            @error('username')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
-                                </div>  --}}
 
-                                <div class="form-group mb-3 text-center row mt-3 pt-1">
-                                    <div class="col-12">
-                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
+                                    <div class="form-group mb-3 row">
+                                        <div class="col-12">
+                                            <input class="form-control" id="password" type="password" name="password" required="autocomplete="current-password"" placeholder="Password">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group mb-0 center mt-2">
-                                    <div class="col-sm-7 mt-3">
-                                        {{--  <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>  --}}
+                                    <div class="form-group mb-3 text-center row mt-3 pt-1">
+                                        <div class="col-12">
+                                            <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-5 mt-3">
-                                        <a href="{{ route('register') }}" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
+
+                                    <div class="form-group mb-0 center mt-2">
+                                        <div class="col-sm-7 mt-3">
+                                        </div>
+                                        {{--  <div class="col-sm-5 mt-3">
+                                            <a href="{{ route('register') }}" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
+                                        </div>  --}}
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                            <!-- end -->
                         </div>
-                        <!-- end -->
+                        <!-- end cardbody -->
                     </div>
-                    <!-- end cardbody -->
+                    <!-- end card -->
                 </div>
-                <!-- end card -->
+                <!-- end container -->
             </div>
-            <!-- end container -->
-        </div>
         <!-- end -->
 
         <!-- JAVASCRIPT -->
@@ -127,4 +117,5 @@
         </script>
 
     </body>
+    
 </html>
